@@ -1,0 +1,261 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package View;
+
+public class AdminPanelWindow extends javax.swing.JFrame {
+    
+    public AdminPanelWindow() {
+        initComponents();
+
+    }
+    
+    @SuppressWarnings("unchecked")
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    private void initComponents() {
+
+        jPanel1 = new javax.swing.JPanel();
+        btnAddUser = new javax.swing.JButton();
+        btnAddMember = new javax.swing.JButton();
+        btnAddBook = new javax.swing.JButton();
+        btnViewBook = new javax.swing.JButton();
+        btnViewMember = new javax.swing.JButton();
+        btnViewUser = new javax.swing.JButton();
+        jSeparator2 = new javax.swing.JSeparator();
+        jPanel2 = new javax.swing.JPanel();
+        lblWelcome = new javax.swing.JLabel();
+        lblHeading = new javax.swing.JLabel();
+        lblDate = new javax.swing.JLabel();
+        lblTime = new javax.swing.JLabel();
+        jSeparator1 = new javax.swing.JSeparator();
+        rdoWeekly = new javax.swing.JRadioButton();
+        rdoMonthly = new javax.swing.JRadioButton();
+        rdoAnnual = new javax.swing.JRadioButton();
+        btnGetReport = new javax.swing.JButton();
+        btnReturnBook = new javax.swing.JButton();
+        btnBorrowBook = new javax.swing.JButton();
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        btnAddUser.setText("Add User");
+        btnAddUser.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddUserActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnAddUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(418, 88, 133, 43));
+
+        btnAddMember.setText("Add Member");
+        getContentPane().add(btnAddMember, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 88, 133, 43));
+
+        btnAddBook.setText("Add Book");
+        getContentPane().add(btnAddBook, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 88, 133, 43));
+
+        btnViewBook.setText("View Book");
+        getContentPane().add(btnViewBook, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 159, 133, 43));
+
+        btnViewMember.setText("View Member");
+        getContentPane().add(btnViewMember, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 159, 133, 43));
+
+        btnViewUser.setText("View User");
+        btnViewUser.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnViewUserActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnViewUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(418, 159, 133, 43));
+        getContentPane().add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 72, 541, 10));
+
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lblWelcome.setText("Welcome: User name");
+        jPanel2.add(lblWelcome, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, -1, -1));
+
+        lblHeading.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        lblHeading.setText("   Admin Panel");
+        jPanel2.add(lblHeading, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 30, 202, 20));
+
+        lblDate.setText("Date:");
+        jPanel2.add(lblDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(476, 11, 114, 28));
+
+        lblTime.setText("Time:");
+        jPanel2.add(lblTime, new org.netbeans.lib.awtextra.AbsoluteConstraints(476, 45, 114, 28));
+        jPanel2.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 310, 541, 10));
+
+        rdoWeekly.setText("Weekly");
+        rdoWeekly.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rdoWeeklyActionPerformed(evt);
+            }
+        });
+        jPanel2.add(rdoWeekly, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 320, 92, 32));
+
+        rdoMonthly.setText("Monthly");
+        rdoMonthly.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rdoMonthlyActionPerformed(evt);
+            }
+        });
+        jPanel2.add(rdoMonthly, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 320, 95, 32));
+
+        rdoAnnual.setText("Annual");
+        jPanel2.add(rdoAnnual, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 320, 94, 32));
+
+        btnGetReport.setText("Get Report");
+        jPanel2.add(btnGetReport, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 370, 167, -1));
+
+        btnReturnBook.setText("Return Book");
+        jPanel2.add(btnReturnBook, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 240, 133, 43));
+
+        btnBorrowBook.setText("Borrow Book");
+        jPanel2.add(btnBorrowBook, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 240, 133, 43));
+
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 610, 430));
+
+        pack();
+    }// </editor-fold>//GEN-END:initComponents
+
+    private void rdoMonthlyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdoMonthlyActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_rdoMonthlyActionPerformed
+
+    private void rdoWeeklyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdoWeeklyActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_rdoWeeklyActionPerformed
+
+    private void btnViewUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewUserActionPerformed
+
+    }//GEN-LAST:event_btnViewUserActionPerformed
+
+    private void btnAddUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddUserActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnAddUserActionPerformed
+
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAddBook;
+    private javax.swing.JButton btnAddMember;
+    private javax.swing.JButton btnAddUser;
+    private javax.swing.JButton btnBorrowBook;
+    private javax.swing.JButton btnGetReport;
+    private javax.swing.JButton btnReturnBook;
+    private javax.swing.JButton btnViewBook;
+    private javax.swing.JButton btnViewMember;
+    private javax.swing.JButton btnViewUser;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JLabel lblDate;
+    private javax.swing.JLabel lblHeading;
+    private javax.swing.JLabel lblTime;
+    private javax.swing.JLabel lblWelcome;
+    private javax.swing.JRadioButton rdoAnnual;
+    private javax.swing.JRadioButton rdoMonthly;
+    private javax.swing.JRadioButton rdoWeekly;
+    // End of variables declaration//GEN-END:variables
+
+    /**
+     * @return the btnAddBook
+     */
+    public javax.swing.JButton getBtnAddBook() {
+        return btnAddBook;
+    }
+
+    /**
+     * @return the btnAddMember
+     */
+    public javax.swing.JButton getBtnAddMember() {
+        return btnAddMember;
+    }
+
+    /**
+     * @return the btnAddUser
+     */
+    public javax.swing.JButton getBtnAddUser() {
+        return btnAddUser;
+    }
+
+    /**
+     * @return the btnGetReport
+     */
+    public javax.swing.JButton getBtnGetReport() {
+        return btnGetReport;
+    }
+
+    /**
+     * @return the btnSearchBook
+     */
+    public javax.swing.JButton getBtnSearchBook() {
+        return btnViewBook;
+    }
+
+    /**
+     * @return the btnSearchMember
+     */
+    public javax.swing.JButton getBtnSearchMember() {
+        return btnViewMember;
+    }
+
+    /**
+     * @return the btnSearchUser
+     */
+    public javax.swing.JButton getBtnSearchUser() {
+        return btnViewUser;
+    }
+
+    /**
+     * @return the lblDate
+     */
+    public javax.swing.JLabel getLblDate() {
+        return lblDate;
+    }
+
+    /**
+     * @return the lblTime
+     */
+    public javax.swing.JLabel getLblTime() {
+        return lblTime;
+    }
+
+    /**
+     * @return the lblWelcome
+     */
+    public javax.swing.JLabel getLblWelcome() {
+        return lblWelcome;
+    }
+
+    /**
+     * @return the rdoAnnual
+     */
+    public javax.swing.JRadioButton getRdoAnnual() {
+        return rdoAnnual;
+    }
+
+    /**
+     * @return the rdoMonthly
+     */
+    public javax.swing.JRadioButton getRdoMonthly() {
+        return rdoMonthly;
+    }
+
+    /**
+     * @return the rdoWeekly
+     */
+    public javax.swing.JRadioButton getRdoWeekly() {
+        return rdoWeekly;
+    }
+}
