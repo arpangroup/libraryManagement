@@ -1,9 +1,10 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package View;
+
+import javax.swing.JButton;
+import javax.swing.JCheckBox;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
 
 /**
  *
@@ -40,6 +41,7 @@ public class AddBookCopyWindow extends javax.swing.JFrame {
         btnHome = new javax.swing.JButton();
         btnSubmit = new javax.swing.JButton();
         checkBookCopyStatus = new javax.swing.JCheckBox();
+        jPanel1 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -88,6 +90,9 @@ public class AddBookCopyWindow extends javax.swing.JFrame {
         checkBookCopyStatus.setText("Status");
         getContentPane().add(checkBookCopyStatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 200, 80, -1));
 
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 520, 310));
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -101,6 +106,42 @@ public class AddBookCopyWindow extends javax.swing.JFrame {
         //Call the method which is created in Controller - handle the error msgs and information msgs
     }//GEN-LAST:event_btnSubmitActionPerformed
 
+    public JButton getBtnHome() {
+        return btnHome;
+    }
+
+    public JButton getBtnSubmit() {
+        return btnSubmit;
+    }
+
+    public JCheckBox getCheckBookCopyStatus() {
+        return checkBookCopyStatus;
+    }
+
+    public JLabel getLblDate() {
+        return lblDate;
+    }
+
+    public JLabel getLblTime() {
+        return lblTime;
+    }
+
+    public JLabel getLblWelcome() {
+        return lblWelcome;
+    }
+
+    public JTextField getTxtBookCopyId() {
+        return txtBookCopyId;
+    }
+
+    public JTextField getTxtBookCopyName() {
+        return txtBookCopyName;
+    }
+
+    public JTextField getTxtBookId() {
+        return txtBookId;
+    }
+
    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -110,6 +151,7 @@ public class AddBookCopyWindow extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblAddBookCopy;
     private javax.swing.JLabel lblDate;
     private javax.swing.JLabel lblTime;

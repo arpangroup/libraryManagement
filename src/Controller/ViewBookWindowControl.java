@@ -3,6 +3,7 @@ package Controller;
 import DataAccess.BookPersistantDAO;
 import Model.Book;
 import View.AppDetails;
+import View.ViewBookCopyWindow;
 import View.ViewBookWindow;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -82,13 +83,16 @@ public class ViewBookWindowControl {
             }
         });
 
-        /*
+        
         window.getBtnViewBookCopy().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 viewBookCopyPage();
             }
-        });*/
+        });
+        
+        
+      
     }
 
     private void Home() {
@@ -96,6 +100,14 @@ public class ViewBookWindowControl {
         window.dispose();
     }
 
+       private void viewBookCopyPage() {
+        // window.dispose();
+        ViewBookCopyWindow newWindow = new ViewBookCopyWindow();
+        ViewBookCopyWindowControl controller = new ViewBookCopyWindowControl(newWindow);
+        newWindow.setVisible(true);
+        window.dispose();
+
+    }
     private void SearchId() {
 
         for (int i = window.getTblSearch().getRowCount() - 1; i >= 0; i--) {

@@ -4,7 +4,8 @@ package Controller;
 import DataAccess.BookCopyPersistantDAO;
 import DataAccess.BookPersistantDAO;
 import Model.Book;
-import View.AddBookWindow;
+import Model.BookCopy;
+import View.AddBookCopyWindow;
 import View.AppDetails;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -20,14 +21,14 @@ import javax.swing.JOptionPane;
  * @author wijerath_ps13257
  */
 public class AddBookCopyWindowControl {
-  /*
+  
     
-    BookCopyPersistantDAO book;
+    BookCopyPersistantDAO copy;
     AddBookCopyWindow window;
 
     public AddBookCopyWindowControl(AddBookCopyWindow window) {
 
-        book = new BookPersistantDAO();
+        copy = new BookCopyPersistantDAO();
         this.window = window;
         initialize();
         control();
@@ -50,13 +51,7 @@ public class AddBookCopyWindowControl {
             }
         });
 
-        window.getBtnAddBookCopy().addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                //signupGuarantorPage();
-            }
-        });
-
+     
     }
 
     private void Home() {
@@ -64,38 +59,25 @@ public class AddBookCopyWindowControl {
 
     }
 
-  
-//    private void addBookCopyPage() {
-//
-//        // window.dispose();
-//        AddBookCopyWindow newWindow = new AddBookCopyWindow();
-//        AddBookCopyWindowControl controller = new AddBookCopyWindowControl(newWindow);
-//        newWindow.setVisible(true);
-//        window.dispose();
-//    }
+
      
     private void SignUp() throws ParseException {
 
-        String id = window.getTxtId().getText();
-        String name = window.getTxtName().getText();
-        String isbn = window.getTxtISBN().getText();
-        String author = window.getTxtAuthor().getText();
-        String publisher = window.getTxtPublisher().getText();
-        int noBooks = Integer.parseInt(window.getTxtNumBooks().getText());
-        String language = window.getTxtLanguage().getText();
-
-        DateFormat format = new SimpleDateFormat("MMMM d, yyyy", Locale.ENGLISH);
-        Date addDate = format.parse(window.getTxtLanguage().getText());
+        int bookcopyId = Integer.parseInt(window.getTxtBookCopyId().getText());
+        String bookcopyName = window.getTxtBookCopyName().getText();
+        boolean state = window.getCheckBookCopyStatus().isSelected();
+        String bookId = window.getTxtBookId().getText();
+      
 
        
-        Book book=new Book(id, name, isbn, author, publisher, noBooks, language, (java.sql.Date) addDate);
-          this.book.addBook(book);
-        if (book != null) {
-            JOptionPane.showMessageDialog(window.getComponent(0), "Book Added!", "Success", JOptionPane.INFORMATION_MESSAGE);
+        BookCopy bookcopy=new BookCopy(bookcopyId, bookcopyName, state, bookId);
+          this.copy.addBookCopy(bookcopy);
+        if (bookcopy != null) {
+            JOptionPane.showMessageDialog(window.getComponent(0), "Book Copy Added!", "Success", JOptionPane.INFORMATION_MESSAGE);
         }
         else {
 
-            JOptionPane.showMessageDialog(window.getComponent(0), "Book not Added!", "Unsuccessful", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(window.getComponent(0), "Book Copy not Added!", "Unsuccessful", JOptionPane.ERROR_MESSAGE);
         }
     }
 
@@ -122,6 +104,6 @@ public class AddBookCopyWindowControl {
         } catch (Exception e) {
         }
     }
-    */
+    
 
 }

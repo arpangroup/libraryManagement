@@ -48,6 +48,7 @@ public class ViewBookCopyWindow extends javax.swing.JFrame {
         checkBookCopyId = new javax.swing.JCheckBox();
         lblSearchFrom = new javax.swing.JLabel();
         lblSearchUser = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -148,6 +149,9 @@ public class ViewBookCopyWindow extends javax.swing.JFrame {
         lblSearchUser.setText("View Book Copy");
         getContentPane().add(lblSearchUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 140, 28));
 
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 630, 400));
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -231,6 +235,7 @@ public class ViewBookCopyWindow extends javax.swing.JFrame {
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JCheckBox checkBookCopyId;
     private javax.swing.JCheckBox checkBookCopyName;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblDate;
     private javax.swing.JLabel lblSearchFrom;

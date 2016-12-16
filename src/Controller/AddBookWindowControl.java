@@ -2,6 +2,7 @@ package Controller;
 
 import DataAccess.BookPersistantDAO;
 import Model.Book;
+import View.AddBookCopyWindow;
 
 import View.AddBookWindow;
 import View.AppDetails;
@@ -51,7 +52,7 @@ public class AddBookWindowControl {
         window.getBtnAddBookCopy().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //signupGuarantorPage();
+               addBookCopyPage();
             }
         });
 
@@ -62,7 +63,7 @@ public class AddBookWindowControl {
 
     }
 
-    /*
+    
     private void addBookCopyPage() {
 
         // window.dispose();
@@ -71,7 +72,7 @@ public class AddBookWindowControl {
         newWindow.setVisible(true);
         window.dispose();
     }
-     */
+     
     private void SignUp() throws ParseException {
 
         String id = window.getTxtId().getText();
