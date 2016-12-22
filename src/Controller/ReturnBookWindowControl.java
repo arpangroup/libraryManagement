@@ -1,5 +1,6 @@
 package Controller;
 
+import DataAccess.FinePersistantDAO;
 import DataAccess.ReturnBookPersistantDAO;
 import Model.ReturnBook;
 import View.AppDetails;
@@ -11,9 +12,11 @@ import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 import java.util.Date;
+import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -22,13 +25,16 @@ import javax.swing.JOptionPane;
 public class ReturnBookWindowControl {
 
     ReturnBookPersistantDAO rtn;
+    FinePersistantDAO fine;
     ReturnBookWindow window;
     int bkId = 0;
     int mbId = 0;
+    int fineDays = 0;
 
     public ReturnBookWindowControl(ReturnBookWindow window) {
 
         rtn = new ReturnBookPersistantDAO();
+        fine = new FinePersistantDAO();
         this.window = window;
         initialize();
         window.getBtnSubmit().setEnabled(false);
@@ -41,7 +47,7 @@ public class ReturnBookWindowControl {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
-                    SignUp();
+                    addReturn();
                     rtn.updateStatus(bkId);
                 } catch (ParseException ex) {
                     Logger.getLogger(ReturnBookWindowControl.class.getName()).log(Level.SEVERE, null, ex);
@@ -60,6 +66,13 @@ public class ReturnBookWindowControl {
             @Override
             public void actionPerformed(ActionEvent e) {
                 info();
+            }
+        });
+
+        window.getBtnGrant().addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                    setFree();
             }
         });
 
@@ -92,14 +105,16 @@ public class ReturnBookWindowControl {
             JOptionPane.showMessageDialog(window.getComponent(0), "Member Blacklisted!", "Unsuccessful", JOptionPane.ERROR_MESSAGE);
 
         } else {
-           
+
             window.getLblReturnBookName().setText("Book Name: " + rtn.getBkcName());
             window.getLblReturnMemberName().setText("Member Name: " + rtn.getMbrName());
-            window.getLblReturnBorrowDate().setText("Borrow Date: " + rtn.getBrwDate());
+            window.getLblReturnBorrowDate().setText("Borrow Date: " + rtn.getRtnDate());
             LocalDate today = LocalDate.now();
             LocalDate expireDate = today.plus(2, ChronoUnit.WEEKS);
+            fineDays = today.getDayOfYear() - rtn.getRtnDate().toLocalDate().getDayOfYear();
+            double fineAmount = fineDays * 10;
             window.getLblReturnExpireDate().setText("Expire Date: " + expireDate);
-            window.getLblReturnFineAmount().setText("Fine Amount: " + "Implementing");
+            window.getLblReturnFineAmount().setText("Fine Amount: " + fineAmount);
             window.getLblReturnIssuedOfficer().setText("Issued Officer: " + rtn.getEmpId());
 
             JOptionPane.showMessageDialog(window.getComponent(0), "Validated", "Successful", JOptionPane.INFORMATION_MESSAGE);
@@ -110,7 +125,7 @@ public class ReturnBookWindowControl {
 
     }
 
-    private void SignUp() throws ParseException {
+    private void addReturn() throws ParseException {
 
         int returnId = 0;
         Date addDate = null;
@@ -129,6 +144,29 @@ public class ReturnBookWindowControl {
 
             JOptionPane.showMessageDialog(window.getComponent(0), "Return not Added!", "Unsuccessful", JOptionPane.ERROR_MESSAGE);
         }
+    }
+
+    private void getFines() {
+
+        int memberId = Integer.parseInt(window.getTxtReturnMemberId().getText());
+        Vector vector = new Vector();
+
+        vector.add(fine.getBookcopyName());
+        vector.add(fine.getReturnDay());
+        vector.add(fine.getFineDays());
+        vector.add(fine.getFineAmount());
+
+        DefaultTableModel dtm = (DefaultTableModel) window.getTblFine().getModel();
+        dtm.addRow(vector);
+
+        if (fineDays > 30) {
+            fine.blacklistMember(bkId);
+        }
+
+    }
+
+    private void setFree() {
+        fine.removeBlacklistMember(bkId);
     }
 
     private void initialize() {

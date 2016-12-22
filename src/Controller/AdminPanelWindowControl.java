@@ -137,16 +137,17 @@ public class AdminPanelWindowControl {
             }).start();
 
         } catch (Exception e) {
-            e.printStackTrace();
         }
     }
 
     private void securityControl() {
         String access = AppDetails.loggedOnUser.getUserAccess().toLowerCase();
-        if (!access.equals("admin")) {
+        if (access.equals("admin")) {
+        } else {
             window.getBtnAddUser().setEnabled(false);
             window.getBtnAddBook().setEnabled(false);
         }
+
     }
 
     private void signupUserPage() {
