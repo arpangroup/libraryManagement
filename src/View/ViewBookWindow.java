@@ -39,17 +39,17 @@ public class ViewBookWindow extends javax.swing.JFrame {
         checkBookName = new javax.swing.JCheckBox();
         txtSearchBook = new javax.swing.JTextField();
         btnSearchBook = new javax.swing.JButton();
+        btnViewBookCopy = new javax.swing.JButton();
+        btnDeleteBook = new javax.swing.JButton();
+        btnUpdateBook = new javax.swing.JButton();
         btnHome = new javax.swing.JButton();
         lblWelcome = new javax.swing.JLabel();
         lblDate = new javax.swing.JLabel();
         lblTime = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblSearch = new javax.swing.JTable();
-        btnDeleteBook = new javax.swing.JButton();
-        btnUpdateBook = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
         lblSearchUser = new javax.swing.JLabel();
-        btnViewBookCopy = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -74,45 +74,7 @@ public class ViewBookWindow extends javax.swing.JFrame {
             }
         });
 
-        btnHome.setText("Home");
-        btnHome.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnHomeActionPerformed(evt);
-            }
-        });
-
-        lblWelcome.setText("Welcome: User name");
-
-        lblDate.setText("Date:");
-
-        lblTime.setText("Time:");
-
-        tblSearch.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null}
-            },
-            new String [] {
-                "Book Id", "Book Name", "ISBN", "Book Author", "Book Publisher", "No.Books", "Language", "Add Date"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.String.class, java.lang.String.class
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-        });
-        jScrollPane1.setViewportView(tblSearch);
+        btnViewBookCopy.setText("View Book Copy");
 
         btnDeleteBook.setText("Delete");
         btnDeleteBook.addActionListener(new java.awt.event.ActionListener() {
@@ -128,14 +90,52 @@ public class ViewBookWindow extends javax.swing.JFrame {
             }
         });
 
+        btnHome.setText("Home");
+        btnHome.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnHomeActionPerformed(evt);
+            }
+        });
+
+        lblWelcome.setText("Welcome: User name");
+
+        lblDate.setText("Date:");
+
+        lblTime.setText("Time:");
+
+        tblSearch.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null}
+            },
+            new String [] {
+                "Book Id", "Book Name", "ISBN", "Book Author", "Book Publisher", "No.Books", "Language"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.String.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(tblSearch);
+
         jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
 
         lblSearchUser.setBackground(new java.awt.Color(102, 102, 102));
         lblSearchUser.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lblSearchUser.setForeground(new java.awt.Color(51, 51, 51));
         lblSearchUser.setText("View Book");
-
-        btnViewBookCopy.setText("View Book Copy");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

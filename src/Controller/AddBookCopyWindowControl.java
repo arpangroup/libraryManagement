@@ -2,18 +2,16 @@
 package Controller;
 
 import DataAccess.BookCopyPersistantDAO;
-import DataAccess.BookPersistantDAO;
-import Model.Book;
 import Model.BookCopy;
 import View.AddBookCopyWindow;
 import View.AppDetails;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.Locale;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -39,8 +37,12 @@ public class AddBookCopyWindowControl {
         window.getBtnSubmit().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                initialize();
-                // SignUp();
+                try {
+                    initialize();
+                    SignUp();
+                } catch (ParseException ex) {
+                    Logger.getLogger(AddBookCopyWindowControl.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
 
@@ -66,7 +68,7 @@ public class AddBookCopyWindowControl {
         int bookcopyId = Integer.parseInt(window.getTxtBookCopyId().getText());
         String bookcopyName = window.getTxtBookCopyName().getText();
         boolean state = window.getCheckBookCopyStatus().isSelected();
-        String bookId = window.getTxtBookId().getText();
+        int bookId = Integer.parseInt(window.getTxtBookId().getText());
       
 
        
@@ -96,10 +98,17 @@ public class AddBookCopyWindowControl {
                         window.getLblTime().setText(time[3]);
                         window.getLblDate().setText(stDate);
                         window.getLblWelcome().setText("Welcome: " + AppDetails.loggedOnUser.getUserName());
-
+                        try{
+                        Thread.sleep(1000);
+                        }catch(InterruptedException e){
+                            
+                        }  
+                        
+                        
                     }
                 }
             }).start();
+            
 
         } catch (Exception e) {
         }

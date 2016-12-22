@@ -43,7 +43,11 @@ public class ViewBookWindowControl {
                         window.getLblTime().setText(time[3]);
                         window.getLblDate().setText(stDate);
                         window.getLblWelcome().setText("Welcome: " + AppDetails.loggedOnUser.getUserName());
+                        try {
+                            Thread.sleep(1000);
+                        } catch (InterruptedException e) {
 
+                        }
                     }
                 }
             }).start();
@@ -83,16 +87,13 @@ public class ViewBookWindowControl {
             }
         });
 
-        
         window.getBtnViewBookCopy().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 viewBookCopyPage();
             }
         });
-        
-        
-      
+
     }
 
     private void Home() {
@@ -100,7 +101,7 @@ public class ViewBookWindowControl {
         window.dispose();
     }
 
-       private void viewBookCopyPage() {
+    private void viewBookCopyPage() {
         // window.dispose();
         ViewBookCopyWindow newWindow = new ViewBookCopyWindow();
         ViewBookCopyWindowControl controller = new ViewBookCopyWindowControl(newWindow);
@@ -108,6 +109,7 @@ public class ViewBookWindowControl {
         window.dispose();
 
     }
+
     private void SearchId() {
 
         for (int i = window.getTblSearch().getRowCount() - 1; i >= 0; i--) {
@@ -117,7 +119,7 @@ public class ViewBookWindowControl {
         }
 
         if (window.getCheckBookId().isSelected()) {
-            String Id = window.getTxtSearchBook().getText();
+            int Id = Integer.parseInt(window.getTxtSearchBook().getText());
             Book searchdata = book.searchBookById(Id);
             if (searchCheckForNull(searchdata)) {
                 try {
@@ -128,7 +130,7 @@ public class ViewBookWindowControl {
                     window.getTblSearch().getModel().setValueAt(searchdata.getPublisher(), 0, 4);
                     window.getTblSearch().getModel().setValueAt(searchdata.getNoBooksAvailable(), 0, 5);
                     window.getTblSearch().getModel().setValueAt(searchdata.getLanguage(), 0, 6);
-                    window.getTblSearch().getModel().setValueAt(searchdata.getAddDate(), 0, 7);
+
                 } catch (Exception ex) {
                 }
             }
@@ -144,7 +146,7 @@ public class ViewBookWindowControl {
                     window.getTblSearch().getModel().setValueAt(searchdata.get(i).getPublisher(), i, 4);
                     window.getTblSearch().getModel().setValueAt(searchdata.get(i).getNoBooksAvailable(), i, 5);
                     window.getTblSearch().getModel().setValueAt(searchdata.get(i).getLanguage(), i, 6);
-                    window.getTblSearch().getModel().setValueAt(searchdata.get(i).getAddDate(), i, 7);
+
                 }
             }
         }
@@ -171,16 +173,16 @@ public class ViewBookWindowControl {
     private void updateId() {
 
         int rowNum = window.getTblSearch().getSelectedRow();
-        String userid = (String) window.getTblSearch().getModel().getValueAt(rowNum, 0);
+        int userid = (int) window.getTblSearch().getModel().getValueAt(rowNum, 0);
         String name = (String) window.getTblSearch().getModel().getValueAt(rowNum, 1);
         String isbn = (String) window.getTblSearch().getModel().getValueAt(rowNum, 2);
         String author = (String) window.getTblSearch().getModel().getValueAt(rowNum, 3);
         String publisher = (String) window.getTblSearch().getModel().getValueAt(rowNum, 4);
         int noBooks = (int) window.getTblSearch().getModel().getValueAt(rowNum, 5);
         int language = (int) window.getTblSearch().getModel().getValueAt(rowNum, 6);
-        Date addDate = (Date) window.getTblSearch().getModel().getValueAt(rowNum, 7);
+        String addDate = (String) window.getTblSearch().getModel().getValueAt(rowNum, 7);
 
-        Book updatedata = new Book(userid, name, isbn, author, publisher, noBooks, name, (java.sql.Date) addDate);
+        Book updatedata = new Book(userid, name, isbn, author, publisher, noBooks, name);
         if (updateCheckForNull(updatedata)) {
             book.updateBook(updatedata);
         }

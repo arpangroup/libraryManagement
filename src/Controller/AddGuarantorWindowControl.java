@@ -1,12 +1,9 @@
 package Controller;
 
 import DataAccess.GuarantorPersistantDAO;
-import DataAccess.MemberPersistantDAO;
 import Model.Guarantor;
-import Model.Member;
 import View.AppDetails;
 import View.AddGuarantorWindow;
-import View.AddMemberWindow;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.SimpleDateFormat;
@@ -60,7 +57,7 @@ public class AddGuarantorWindowControl {
         String name = window.getTxtName().getText();
         String contactno = window.getTxtContactNumber().getText();
         String address = window.getTxtAddress().getText();
-        String fk_memberId = window.getTxt_fk().getText();
+        String fk_memberId = window.getTxt_memberId().getText();
 
         Guarantor guarantor = new Guarantor(id, name, contactno, address, fk_memberId);
         emp.addGuarantor(guarantor);
@@ -88,7 +85,11 @@ public class AddGuarantorWindowControl {
                         window.getLblTime().setText(time[3]);
                         window.getLblDate().setText(stDate);
                         window.getLblWelcome().setText("Welcome: " + AppDetails.loggedOnUser.getUserName());
+                        try {
+                            Thread.sleep(1000);
+                        } catch (InterruptedException e) {
 
+                        }
                     }
                 }
             }).start();

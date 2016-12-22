@@ -36,16 +36,16 @@ public class ViewBookCopyWindow extends javax.swing.JFrame {
         buttonGroup1 = new javax.swing.ButtonGroup();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblSearch = new javax.swing.JTable();
-        btnDeleteBookCopy = new javax.swing.JButton();
+        checkBookCopyId = new javax.swing.JCheckBox();
+        checkBookCopyName = new javax.swing.JCheckBox();
+        txtSearchBookCopy = new javax.swing.JTextField();
+        btnSearch = new javax.swing.JButton();
         btnUpdateBookCopy = new javax.swing.JButton();
+        btnDeleteBookCopy = new javax.swing.JButton();
+        btnHome = new javax.swing.JButton();
         lblTime = new javax.swing.JLabel();
         lblDate = new javax.swing.JLabel();
-        btnHome = new javax.swing.JButton();
         lblWelcome = new javax.swing.JLabel();
-        btnSearch = new javax.swing.JButton();
-        txtSearchBookCopy = new javax.swing.JTextField();
-        checkBookCopyName = new javax.swing.JCheckBox();
-        checkBookCopyId = new javax.swing.JCheckBox();
         lblSearchFrom = new javax.swing.JLabel();
         lblSearchUser = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
@@ -79,57 +79,6 @@ public class ViewBookCopyWindow extends javax.swing.JFrame {
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, 440, 140));
 
-        btnDeleteBookCopy.setText("Delete");
-        btnDeleteBookCopy.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnDeleteBookCopyActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnDeleteBookCopy, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 310, 210, 30));
-
-        btnUpdateBookCopy.setText("Update");
-        btnUpdateBookCopy.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnUpdateBookCopyActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnUpdateBookCopy, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 310, 209, 30));
-
-        lblTime.setText("Time:");
-        getContentPane().add(lblTime, new org.netbeans.lib.awtextra.AbsoluteConstraints(483, 175, 90, 20));
-
-        lblDate.setText("Date:");
-        getContentPane().add(lblDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(483, 144, 90, 20));
-
-        btnHome.setText("Home");
-        btnHome.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnHomeActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnHome, new org.netbeans.lib.awtextra.AbsoluteConstraints(472, 71, 132, -1));
-
-        lblWelcome.setText("Welcome: User name");
-        getContentPane().add(lblWelcome, new org.netbeans.lib.awtextra.AbsoluteConstraints(483, 112, -1, -1));
-
-        btnSearch.setText("Search");
-        btnSearch.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSearchActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(331, 102, 106, -1));
-        getContentPane().add(txtSearchBookCopy, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 103, 311, -1));
-
-        buttonGroup1.add(checkBookCopyName);
-        checkBookCopyName.setText("Book Copy Name");
-        checkBookCopyName.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                checkBookCopyNameActionPerformed(evt);
-            }
-        });
-        getContentPane().add(checkBookCopyName, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 70, 140, -1));
-
         buttonGroup1.add(checkBookCopyId);
         checkBookCopyId.setSelected(true);
         checkBookCopyId.setText("Book Copy Id");
@@ -139,6 +88,57 @@ public class ViewBookCopyWindow extends javax.swing.JFrame {
             }
         });
         getContentPane().add(checkBookCopyId, new org.netbeans.lib.awtextra.AbsoluteConstraints(88, 70, 100, -1));
+
+        buttonGroup1.add(checkBookCopyName);
+        checkBookCopyName.setText("Book Copy Name");
+        checkBookCopyName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                checkBookCopyNameActionPerformed(evt);
+            }
+        });
+        getContentPane().add(checkBookCopyName, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 70, 140, -1));
+        getContentPane().add(txtSearchBookCopy, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 103, 311, -1));
+
+        btnSearch.setText("Search");
+        btnSearch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSearchActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(331, 102, 106, -1));
+
+        btnUpdateBookCopy.setText("Update");
+        btnUpdateBookCopy.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUpdateBookCopyActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnUpdateBookCopy, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 310, 209, 30));
+
+        btnDeleteBookCopy.setText("Delete");
+        btnDeleteBookCopy.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeleteBookCopyActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnDeleteBookCopy, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 310, 210, 30));
+
+        btnHome.setText("Home");
+        btnHome.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnHomeActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnHome, new org.netbeans.lib.awtextra.AbsoluteConstraints(472, 71, 132, -1));
+
+        lblTime.setText("Time:");
+        getContentPane().add(lblTime, new org.netbeans.lib.awtextra.AbsoluteConstraints(483, 175, 90, 20));
+
+        lblDate.setText("Date:");
+        getContentPane().add(lblDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(483, 144, 90, 20));
+
+        lblWelcome.setText("Welcome: User name");
+        getContentPane().add(lblWelcome, new org.netbeans.lib.awtextra.AbsoluteConstraints(483, 112, -1, -1));
 
         lblSearchFrom.setText("Search By");
         getContentPane().add(lblSearchFrom, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 66, 60, 30));

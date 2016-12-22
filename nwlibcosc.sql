@@ -5,12 +5,11 @@ SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 
 -- -----------------------------------------------------
--- Schema 
+-- Schema mydb
 -- -----------------------------------------------------
 -- -----------------------------------------------------
 -- Schema librarynewprojectcosc
 -- -----------------------------------------------------
-DROP SCHEMA IF EXISTS `librarynewprojectcosc` ;
 
 -- -----------------------------------------------------
 -- Schema librarynewprojectcosc
@@ -21,15 +20,17 @@ USE `librarynewprojectcosc` ;
 -- -----------------------------------------------------
 -- Table `librarynewprojectcosc`.`book`
 -- -----------------------------------------------------
+DROP TABLE IF EXISTS `librarynewprojectcosc`.`book` ;
+
 CREATE TABLE IF NOT EXISTS `librarynewprojectcosc`.`book` (
   `bookId` VARCHAR(8) NOT NULL,
   `bookName` VARCHAR(45) NOT NULL,
   `isbn` VARCHAR(12) NOT NULL,
   `bookAuthor` VARCHAR(45) NOT NULL,
   `bookPublisher` VARCHAR(45) NOT NULL,
-  `bookNumber` INT NOT NULL,
+  `bookNumber` INT(11) NOT NULL,
+  `Language_languageId` INT(11) NOT NULL,
   `bookAddDate` DATETIME NOT NULL,
-  `Language_languageId` INT NOT NULL,
   PRIMARY KEY (`bookId`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
@@ -38,11 +39,13 @@ DEFAULT CHARACTER SET = utf8;
 -- -----------------------------------------------------
 -- Table `librarynewprojectcosc`.`bookcopy`
 -- -----------------------------------------------------
+DROP TABLE IF EXISTS `librarynewprojectcosc`.`bookcopy` ;
+
 CREATE TABLE IF NOT EXISTS `librarynewprojectcosc`.`bookcopy` (
   `bookcopyId` INT(11) NOT NULL AUTO_INCREMENT,
   `bookcopyName` VARCHAR(45) NOT NULL,
+  `bookcopyStatus` TINYINT(1) NULL DEFAULT NULL,
   `Book_bookId` VARCHAR(8) NOT NULL,
-  `bookcopyStatus` TINYINT(1) NULL,
   PRIMARY KEY (`bookcopyId`),
   INDEX `fk_BookCopy_Book1_idx` (`Book_bookId` ASC),
   CONSTRAINT `fk_BookCopy_Book1`
@@ -57,6 +60,8 @@ DEFAULT CHARACTER SET = utf8;
 -- -----------------------------------------------------
 -- Table `librarynewprojectcosc`.`employee`
 -- -----------------------------------------------------
+DROP TABLE IF EXISTS `librarynewprojectcosc`.`employee` ;
+
 CREATE TABLE IF NOT EXISTS `librarynewprojectcosc`.`employee` (
   `empId` INT(11) NOT NULL,
   `empName` VARCHAR(45) NOT NULL,
@@ -71,37 +76,17 @@ DEFAULT CHARACTER SET = utf8;
 
 
 -- -----------------------------------------------------
--- Table `librarynewprojectcosc`.`guaranter`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `librarynewprojectcosc`.`guaranter` (
-  `guaranterId` VARCHAR(10) NOT NULL,
-  `guaranterName` VARCHAR(45) NOT NULL,
-  `guaranterContactNo` INT(11) NULL DEFAULT NULL,
-  `guaranterEmail` VARCHAR(20) NULL DEFAULT NULL,
-  `guaranterAddress` VARCHAR(45) NOT NULL,
-  PRIMARY KEY (`guaranterId`))
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8;
-
-
--- -----------------------------------------------------
 -- Table `librarynewprojectcosc`.`member`
 -- -----------------------------------------------------
+DROP TABLE IF EXISTS `librarynewprojectcosc`.`member` ;
+
 CREATE TABLE IF NOT EXISTS `librarynewprojectcosc`.`member` (
-  `memberId` VARCHAR(10) NOT NULL,
+  `memberId` INT(11) NOT NULL,
   `memberName` VARCHAR(45) NOT NULL,
   `memberContactNo` INT(11) NULL DEFAULT NULL,
   `memberAddress` VARCHAR(45) NOT NULL,
   `memberStatus` TINYINT(1) NOT NULL,
-  `Membercol` VARCHAR(45) NULL DEFAULT NULL,
-  `guaranter_guaranterId` VARCHAR(10) NOT NULL,
-  PRIMARY KEY (`memberId`),
-  INDEX `fk_member_guaranter1_idx` (`guaranter_guaranterId` ASC),
-  CONSTRAINT `fk_member_guaranter1`
-    FOREIGN KEY (`guaranter_guaranterId`)
-    REFERENCES `librarynewprojectcosc`.`guaranter` (`guaranterId`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+  PRIMARY KEY (`memberId`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
 
@@ -109,11 +94,13 @@ DEFAULT CHARACTER SET = utf8;
 -- -----------------------------------------------------
 -- Table `librarynewprojectcosc`.`borrow`
 -- -----------------------------------------------------
+DROP TABLE IF EXISTS `librarynewprojectcosc`.`borrow` ;
+
 CREATE TABLE IF NOT EXISTS `librarynewprojectcosc`.`borrow` (
   `borrowId` INT(11) NOT NULL AUTO_INCREMENT,
   `borrowDate` DATETIME NOT NULL,
   `borrowExpDate` DATETIME NOT NULL,
-  `Member_memberId` VARCHAR(10) NOT NULL,
+  `Member_memberId` INT(11) NOT NULL,
   `Employee_empId` INT(11) NOT NULL,
   `bookcopy_bookcopyId` INT(11) NOT NULL,
   PRIMARY KEY (`borrowId`),
@@ -142,10 +129,12 @@ DEFAULT CHARACTER SET = utf8;
 -- -----------------------------------------------------
 -- Table `librarynewprojectcosc`.`returnbook`
 -- -----------------------------------------------------
+DROP TABLE IF EXISTS `librarynewprojectcosc`.`returnbook` ;
+
 CREATE TABLE IF NOT EXISTS `librarynewprojectcosc`.`returnbook` (
   `returnBookId` INT(11) NOT NULL AUTO_INCREMENT,
   `returnBookDatel` DATETIME NOT NULL,
-  `Member_memberId` VARCHAR(10) NOT NULL,
+  `Member_memberId` INT(11) NOT NULL,
   `Employee_empId` INT(11) NOT NULL,
   `bookcopy_bookcopyId` INT(11) NOT NULL,
   PRIMARY KEY (`returnBookId`),
@@ -174,11 +163,13 @@ DEFAULT CHARACTER SET = utf8;
 -- -----------------------------------------------------
 -- Table `librarynewprojectcosc`.`fine`
 -- -----------------------------------------------------
+DROP TABLE IF EXISTS `librarynewprojectcosc`.`fine` ;
+
 CREATE TABLE IF NOT EXISTS `librarynewprojectcosc`.`fine` (
   `fineId` INT(11) NOT NULL AUTO_INCREMENT,
   `overdueDays` INT(11) NOT NULL,
   `overdueFine` DOUBLE NOT NULL,
-  `Member_memberId` VARCHAR(10) NOT NULL,
+  `Member_memberId` INT(11) NOT NULL,
   `employee_empId` INT(11) NOT NULL,
   `returnbook_returnBookId` INT(11) NOT NULL,
   PRIMARY KEY (`fineId`),
@@ -204,6 +195,29 @@ ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
 
 
+-- -----------------------------------------------------
+-- Table `librarynewprojectcosc`.`guaranter`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `librarynewprojectcosc`.`guaranter` ;
+
+CREATE TABLE IF NOT EXISTS `librarynewprojectcosc`.`guaranter` (
+  `guaranterId` INT(11) NOT NULL,
+  `guaranterName` VARCHAR(45) NOT NULL,
+  `guaranterContactNo` INT(11) NULL DEFAULT NULL,
+  `guaranterEmail` VARCHAR(20) NULL DEFAULT NULL,
+  `guaranterAddress` VARCHAR(45) NOT NULL,
+  `member_memberId` INT(11) NOT NULL,
+  PRIMARY KEY (`guaranterId`),
+  INDEX `fk_guaranter_member1_idx` (`member_memberId` ASC),
+  CONSTRAINT `fk_guaranter_member1`
+    FOREIGN KEY (`member_memberId`)
+    REFERENCES `librarynewprojectcosc`.`member` (`memberId`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
+
+
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
@@ -213,8 +227,8 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `librarynewprojectcosc`;
-INSERT INTO `librarynewprojectcosc`.`employee` (`empId`, `empName`, `empContactNo`, `empAddress`, `empUsername`, `empPassword`, `empAccess`) VALUES (1, 'admin', '11', 'qq', '123', '123', 'admin');
-INSERT INTO `librarynewprojectcosc`.`employee` (`empId`, `empName`, `empContactNo`, `empAddress`, `empUsername`, `empPassword`, `empAccess`) VALUES (2, 'user', '22', 'ww', 'q', 'q', 'user');
+INSERT INTO `librarynewprojectcosc`.`employee` (`empId`, `empName`, `empContactNo`, `empAddress`, `empUsername`, `empPassword`, `empAccess`) VALUES (111, 'wishwa', '123', 'Mora', 'admin', 'admin', 'admin');
+INSERT INTO `librarynewprojectcosc`.`employee` (`empId`, `empName`, `empContactNo`, `empAddress`, `empUsername`, `empPassword`, `empAccess`) VALUES (222, 'prabodha', '456', 'Panadura', 'q', 'q', 'user');
 
 COMMIT;
 

@@ -5,6 +5,8 @@
  */
 package View;
 
+import javax.swing.JTable;
+
 /**
  *
  * @author Wishwa
@@ -28,7 +30,6 @@ public class ViewGuarantorWindow extends javax.swing.JFrame {
     private void initComponents() {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
-        txtSearchGuarantor = new javax.swing.JTextField();
         lblWelcome = new javax.swing.JLabel();
         lblDate = new javax.swing.JLabel();
         lblTime = new javax.swing.JLabel();
@@ -36,17 +37,17 @@ public class ViewGuarantorWindow extends javax.swing.JFrame {
         lblSearchFrom = new javax.swing.JLabel();
         checkGuarantorId = new javax.swing.JCheckBox();
         checkGuarantorName = new javax.swing.JCheckBox();
+        txtSearchGuarantor = new javax.swing.JTextField();
         btnSearchGuarantor = new javax.swing.JButton();
         btnDeleteGuarantor = new javax.swing.JButton();
         btnUpdateGuarantor = new javax.swing.JButton();
         btnHome = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblSearch = new javax.swing.JTable();
-        jPanel1 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        getContentPane().add(txtSearchGuarantor, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 103, 311, -1));
 
         lblWelcome.setText("Welcome: User name");
         getContentPane().add(lblWelcome, new org.netbeans.lib.awtextra.AbsoluteConstraints(483, 112, -1, -1));
@@ -84,6 +85,7 @@ public class ViewGuarantorWindow extends javax.swing.JFrame {
             }
         });
         getContentPane().add(checkGuarantorName, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 70, 77, -1));
+        getContentPane().add(txtSearchGuarantor, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 103, 311, -1));
 
         btnSearchGuarantor.setText("Search");
         btnSearchGuarantor.addActionListener(new java.awt.event.ActionListener() {
@@ -117,6 +119,8 @@ public class ViewGuarantorWindow extends javax.swing.JFrame {
         });
         getContentPane().add(btnHome, new org.netbeans.lib.awtextra.AbsoluteConstraints(472, 71, 132, -1));
 
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
         tblSearch.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
@@ -135,7 +139,7 @@ public class ViewGuarantorWindow extends javax.swing.JFrame {
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.String.class, java.lang.Object.class
+                java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.String.class, java.lang.Integer.class
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -144,9 +148,8 @@ public class ViewGuarantorWindow extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tblSearch);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 136, 440, 180));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, 440, 180));
 
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 630, 400));
 
         pack();
@@ -227,12 +230,7 @@ public class ViewGuarantorWindow extends javax.swing.JFrame {
         return lblWelcome;
     }
 
-    /**
-     * @return the tblSearch
-     */
-    public javax.swing.JTable getTblSearch() {
-        return tblSearch;
-    }
+   
 
     /**
      * @return the txtSearchUser
@@ -282,4 +280,12 @@ public class ViewGuarantorWindow extends javax.swing.JFrame {
     public javax.swing.JTextField getTxtSearchGuarantor() {
         return txtSearchGuarantor;
     }
+
+    public JTable getTblSearch() {
+        return tblSearch;
+    }
+
+  
+    
+    
 }

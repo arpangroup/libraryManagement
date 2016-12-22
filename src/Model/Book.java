@@ -8,16 +8,16 @@ import java.sql.Date;
  */
 public class Book {
 
-    private String bookId;
+    private int bookId;
     private String bookName;
      private String isbn;
     private String author;
     private String publisher;
     private int noBooksAvailable;
     private String language;
-    private Date addDate;
+  
 
-    public Book(String bookId, String bookName, String isbn, String author, String publisher, int noBooksAvailable, String language,Date addDate) {
+    public Book(int bookId, String bookName, String isbn, String author, String publisher, int noBooksAvailable, String language) {
         this.bookId = bookId;
         this.bookName = bookName;
         this.isbn = isbn;
@@ -25,14 +25,14 @@ public class Book {
         this.publisher = publisher;
         this.noBooksAvailable = noBooksAvailable;
         this.language = language;
-        this.addDate = addDate;
+        
     }
 
-    public String getBookId() {
+    public int getBookId() {
         return bookId;
     }
 
-    public void setBookId(String bookId) {
+    public void setBookId(int bookId) {
         this.bookId = bookId;
     }
 
@@ -74,14 +74,6 @@ public class Book {
 
     public void setNoBooksAvailable(int noBooksAvailable) {
         this.noBooksAvailable = noBooksAvailable;
-    }
-
-    public Date getAddDate() {
-        return addDate;
-    }
-
-    public void setAddDate(Date addDate) {
-        this.addDate = addDate;
     }
 
     public String getLanguage() {

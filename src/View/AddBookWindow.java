@@ -33,28 +33,26 @@ public class AddBookWindow extends javax.swing.JFrame {
 
         lblWelcome = new javax.swing.JLabel();
         lblAddBook = new javax.swing.JLabel();
-        btnHome = new javax.swing.JButton();
         lblDate = new javax.swing.JLabel();
         lblTime = new javax.swing.JLabel();
-        btnAddBookCopy = new javax.swing.JButton();
         txtId = new javax.swing.JTextField();
         txtName = new javax.swing.JTextField();
         txtISBN = new javax.swing.JTextField();
         txtAuthor = new javax.swing.JTextField();
+        txtPublisher = new javax.swing.JTextField();
+        txtNumBooks = new javax.swing.JTextField();
         btnSubmit = new javax.swing.JButton();
+        btnAddBookCopy = new javax.swing.JButton();
+        btnHome = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        txtPublisher = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        txtNumBooks = new javax.swing.JTextField();
-        txtAddDate = new javax.swing.JTextField();
+        jPanel1 = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
         txtLanguage = new javax.swing.JTextField();
-        jPanel1 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -66,26 +64,17 @@ public class AddBookWindow extends javax.swing.JFrame {
         lblAddBook.setText(" Add Book");
         getContentPane().add(lblAddBook, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 40, 130, 52));
 
-        btnHome.setText("Home");
-        btnHome.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnHomeActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnHome, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 30, -1, -1));
-
         lblDate.setText("Date:");
         getContentPane().add(lblDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 20, 114, 28));
 
         lblTime.setText("Time:");
         getContentPane().add(lblTime, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 70, 114, 28));
-
-        btnAddBookCopy.setText("Add Book Copy");
-        getContentPane().add(btnAddBookCopy, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 120, 130, 30));
         getContentPane().add(txtId, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 110, 219, 20));
         getContentPane().add(txtName, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 140, 219, 20));
         getContentPane().add(txtISBN, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 170, 219, 20));
         getContentPane().add(txtAuthor, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 200, 219, 20));
+        getContentPane().add(txtPublisher, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 230, 219, 20));
+        getContentPane().add(txtNumBooks, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 260, 219, 20));
 
         btnSubmit.setText("Submit");
         btnSubmit.addActionListener(new java.awt.event.ActionListener() {
@@ -94,6 +83,17 @@ public class AddBookWindow extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnSubmit, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 360, 170, -1));
+
+        btnAddBookCopy.setText("Add Book Copy");
+        getContentPane().add(btnAddBookCopy, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 120, 130, 30));
+
+        btnHome.setText("Home");
+        btnHome.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnHomeActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnHome, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 30, -1, -1));
 
         jLabel4.setText("Author:");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 200, 90, 20));
@@ -109,21 +109,16 @@ public class AddBookWindow extends javax.swing.JFrame {
 
         jLabel7.setText("Publisher:");
         getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 230, 90, 20));
-        getContentPane().add(txtPublisher, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 230, 219, 20));
 
         jLabel5.setText("No. of Books:");
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, 90, 20));
 
-        jLabel8.setText("Add Date:");
-        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 290, 90, 20));
-        getContentPane().add(txtNumBooks, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 260, 219, 20));
-        getContentPane().add(txtAddDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 290, 219, 20));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel9.setText("Language:");
-        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 320, 90, 20));
-        getContentPane().add(txtLanguage, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 320, 219, 20));
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 290, 90, 20));
+        jPanel1.add(txtLanguage, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 290, 219, -1));
 
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 580, 410));
 
         pack();
@@ -163,10 +158,7 @@ public class AddBookWindow extends javax.swing.JFrame {
         return lblWelcome;
     }
 
-    public JTextField getTxtAddDate() {
-        return txtAddDate;
-    }
-
+   
     public JTextField getTxtAuthor() {
         return txtAuthor;
     }
@@ -207,14 +199,12 @@ public class AddBookWindow extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblAddBook;
     private javax.swing.JLabel lblDate;
     private javax.swing.JLabel lblTime;
     private javax.swing.JLabel lblWelcome;
-    private javax.swing.JTextField txtAddDate;
     private javax.swing.JTextField txtAuthor;
     private javax.swing.JTextField txtISBN;
     private javax.swing.JTextField txtId;

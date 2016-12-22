@@ -1,11 +1,8 @@
 package DataAccess;
 
-import Model.Book;
 import Model.BookCopy;
 import Model.BookCopyDAO;
-import Model.BookDAO;
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -34,8 +31,8 @@ public class BookCopyPersistantDAO implements BookCopyDAO {
 
             pst.setInt(1, bookcopy.getBookcopyId());
             pst.setString(2, bookcopy.getBookcopyName());
-            pst.setString(3, bookcopy.getBookId());
-            pst.setBoolean(4, bookcopy.isBookcopyStatus());
+            pst.setBoolean(3, bookcopy.isBookcopyStatus());
+            pst.setInt(4, bookcopy.getBookId());
 
             pst.executeUpdate();
 
@@ -59,7 +56,7 @@ public class BookCopyPersistantDAO implements BookCopyDAO {
 
     @Override
     public boolean updateBookCopy(BookCopy bookcopy) {
-        String sqlUpdate = "UPDATE bookcopy SET bookcopyName=?,Book_bookId=? , bookcopyStatus=?  WHERE bookcopyId=?";
+        String sqlUpdate = "UPDATE bookcopy SET bookcopyName=?, bookcopyStatus=?  WHERE bookcopyId=?";
         Connection con = null;
         PreparedStatement pst = null;
         boolean state;
@@ -69,10 +66,10 @@ public class BookCopyPersistantDAO implements BookCopyDAO {
             pst = con.prepareStatement(sqlUpdate);
             state = true;
 
-            pst.setInt(1, bookcopy.getBookcopyId());
-            pst.setString(2, bookcopy.getBookcopyName());
-            pst.setString(3, bookcopy.getBookId());
-            pst.setBoolean(4, bookcopy.isBookcopyStatus());
+            
+            pst.setString(1, bookcopy.getBookcopyName());
+            pst.setBoolean(2, bookcopy.isBookcopyStatus());
+            pst.setInt(3, bookcopy.getBookcopyId());
 
             pst.executeUpdate();
 
@@ -108,7 +105,6 @@ public class BookCopyPersistantDAO implements BookCopyDAO {
             state = true;
 
         } catch (Exception ex) {
-            ex.printStackTrace();
             state = false;
 
         } finally {
@@ -143,7 +139,7 @@ public class BookCopyPersistantDAO implements BookCopyDAO {
             if (rs.next()) {
                 bookcopyId = rs.getInt("bookcopyId");
                 String bookcopyName = rs.getString("bookcopyName");
-                String bookId = rs.getString("book_bookId");
+                int bookId = rs.getInt("book_bookId");
                 String status = rs.getString("bookcopystatus");
 
                 bookcopySearchID = new BookCopy(bookcopyId, bookcopyName, true, bookId);
@@ -184,7 +180,7 @@ public class BookCopyPersistantDAO implements BookCopyDAO {
             while (rs.next()) {
                 int bookcopyId = rs.getInt("bookcopyId");
                 bookcopyName = rs.getString("bookcopyName");
-                String bookId = rs.getString("book_bookId");
+                int bookId = rs.getInt("book_bookId");
                 String status = rs.getString("bookcopystatus");
 
                 bookcopySearchID = new BookCopy(bookcopyId, bookcopyName, true, bookId);

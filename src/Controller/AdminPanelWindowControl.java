@@ -5,6 +5,8 @@ import View.AddBookWindow;
 import View.AdminPanelWindow;
 import View.AppDetails;
 import View.AddMemberWindow;
+import View.BorrowBookWindow;
+import View.ReturnBookWindow;
 import View.ViewUserWindow;
 import View.SignupUserWindow;
 import View.ViewBookWindow;
@@ -95,6 +97,19 @@ public class AdminPanelWindowControl {
             }
         });
 
+        window.getBtnBorrowBook().addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                borrowPage();
+            }
+        });
+
+        window.getBtnReturnBook().addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                returnPage();
+            }
+        });
     }
 
     private void initialize() {
@@ -112,7 +127,11 @@ public class AdminPanelWindowControl {
                         window.getLblTime().setText(time[3]);
                         window.getLblDate().setText(stDate);
                         window.getLblWelcome().setText("Welcome: " + AppDetails.loggedOnUser.getUserName());
+                        try {
+                            Thread.sleep(1000);
+                        } catch (InterruptedException e) {
 
+                        }
                     }
                 }
             }).start();
@@ -174,6 +193,22 @@ public class AdminPanelWindowControl {
         // window.dispose();
         ViewBookWindow newWindow = new ViewBookWindow();
         ViewBookWindowControl controller = new ViewBookWindowControl(newWindow);
+        newWindow.setVisible(true);
+
+    }
+
+    private void borrowPage() {
+        // window.dispose();
+        BorrowBookWindow newWindow = new BorrowBookWindow();
+        BorrowBookWindowControl controller = new BorrowBookWindowControl(newWindow);
+        newWindow.setVisible(true);
+
+    }
+
+    private void returnPage() {
+        // window.dispose();
+        ReturnBookWindow newWindow = new ReturnBookWindow();
+        ReturnBookWindowControl controller = new ReturnBookWindowControl(newWindow);
         newWindow.setVisible(true);
 
     }

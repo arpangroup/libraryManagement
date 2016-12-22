@@ -5,6 +5,8 @@
  */
 package View;
 
+import javax.swing.JButton;
+
 public class AdminPanelWindow extends javax.swing.JFrame {
     
     public AdminPanelWindow() {
@@ -23,6 +25,12 @@ public class AdminPanelWindow extends javax.swing.JFrame {
         btnViewBook = new javax.swing.JButton();
         btnViewMember = new javax.swing.JButton();
         btnViewUser = new javax.swing.JButton();
+        btnBorrowBook = new javax.swing.JButton();
+        btnReturnBook = new javax.swing.JButton();
+        rdoWeekly = new javax.swing.JRadioButton();
+        rdoMonthly = new javax.swing.JRadioButton();
+        rdoAnnual = new javax.swing.JRadioButton();
+        btnGetReport = new javax.swing.JButton();
         jSeparator2 = new javax.swing.JSeparator();
         jPanel2 = new javax.swing.JPanel();
         lblWelcome = new javax.swing.JLabel();
@@ -30,12 +38,6 @@ public class AdminPanelWindow extends javax.swing.JFrame {
         lblDate = new javax.swing.JLabel();
         lblTime = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
-        rdoWeekly = new javax.swing.JRadioButton();
-        rdoMonthly = new javax.swing.JRadioButton();
-        rdoAnnual = new javax.swing.JRadioButton();
-        btnGetReport = new javax.swing.JButton();
-        btnReturnBook = new javax.swing.JButton();
-        btnBorrowBook = new javax.swing.JButton();
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -52,11 +54,6 @@ public class AdminPanelWindow extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btnAddUser.setText("Add User");
-        btnAddUser.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAddUserActionPerformed(evt);
-            }
-        });
         getContentPane().add(btnAddUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(418, 88, 133, 43));
 
         btnAddMember.setText("Add Member");
@@ -72,12 +69,25 @@ public class AdminPanelWindow extends javax.swing.JFrame {
         getContentPane().add(btnViewMember, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 159, 133, 43));
 
         btnViewUser.setText("View User");
-        btnViewUser.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnViewUserActionPerformed(evt);
-            }
-        });
         getContentPane().add(btnViewUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(418, 159, 133, 43));
+
+        btnBorrowBook.setText("Borrow Book");
+        getContentPane().add(btnBorrowBook, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 240, 133, 43));
+
+        btnReturnBook.setText("Return Book");
+        getContentPane().add(btnReturnBook, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 240, 133, 43));
+
+        rdoWeekly.setText("Weekly");
+        getContentPane().add(rdoWeekly, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 320, 92, 32));
+
+        rdoMonthly.setText("Monthly");
+        getContentPane().add(rdoMonthly, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 320, 95, 32));
+
+        rdoAnnual.setText("Annual");
+        getContentPane().add(rdoAnnual, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 320, 94, 32));
+
+        btnGetReport.setText("Get Report");
+        getContentPane().add(btnGetReport, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 370, 167, -1));
         getContentPane().add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 72, 541, 10));
 
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -96,54 +106,10 @@ public class AdminPanelWindow extends javax.swing.JFrame {
         jPanel2.add(lblTime, new org.netbeans.lib.awtextra.AbsoluteConstraints(476, 45, 114, 28));
         jPanel2.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 310, 541, 10));
 
-        rdoWeekly.setText("Weekly");
-        rdoWeekly.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rdoWeeklyActionPerformed(evt);
-            }
-        });
-        jPanel2.add(rdoWeekly, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 320, 92, 32));
-
-        rdoMonthly.setText("Monthly");
-        rdoMonthly.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rdoMonthlyActionPerformed(evt);
-            }
-        });
-        jPanel2.add(rdoMonthly, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 320, 95, 32));
-
-        rdoAnnual.setText("Annual");
-        jPanel2.add(rdoAnnual, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 320, 94, 32));
-
-        btnGetReport.setText("Get Report");
-        jPanel2.add(btnGetReport, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 370, 167, -1));
-
-        btnReturnBook.setText("Return Book");
-        jPanel2.add(btnReturnBook, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 240, 133, 43));
-
-        btnBorrowBook.setText("Borrow Book");
-        jPanel2.add(btnBorrowBook, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 240, 133, 43));
-
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 610, 430));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void rdoMonthlyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdoMonthlyActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_rdoMonthlyActionPerformed
-
-    private void rdoWeeklyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdoWeeklyActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_rdoWeeklyActionPerformed
-
-    private void btnViewUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewUserActionPerformed
-
-    }//GEN-LAST:event_btnViewUserActionPerformed
-
-    private void btnAddUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddUserActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnAddUserActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAddBook;
@@ -258,4 +224,14 @@ public class AdminPanelWindow extends javax.swing.JFrame {
     public javax.swing.JRadioButton getRdoWeekly() {
         return rdoWeekly;
     }
+
+    public JButton getBtnBorrowBook() {
+        return btnBorrowBook;
+    }
+
+    public JButton getBtnReturnBook() {
+        return btnReturnBook;
+    }
+    
+    
 }

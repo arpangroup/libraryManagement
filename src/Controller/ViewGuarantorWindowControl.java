@@ -42,7 +42,11 @@ public class ViewGuarantorWindowControl {
                         window.getLblTime().setText(time[3]);
                         window.getLblDate().setText(stDate);
                         window.getLblWelcome().setText("Welcome: " + AppDetails.loggedOnUser.getUserName());
+                        try {
+                            Thread.sleep(1000);
+                        } catch (InterruptedException e) {
 
+                        }
                     }
                 }
             }).start();

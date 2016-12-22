@@ -12,6 +12,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -44,7 +45,11 @@ public class ViewMemberWindowControl {
                         window.getLblTime().setText(time[3]);
                         window.getLblDate().setText(stDate);
                         window.getLblWelcome().setText("Welcome: " + AppDetails.loggedOnUser.getUserName());
+                        try {
+                            Thread.sleep(1000);
+                        } catch (InterruptedException e) {
 
+                        }
                     }
                 }
             }).start();
@@ -104,7 +109,6 @@ public class ViewMemberWindowControl {
         ViewGuarantorWindowControl controller = new ViewGuarantorWindowControl(newWindow);
         newWindow.setVisible(true);
         window.dispose();
-
     }
 
     private void SearchId() {
@@ -124,6 +128,7 @@ public class ViewMemberWindowControl {
                     window.getTblSearch().getModel().setValueAt(searchdata.getMemberName(), 0, 1);
                     window.getTblSearch().getModel().setValueAt(searchdata.getMemberContactNo(), 0, 2);
                     window.getTblSearch().getModel().setValueAt(searchdata.getMemberAddress(), 0, 3);
+                    window.getTblSearch().getModel().setValueAt(searchdata.isMemberStatus(), 0, 4);
                 } catch (Exception ex) {
                     ex.printStackTrace();
                 }
@@ -137,6 +142,8 @@ public class ViewMemberWindowControl {
                     window.getTblSearch().getModel().setValueAt(searchdata.get(i).getMemberName(), i, 1);
                     window.getTblSearch().getModel().setValueAt(searchdata.get(i).getMemberContactNo(), i, 2);
                     window.getTblSearch().getModel().setValueAt(searchdata.get(i).getMemberAddress(), i, 3);
+                    window.getTblSearch().getModel().setValueAt(searchdata.get(i).isMemberStatus(), i, 4);
+
                 }
             }
         }
@@ -167,8 +174,9 @@ public class ViewMemberWindowControl {
         String Name = (String) window.getTblSearch().getModel().getValueAt(rowNum, 1);
         String ContactNo = (String) window.getTblSearch().getModel().getValueAt(rowNum, 2);
         String Address = (String) window.getTblSearch().getModel().getValueAt(rowNum, 3);
+        boolean memberStatus = (boolean) window.getTblSearch().getModel().getValueAt(rowNum, 4);
 
-        Member updatedata = new Member(Id, Name, ContactNo, Address);
+        Member updatedata = new Member(Id, Name, ContactNo, Address, memberStatus);
         if (updateCheckForNull(updatedata)) {
             emp.updateMember(updatedata);
         }

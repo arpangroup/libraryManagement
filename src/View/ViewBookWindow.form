@@ -171,6 +171,27 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSearchBookActionPerformed"/>
       </Events>
     </Component>
+    <Component class="javax.swing.JButton" name="btnViewBookCopy">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="View Book Copy"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnDeleteBook">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Delete"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnDeleteBookActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnUpdateBook">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Update"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnUpdateBookActionPerformed"/>
+      </Events>
+    </Component>
     <Component class="javax.swing.JButton" name="btnHome">
       <Properties>
         <Property name="text" type="java.lang.String" value="Home"/>
@@ -204,7 +225,7 @@
         <Component class="javax.swing.JTable" name="tblSearch">
           <Properties>
             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-              <Table columnCount="8" rowCount="10">
+              <Table columnCount="7" rowCount="10">
                 <Column editable="true" title="Book Id" type="java.lang.String"/>
                 <Column editable="true" title="Book Name" type="java.lang.String"/>
                 <Column editable="true" title="ISBN" type="java.lang.String"/>
@@ -212,7 +233,6 @@
                 <Column editable="true" title="Book Publisher" type="java.lang.String"/>
                 <Column editable="true" title="No.Books" type="java.lang.Integer"/>
                 <Column editable="true" title="Language" type="java.lang.String"/>
-                <Column editable="true" title="Add Date" type="java.lang.String"/>
               </Table>
             </Property>
             <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
@@ -222,22 +242,6 @@
         </Component>
       </SubComponents>
     </Container>
-    <Component class="javax.swing.JButton" name="btnDeleteBook">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Delete"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnDeleteBookActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JButton" name="btnUpdateBook">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Update"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnUpdateBookActionPerformed"/>
-      </Events>
-    </Component>
     <Component class="javax.swing.JSeparator" name="jSeparator1">
       <Properties>
         <Property name="orientation" type="int" value="1"/>
@@ -255,11 +259,6 @@
           <Color blue="33" green="33" red="33" type="rgb"/>
         </Property>
         <Property name="text" type="java.lang.String" value="View Book"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JButton" name="btnViewBookCopy">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="View Book Copy"/>
       </Properties>
     </Component>
   </SubComponents>

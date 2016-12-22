@@ -10,9 +10,9 @@ public class BookCopy {
    private int bookcopyId;
    private String bookcopyName;
    private boolean bookcopyStatus;
-   private String bookId;
+   private int bookId;
 
-    public BookCopy(int bookcopyId, String bookcopyName, boolean bookcopyStatus, String bookId) {
+    public BookCopy(int bookcopyId, String bookcopyName, boolean bookcopyStatus, int bookId) {
         this.bookcopyId = bookcopyId;
         this.bookcopyName = bookcopyName;
         this.bookcopyStatus = bookcopyStatus;
@@ -43,11 +43,11 @@ public class BookCopy {
         this.bookcopyStatus = bookcopyStatus;
     }
 
-    public String getBookId() {
+    public int getBookId() {
         return bookId;
     }
 
-    public void setBookId(String bookId) {
+    public void setBookId(int bookId) {
         this.bookId = bookId;
     }
     

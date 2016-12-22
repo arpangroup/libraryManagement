@@ -13,7 +13,7 @@ public interface BookDAO {
 
 public boolean addBook(Book book);
 
-public Book searchBookById(String bookId);
+public Book searchBookById(int bookId);
 
 public ArrayList<Book> searchBookByName(String bookName);
 

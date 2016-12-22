@@ -29,17 +29,17 @@ public class ViewMemberWindow extends javax.swing.JFrame {
         lblDate = new javax.swing.JLabel();
         lblSearchFrom = new javax.swing.JLabel();
         lblSearchUser = new javax.swing.JLabel();
-        btnHome = new javax.swing.JButton();
-        btnDeleteMember = new javax.swing.JButton();
-        btnUpdateMember = new javax.swing.JButton();
-        btnSearchMember = new javax.swing.JButton();
-        txtSearchMember = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblSearch = new javax.swing.JTable();
         checkMemberId = new javax.swing.JCheckBox();
         checkMemberName = new javax.swing.JCheckBox();
-        jPanel1 = new javax.swing.JPanel();
+        txtSearchMember = new javax.swing.JTextField();
+        btnSearchMember = new javax.swing.JButton();
         btnViewGuarantor = new javax.swing.JButton();
+        btnDeleteMember = new javax.swing.JButton();
+        btnUpdateMember = new javax.swing.JButton();
+        btnHome = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -62,58 +62,25 @@ public class ViewMemberWindow extends javax.swing.JFrame {
         lblSearchUser.setText("View Member");
         getContentPane().add(lblSearchUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 140, 28));
 
-        btnHome.setText("Home");
-        btnHome.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnHomeActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnHome, new org.netbeans.lib.awtextra.AbsoluteConstraints(472, 71, 132, -1));
-
-        btnDeleteMember.setText("Delete");
-        btnDeleteMember.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnDeleteMemberActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnDeleteMember, new org.netbeans.lib.awtextra.AbsoluteConstraints(8, 329, 210, 30));
-
-        btnUpdateMember.setText("Update");
-        btnUpdateMember.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnUpdateMemberActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnUpdateMember, new org.netbeans.lib.awtextra.AbsoluteConstraints(228, 329, 209, 30));
-
-        btnSearchMember.setText("Search");
-        btnSearchMember.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSearchMemberActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnSearchMember, new org.netbeans.lib.awtextra.AbsoluteConstraints(331, 102, 106, -1));
-        getContentPane().add(txtSearchMember, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 103, 311, -1));
-
         tblSearch.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "User Id", "Name", "Contact No", "Address"
+                "User Id", "Name", "Contact No", "Address", "Status"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.String.class
+                java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.String.class, java.lang.Boolean.class
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -137,12 +104,44 @@ public class ViewMemberWindow extends javax.swing.JFrame {
         buttonGroup.add(checkMemberName);
         checkMemberName.setText("Name");
         getContentPane().add(checkMemberName, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 70, 77, -1));
+        getContentPane().add(txtSearchMember, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 103, 311, -1));
 
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        btnSearchMember.setText("Search");
+        btnSearchMember.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSearchMemberActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnSearchMember, new org.netbeans.lib.awtextra.AbsoluteConstraints(331, 102, 106, -1));
 
         btnViewGuarantor.setText("View Guarantor");
-        jPanel1.add(btnViewGuarantor, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 210, 120, -1));
+        getContentPane().add(btnViewGuarantor, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 210, 120, -1));
 
+        btnDeleteMember.setText("Delete");
+        btnDeleteMember.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeleteMemberActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnDeleteMember, new org.netbeans.lib.awtextra.AbsoluteConstraints(8, 329, 210, 30));
+
+        btnUpdateMember.setText("Update");
+        btnUpdateMember.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUpdateMemberActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnUpdateMember, new org.netbeans.lib.awtextra.AbsoluteConstraints(228, 329, 209, 30));
+
+        btnHome.setText("Home");
+        btnHome.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnHomeActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnHome, new org.netbeans.lib.awtextra.AbsoluteConstraints(472, 71, 132, -1));
+
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 620, 400));
 
         pack();

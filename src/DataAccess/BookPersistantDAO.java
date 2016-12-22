@@ -20,7 +20,7 @@ public class BookPersistantDAO implements BookDAO {
     @Override
     public boolean addBook(Book book) {
 
-        String sqlAdd = "INSERT INTO book VALUES(?,?,?,?,?,?,?,?)";
+        String sqlAdd = "INSERT INTO book VALUES(?,?,?,?,?,?,?)";
         Connection con = null;
         PreparedStatement pst = null;
         boolean state;
@@ -30,14 +30,13 @@ public class BookPersistantDAO implements BookDAO {
             con = DBconnectionProject.connect();
             pst = con.prepareStatement(sqlAdd);
 
-            pst.setString(1, book.getBookId());
+            pst.setInt(1, book.getBookId());
             pst.setString(2, book.getBookName());
             pst.setString(3, book.getIsbn());
             pst.setString(4, book.getAuthor());
             pst.setString(5, book.getPublisher());
             pst.setInt(6, book.getNoBooksAvailable());
             pst.setString(7, book.getLanguage());
-            pst.setDate(8, book.getAddDate());
 
             pst.executeUpdate();
 
@@ -60,7 +59,7 @@ public class BookPersistantDAO implements BookDAO {
     }
 
     @Override
-    public Book searchBookById(String bookId) {
+    public Book searchBookById(int bookId) {
 
         String sqlSearch = "SELECT * FROM book WHERE bookId=?";
         Connection con = null;
@@ -71,19 +70,19 @@ public class BookPersistantDAO implements BookDAO {
         try {
             con = DBconnectionProject.connect();
             pst = con.prepareStatement(sqlSearch);
-            pst.setString(1, bookId);
+            pst.setInt(1, bookId);
             rs = pst.executeQuery();
 
             if (rs.next()) {
-                bookId = rs.getString("bookId");
+                bookId = rs.getInt("bookId");
                 String bookName = rs.getString("bookName");
                 String ISBN = rs.getString("isbn");
                 String author = rs.getString("bookAuthor");
                 String publisher = rs.getString("bookPublisher");
                 int noBooks = rs.getInt("bookNumber");
                 int language = rs.getInt("Language_languageId");
-                Date addDate = rs.getDate("bookAddDate");
-                bookSearchID = new Book(bookId, bookName, ISBN, author, publisher, noBooks, bookName, addDate);
+                String addDate = rs.getString("bookAddDate");
+                bookSearchID = new Book(bookId, bookName, ISBN, author, publisher, noBooks, bookName);
 
             }
 
@@ -120,15 +119,14 @@ public class BookPersistantDAO implements BookDAO {
             rs = pst.executeQuery();
 
             while (rs.next()) {
-                String bookId = rs.getString("bookId");
+                int bookId = rs.getInt("bookId");
                 bookName = rs.getString("bookName");
                 String ISBN = rs.getString("isbn");
                 String author = rs.getString("bookAuthor");
                 String publisher = rs.getString("bookPublisher");
                 int noBooks = rs.getInt("bookNumber");
                 int language = rs.getInt("Language_languageId");
-                Date addDate = rs.getDate("bookAddDate");
-                bookSearchID = new Book(bookId, bookName, ISBN, author, publisher, noBooks, bookName, addDate);
+                bookSearchID = new Book(bookId, bookName, ISBN, author, publisher, noBooks, bookName);
                 list.add(bookSearchID);
             }
 
@@ -150,7 +148,7 @@ public class BookPersistantDAO implements BookDAO {
 
     @Override
     public boolean updateBook(Book book) {
-        String sqlUpdate = "UPDATE book SET bookName=?,isbn=? , bookAuthor=? ,bookPublisher=?,bookNumber=?,Language_languageId=?,bookAddDate=? WHERE bookId=?";
+        String sqlUpdate = "UPDATE book SET bookName=?,isbn=? , bookAuthor=? ,bookPublisher=?,bookNumber=?,Language_languageId=? WHERE bookId=?";
         Connection con = null;
         PreparedStatement pst = null;
         boolean state;
@@ -166,8 +164,7 @@ public class BookPersistantDAO implements BookDAO {
             pst.setString(4, book.getPublisher());
             pst.setInt(5, book.getNoBooksAvailable());
             pst.setString(6, book.getLanguage());
-            pst.setDate(7, book.getAddDate());
-            pst.setString(8, book.getBookId());
+            pst.setInt(7, book.getBookId());
 
             pst.executeUpdate();
 
@@ -222,7 +219,7 @@ public class BookPersistantDAO implements BookDAO {
 
     @Override
     public ArrayList<Book> getAllBooks() {
-   String sqlSearch = "SELECT * FROM book ";
+        String sqlSearch = "SELECT * FROM book ";
         Connection con = null;
         PreparedStatement pst = null;
         Book bookSearchID = null;
@@ -235,16 +232,15 @@ public class BookPersistantDAO implements BookDAO {
             rs = pst.executeQuery();
 
             while (rs.next()) {
-                String bookId = rs.getString("bookId");
+                int bookId = rs.getInt("bookId");
                 String bookName = rs.getString("bookName");
                 String ISBN = rs.getString("isbn");
                 String author = rs.getString("bookAuthor");
                 String publisher = rs.getString("bookPublisher");
                 int noBooks = rs.getInt("bookNumber");
                 int language = rs.getInt("Language_languageId");
-                Date addDate = rs.getDate("bookAddDate");
-                
-                bookSearchID = new Book(bookId, bookName, ISBN, author, publisher, noBooks, bookName, addDate);
+
+                bookSearchID = new Book(bookId, bookName, ISBN, author, publisher, noBooks, bookName);
                 list.add(bookSearchID);
             }
 
@@ -261,7 +257,7 @@ public class BookPersistantDAO implements BookDAO {
         }
 
         return list;
-    
+
     }
 
 }

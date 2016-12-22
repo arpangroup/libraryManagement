@@ -1,4 +1,3 @@
-
 package Controller;
 
 import DataAccess.MemberPersistantDAO;
@@ -45,8 +44,8 @@ public class AddMemberWindowControl {
                 Home();
             }
         });
-        
-         window.getBtnAddGuarantor().addActionListener(new ActionListener() {
+
+        window.getBtnAddGuarantor().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 signupGuarantorPage();
@@ -59,16 +58,15 @@ public class AddMemberWindowControl {
         window.dispose();
 
     }
-    
-       private void signupGuarantorPage() {
 
-       // window.dispose();
+    private void signupGuarantorPage() {
+
+        // window.dispose();
         AddGuarantorWindow newWindow = new AddGuarantorWindow();
         AddGuarantorWindowControl controller = new AddGuarantorWindowControl(newWindow);
         newWindow.setVisible(true);
         window.dispose();
     }
-    
 
     private void SignUp() {
 
@@ -76,9 +74,9 @@ public class AddMemberWindowControl {
         String name = window.getTxtName().getText();
         String contactno = window.getTxtContactNumber().getText();
         String address = window.getTxtAddress().getText();
-       
+        boolean memberStatus = window.getCheckMemberStatus().isSelected();
 
-        Member member = new Member(id, name, contactno, address);
+        Member member = new Member(id, name, contactno, address, memberStatus);
         emp.addMember(member);
 
         if (member != null) {
@@ -105,6 +103,11 @@ public class AddMemberWindowControl {
                         window.getLblDate().setText(stDate);
                         window.getLblWelcome().setText("Welcome: " + AppDetails.loggedOnUser.getUserName());
 
+                        try {
+                            Thread.sleep(1000);
+                        } catch (InterruptedException e) {
+
+                        }
                     }
                 }
             }).start();
@@ -115,5 +118,3 @@ public class AddMemberWindowControl {
     }
 
 }
-
-

@@ -2,6 +2,8 @@
 
 package View;
 
+import javax.swing.JTextField;
+
 /**
  *
  * @author Wishwa
@@ -13,6 +15,9 @@ public class AddGuarantorWindow extends javax.swing.JFrame {
         initComponents();
     }
 
+    
+    
+
     /** This method is called from within the constructor to
      * initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is
@@ -22,26 +27,53 @@ public class AddGuarantorWindow extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        btnSubmit = new javax.swing.JButton();
-        btnHome = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         lblAddUser = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
         lblWelcome = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        lbl_fk = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         lblDate = new javax.swing.JLabel();
         lblTime = new javax.swing.JLabel();
+        txtId = new javax.swing.JTextField();
+        txtName = new javax.swing.JTextField();
         txtContactNumber = new javax.swing.JTextField();
         txtAddress = new javax.swing.JTextField();
-        txtName = new javax.swing.JTextField();
-        txtId = new javax.swing.JTextField();
-        txt_fk = new javax.swing.JTextField();
+        txt_memberId = new javax.swing.JTextField();
+        btnSubmit = new javax.swing.JButton();
+        btnHome = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
+        jLabel4 = new javax.swing.JLabel();
+        lbl_fk = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel6.setText("Id:");
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, 90, 32));
+
+        lblAddUser.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        lblAddUser.setText("  Add Guarantor");
+        getContentPane().add(lblAddUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 40, 140, 52));
+
+        lblWelcome.setText("Welcome: User name");
+        getContentPane().add(lblWelcome, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, -1, -1));
+
+        jLabel3.setText("Contact Number:");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 200, 90, 32));
+
+        jLabel2.setText("Name:");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, 90, 32));
+
+        lblDate.setText("Date:");
+        getContentPane().add(lblDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 20, 114, 28));
+
+        lblTime.setText("Time:");
+        getContentPane().add(lblTime, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 70, 114, 28));
+        getContentPane().add(txtId, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 100, 219, 32));
+        getContentPane().add(txtName, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 150, 219, 32));
+        getContentPane().add(txtContactNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 200, 219, 32));
+        getContentPane().add(txtAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 240, 219, 32));
+        getContentPane().add(txt_memberId, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 290, 219, 32));
 
         btnSubmit.setText("Submit");
         btnSubmit.addActionListener(new java.awt.event.ActionListener() {
@@ -59,40 +91,14 @@ public class AddGuarantorWindow extends javax.swing.JFrame {
         });
         getContentPane().add(btnHome, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 30, -1, -1));
 
-        jLabel6.setText("Id:");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, 90, 32));
-
-        lblAddUser.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        lblAddUser.setText("  Add Guarantor");
-        getContentPane().add(lblAddUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 40, 140, 52));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel4.setText("Address:");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 290, 90, 32));
-
-        lblWelcome.setText("Welcome: User name");
-        getContentPane().add(lblWelcome, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, -1, -1));
-
-        jLabel3.setText("Contact Number:");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 200, 90, 32));
+        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 240, 90, 32));
 
         lbl_fk.setText("MemberId:");
-        getContentPane().add(lbl_fk, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 250, 90, 32));
+        jPanel2.add(lbl_fk, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 290, 90, 32));
 
-        jLabel2.setText("Name:");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, 90, 32));
-
-        lblDate.setText("Date:");
-        getContentPane().add(lblDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 20, 114, 28));
-
-        lblTime.setText("Time:");
-        getContentPane().add(lblTime, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 70, 114, 28));
-        getContentPane().add(txtContactNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 200, 219, 32));
-        getContentPane().add(txtAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 290, 219, 32));
-        getContentPane().add(txtName, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 150, 219, 32));
-        getContentPane().add(txtId, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 100, 219, 32));
-        getContentPane().add(txt_fk, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 250, 219, 32));
-
-        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 560, 380));
 
         pack();
@@ -126,7 +132,7 @@ public class AddGuarantorWindow extends javax.swing.JFrame {
     private javax.swing.JTextField txtContactNumber;
     private javax.swing.JTextField txtId;
     private javax.swing.JTextField txtName;
-    private javax.swing.JTextField txt_fk;
+    private javax.swing.JTextField txt_memberId;
     // End of variables declaration//GEN-END:variables
 
     /**
@@ -199,11 +205,8 @@ public class AddGuarantorWindow extends javax.swing.JFrame {
         return txtName;
     }
 
-    /**
-     * @return the txt_fk
-     */
-    public javax.swing.JTextField getTxt_fk() {
-        return txt_fk;
+   public JTextField getTxt_memberId() {
+        return txt_memberId;
     }
 
 }

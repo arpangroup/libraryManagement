@@ -21,25 +21,25 @@ public class SignupUserWindow extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        txtName = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
-        txtContactNumber = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
-        txtAddress = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
-        txtUserName = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
-        txtPassword = new javax.swing.JTextField();
         txtId = new javax.swing.JTextField();
-        jLabel6 = new javax.swing.JLabel();
+        txtName = new javax.swing.JTextField();
+        txtContactNumber = new javax.swing.JTextField();
+        txtAddress = new javax.swing.JTextField();
+        txtUserName = new javax.swing.JTextField();
+        txtPassword = new javax.swing.JTextField();
+        txtClearance = new javax.swing.JTextField();
         btnSubmit = new javax.swing.JButton();
+        btnHome = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
         lblTime = new javax.swing.JLabel();
         lblDate = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        txtClearance = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
         lblWelcome = new javax.swing.JLabel();
-        btnHome = new javax.swing.JButton();
         lblAddUser = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -49,27 +49,13 @@ public class SignupUserWindow extends javax.swing.JFrame {
 
         jLabel2.setText("Name:");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, 90, 32));
-        jPanel1.add(txtName, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 120, 219, 32));
-
-        jLabel3.setText("Contact Number:");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, 90, 32));
-        jPanel1.add(txtContactNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 170, 219, 32));
-
-        jLabel4.setText("Address:");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, 90, 32));
-        jPanel1.add(txtAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 220, 219, 32));
-
-        jLabel1.setText("User Name:");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 280, 90, 32));
-        jPanel1.add(txtUserName, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 280, 219, 32));
-
-        jLabel5.setText("Password:");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 330, 90, 32));
-        jPanel1.add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 330, 219, 32));
         jPanel1.add(txtId, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 70, 219, 32));
-
-        jLabel6.setText("Id:");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 90, 32));
+        jPanel1.add(txtName, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 120, 219, 32));
+        jPanel1.add(txtContactNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 170, 219, 32));
+        jPanel1.add(txtAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 220, 219, 32));
+        jPanel1.add(txtUserName, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 280, 219, 32));
+        jPanel1.add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 330, 219, 32));
+        jPanel1.add(txtClearance, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 380, 219, 32));
 
         btnSubmit.setText("Submit");
         btnSubmit.addActionListener(new java.awt.event.ActionListener() {
@@ -79,6 +65,29 @@ public class SignupUserWindow extends javax.swing.JFrame {
         });
         jPanel1.add(btnSubmit, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 100, 170, -1));
 
+        btnHome.setText("Home");
+        btnHome.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnHomeActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnHome, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 30, -1, -1));
+
+        jLabel3.setText("Contact Number:");
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, 90, 32));
+
+        jLabel4.setText("Address:");
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, 90, 32));
+
+        jLabel1.setText("User Name:");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 280, 90, 32));
+
+        jLabel5.setText("Password:");
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 330, 90, 32));
+
+        jLabel6.setText("Id:");
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 90, 32));
+
         lblTime.setText("Time:");
         jPanel1.add(lblTime, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 40, 114, 28));
 
@@ -87,20 +96,11 @@ public class SignupUserWindow extends javax.swing.JFrame {
 
         jLabel7.setText("Clearance");
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 380, 90, 32));
-        jPanel1.add(txtClearance, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 380, 219, 32));
 
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblWelcome.setText("Welcome: User name");
         jPanel2.add(lblWelcome, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, -1, -1));
-
-        btnHome.setText("Home");
-        btnHome.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnHomeActionPerformed(evt);
-            }
-        });
-        jPanel2.add(btnHome, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 30, -1, -1));
 
         lblAddUser.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lblAddUser.setText("  Add User");

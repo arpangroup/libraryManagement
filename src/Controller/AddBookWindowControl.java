@@ -13,7 +13,8 @@ import java.util.Date;
 
 import javax.swing.*;
 import java.text.*;
-import java.util.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -37,8 +38,12 @@ public class AddBookWindowControl {
         window.getBtnSubmit().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                initialize();
-                // SignUp();
+                try {
+                    initialize();
+                    SignUp();
+                } catch (ParseException ex) {
+                    Logger.getLogger(AddBookWindowControl.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
 
@@ -52,7 +57,7 @@ public class AddBookWindowControl {
         window.getBtnAddBookCopy().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-               addBookCopyPage();
+                addBookCopyPage();
             }
         });
 
@@ -63,7 +68,6 @@ public class AddBookWindowControl {
 
     }
 
-    
     private void addBookCopyPage() {
 
         // window.dispose();
@@ -72,10 +76,10 @@ public class AddBookWindowControl {
         newWindow.setVisible(true);
         window.dispose();
     }
-     
+
     private void SignUp() throws ParseException {
 
-        String id = window.getTxtId().getText();
+        int id = Integer.parseInt(window.getTxtId().getText());
         String name = window.getTxtName().getText();
         String isbn = window.getTxtISBN().getText();
         String author = window.getTxtAuthor().getText();
@@ -83,16 +87,11 @@ public class AddBookWindowControl {
         int noBooks = Integer.parseInt(window.getTxtNumBooks().getText());
         String language = window.getTxtLanguage().getText();
 
-        DateFormat format = new SimpleDateFormat("MMMM d, yyyy", Locale.ENGLISH);
-        Date addDate = format.parse(window.getTxtLanguage().getText());
-
-       
-        Book book=new Book(id, name, isbn, author, publisher, noBooks, language, (java.sql.Date) addDate);
-          this.book.addBook(book);
+        Book book = new Book(id, name, isbn, author, publisher, noBooks, language);
+        this.book.addBook(book);
         if (book != null) {
             JOptionPane.showMessageDialog(window.getComponent(0), "Book Added!", "Success", JOptionPane.INFORMATION_MESSAGE);
-        }
-        else {
+        } else {
 
             JOptionPane.showMessageDialog(window.getComponent(0), "Book not Added!", "Unsuccessful", JOptionPane.ERROR_MESSAGE);
         }
@@ -113,6 +112,11 @@ public class AddBookWindowControl {
                         window.getLblTime().setText(time[3]);
                         window.getLblDate().setText(stDate);
                         window.getLblWelcome().setText("Welcome: " + AppDetails.loggedOnUser.getUserName());
+                        try {
+                            Thread.sleep(1000);
+                        } catch (InterruptedException e) {
+
+                        }
 
                     }
                 }

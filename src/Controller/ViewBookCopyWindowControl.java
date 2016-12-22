@@ -1,12 +1,9 @@
 package Controller;
 
 import DataAccess.BookCopyPersistantDAO;
-import DataAccess.GuarantorPersistantDAO;
 import Model.BookCopy;
-import Model.Guarantor;
 import View.AppDetails;
 import View.ViewBookCopyWindow;
-import View.ViewGuarantorWindow;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.SimpleDateFormat;
@@ -45,7 +42,11 @@ public class ViewBookCopyWindowControl {
                         window.getLblTime().setText(time[3]);
                         window.getLblDate().setText(stDate);
                         window.getLblWelcome().setText("Welcome: " + AppDetails.loggedOnUser.getUserName());
+                        try {
+                            Thread.sleep(1000);
+                        } catch (InterruptedException e) {
 
+                        }
                     }
                 }
             }).start();
@@ -152,7 +153,7 @@ public class ViewBookCopyWindowControl {
         int rowNum = window.getTblSearch().getSelectedRow();
         int bookcopyId = (int) window.getTblSearch().getModel().getValueAt(rowNum, 0);
         String bookcopyName = (String) window.getTblSearch().getModel().getValueAt(rowNum, 1);
-        String bookId = (String) window.getTblSearch().getModel().getValueAt(rowNum, 2);
+        int bookId = (int) window.getTblSearch().getModel().getValueAt(rowNum, 2);
         boolean status = (boolean) window.getTblSearch().getModel().getValueAt(rowNum, 3);
 
         BookCopy updatedata = new BookCopy(bookcopyId, bookcopyName, status, bookId);

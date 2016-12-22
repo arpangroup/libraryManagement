@@ -1,9 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package View;
+
+import javax.swing.JCheckBox;
 
 /**
  *
@@ -18,6 +16,10 @@ public class AddMemberWindow extends javax.swing.JFrame {
         initComponents();
     }
 
+    public JCheckBox getCheckMemberStatus() {
+        return checkMemberStatus;
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -27,8 +29,6 @@ public class AddMemberWindow extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        btnHome = new javax.swing.JButton();
-        btnSubmit = new javax.swing.JButton();
         lblWelcome = new javax.swing.JLabel();
         lblAddUser = new javax.swing.JLabel();
         lblDate = new javax.swing.JLabel();
@@ -36,32 +36,19 @@ public class AddMemberWindow extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
         txtId = new javax.swing.JTextField();
         txtName = new javax.swing.JTextField();
         txtContactNumber = new javax.swing.JTextField();
         txtAddress = new javax.swing.JTextField();
+        checkMemberStatus = new javax.swing.JCheckBox();
+        btnSubmit = new javax.swing.JButton();
         btnAddGuarantor = new javax.swing.JButton();
+        btnHome = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
+        jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        btnHome.setText("Home");
-        btnHome.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnHomeActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnHome, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 30, -1, -1));
-
-        btnSubmit.setText("Submit");
-        btnSubmit.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSubmitActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnSubmit, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 300, 170, -1));
 
         lblWelcome.setText("Welcome: User name");
         getContentPane().add(lblWelcome, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, -1, -1));
@@ -84,19 +71,39 @@ public class AddMemberWindow extends javax.swing.JFrame {
 
         jLabel3.setText("Contact Number:");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 200, 90, 32));
-
-        jLabel4.setText("Address:");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 250, 90, 32));
         getContentPane().add(txtId, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 100, 219, 32));
         getContentPane().add(txtName, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 150, 219, 32));
         getContentPane().add(txtContactNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 200, 219, 32));
         getContentPane().add(txtAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 250, 219, 32));
 
+        checkMemberStatus.setText("Status");
+        getContentPane().add(checkMemberStatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 310, -1, -1));
+
+        btnSubmit.setText("Submit");
+        btnSubmit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSubmitActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnSubmit, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 390, 170, -1));
+
         btnAddGuarantor.setText("Add Guarantor");
         getContentPane().add(btnAddGuarantor, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 120, 130, 30));
 
+        btnHome.setText("Home");
+        btnHome.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnHomeActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnHome, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 30, -1, -1));
+
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 560, 360));
+
+        jLabel5.setText("Address:");
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 250, 90, 32));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 560, 430));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -118,9 +125,10 @@ public class AddMemberWindow extends javax.swing.JFrame {
     private javax.swing.JButton btnAddGuarantor;
     private javax.swing.JButton btnHome;
     private javax.swing.JButton btnSubmit;
+    private javax.swing.JCheckBox checkMemberStatus;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblAddUser;

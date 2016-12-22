@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package DataAccess;
 
 import Model.Member;
@@ -33,11 +29,13 @@ public class MemberPersistantDAO implements MemberDAO {
 
             con = DBconnectionProject.connect();
             pst = con.prepareStatement(sqlAdd);
+            
             pst.setInt(1, member.getMemberId());
             pst.setString(2, member.getMemberName());
             pst.setString(3, member.getMemberContactNo());
             pst.setString(4, member.getMemberAddress());
-            pst.setBoolean(5,true); 
+            pst.setBoolean(5,member.isMemberStatus());
+           
             pst.executeUpdate();
 
             state = true;
@@ -79,8 +77,9 @@ public class MemberPersistantDAO implements MemberDAO {
                 String Name = rs.getString("memberName");
                 String Contact = rs.getString("memberContactNo");
                 String Address = rs.getString("memberAddress");
-
-                memberSearchID = new Member(Id, Name, Contact, Address);
+                boolean memberStatus=rs.getBoolean("memberStatus");
+               
+                memberSearchID = new Member(Id, Name, Contact, Address, memberStatus);
 
             }
 
@@ -122,7 +121,10 @@ public class MemberPersistantDAO implements MemberDAO {
                 Name = rs.getString("memberName");
                 String Contact = rs.getString("memberContactNo");
                 String Address = rs.getString("memberAddress");
-                memberSearchID = new Member(Id, Name, Contact, Address);
+                boolean memberStatus=rs.getBoolean("memberStatus");
+              
+
+                memberSearchID = new Member(Id, Name, Contact, Address, memberStatus);
                 list.add(memberSearchID);
             }
 
@@ -144,7 +146,7 @@ public class MemberPersistantDAO implements MemberDAO {
     @Override
     public boolean updateMember(Member member) {
 
-        String sqlUpdate = "UPDATE member SET memberName=?,memberContactNo=? , memberAddress=? WHERE memberId=?";
+        String sqlUpdate = "UPDATE member SET memberName=?,memberContactNo=? , memberAddress=?,memberStatus=? WHERE memberId=?";
         Connection con = null;
         PreparedStatement pst = null;
         boolean state;
@@ -156,7 +158,8 @@ public class MemberPersistantDAO implements MemberDAO {
             pst.setString(1, member.getMemberName());
             pst.setString(2, member.getMemberContactNo());
             pst.setString(3, member.getMemberAddress());
-            pst.setInt(4, member.getMemberId());
+            pst.setBoolean(4, member.isMemberStatus());
+            pst.setInt(5, member.getMemberId());
 
             pst.executeUpdate();
 

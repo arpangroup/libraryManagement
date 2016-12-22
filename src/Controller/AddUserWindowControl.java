@@ -37,7 +37,7 @@ public class AddUserWindowControl {
             }
         });
 
-          window.getBtnHome().addActionListener(new ActionListener() {
+        window.getBtnHome().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 Home();
@@ -50,8 +50,6 @@ public class AddUserWindowControl {
         window.dispose();
 
     }
-
-    
 
     private void SignUp() {
 
@@ -90,7 +88,11 @@ public class AddUserWindowControl {
                         window.getLblTime().setText(time[3]);
                         window.getLblDate().setText(stDate);
                         window.getLblWelcome().setText("Welcome: " + AppDetails.loggedOnUser.getUserName());
+                        try {
+                            Thread.sleep(1000);
+                        } catch (InterruptedException e) {
 
+                        }
                     }
                 }
             }).start();
