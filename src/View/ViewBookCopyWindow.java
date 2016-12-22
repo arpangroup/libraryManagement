@@ -50,7 +50,7 @@ public class ViewBookCopyWindow extends javax.swing.JFrame {
         lblSearchUser = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         tblSearch.setModel(new javax.swing.table.DefaultTableModel(

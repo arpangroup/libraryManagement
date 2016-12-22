@@ -45,7 +45,7 @@ public class AddGuarantorWindow extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         lbl_fk = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel6.setText("Id:");

@@ -48,7 +48,7 @@ public class ReturnBookWindow extends javax.swing.JFrame {
         lblId = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         lblWelcome.setText("Welcome: User name");
 

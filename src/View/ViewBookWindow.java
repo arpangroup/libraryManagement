@@ -51,7 +51,7 @@ public class ViewBookWindow extends javax.swing.JFrame {
         jSeparator1 = new javax.swing.JSeparator();
         lblSearchUser = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         lblSearchFrom.setText("Search By");
 
