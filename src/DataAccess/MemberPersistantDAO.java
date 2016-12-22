@@ -80,7 +80,7 @@ public class MemberPersistantDAO implements MemberDAO {
                 boolean memberStatus=rs.getBoolean("memberStatus");
                
                 memberSearchID = new Member(Id, Name, Contact, Address, memberStatus);
-
+                
             }
 
         } catch (SQLException ex) {
@@ -103,7 +103,7 @@ public class MemberPersistantDAO implements MemberDAO {
     
     public ArrayList<Member> searchMemberByName(String Name) {
 
-        String sqlSearch = "SELECT * FROM member WHERE memberName=?";
+        String sqlSearch = "SELECT * FROM member WHERE memberName LIKE ?";
         Connection con = null;
         PreparedStatement pst = null;
         Member memberSearchID = null;
@@ -113,7 +113,7 @@ public class MemberPersistantDAO implements MemberDAO {
         try {
             con = DBconnectionProject.connect();
             pst = con.prepareStatement(sqlSearch);
-            pst.setString(1, Name);
+            pst.setString(1, "%" + Name + "%");
             rs = pst.executeQuery();
 
             while (rs.next()) {

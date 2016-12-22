@@ -99,7 +99,7 @@ public class GuarantorPersistantDAO implements GuarantorDAO {
     @Override
     public ArrayList<Guarantor> searchGuarantorByName(String Name) {
 
-        String sqlSearch = "SELECT * FROM guaranter WHERE guaranterName=?";
+        String sqlSearch = "SELECT * FROM guaranter WHERE guaranterName LIKE ?";
         Connection con = null;
         PreparedStatement pst = null;
         Guarantor guarantorSearchID = null;
@@ -109,7 +109,7 @@ public class GuarantorPersistantDAO implements GuarantorDAO {
         try {
             con = DBconnectionProject.connect();
             pst = con.prepareStatement(sqlSearch);
-            pst.setString(1, Name);
+            pst.setString(1, "%" + Name + "%");
             rs = pst.executeQuery();
 
             while (rs.next()) {

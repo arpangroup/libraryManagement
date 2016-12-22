@@ -3,7 +3,6 @@ package DataAccess;
 import Model.Book;
 import Model.BookDAO;
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -80,9 +79,8 @@ public class BookPersistantDAO implements BookDAO {
                 String author = rs.getString("bookAuthor");
                 String publisher = rs.getString("bookPublisher");
                 int noBooks = rs.getInt("bookNumber");
-                int language = rs.getInt("Language_languageId");
-                String addDate = rs.getString("bookAddDate");
-                bookSearchID = new Book(bookId, bookName, ISBN, author, publisher, noBooks, bookName);
+                String language = rs.getString("bookLanguage");
+                bookSearchID = new Book(bookId, bookName, ISBN, author, publisher, noBooks, language);
 
             }
 
@@ -105,7 +103,7 @@ public class BookPersistantDAO implements BookDAO {
     @Override
     public ArrayList<Book> searchBookByName(String bookName) {
 
-        String sqlSearch = "SELECT * FROM book WHERE bookName=?";
+        String sqlSearch = "SELECT * FROM book WHERE bookName LIKE ?";
         Connection con = null;
         PreparedStatement pst = null;
         Book bookSearchID = null;
@@ -115,28 +113,30 @@ public class BookPersistantDAO implements BookDAO {
         try {
             con = DBconnectionProject.connect();
             pst = con.prepareStatement(sqlSearch);
-            pst.setString(1, bookName);
+            pst.setString(1, "%" + bookName + "%");
             rs = pst.executeQuery();
 
             while (rs.next()) {
+                
                 int bookId = rs.getInt("bookId");
                 bookName = rs.getString("bookName");
                 String ISBN = rs.getString("isbn");
                 String author = rs.getString("bookAuthor");
                 String publisher = rs.getString("bookPublisher");
                 int noBooks = rs.getInt("bookNumber");
-                int language = rs.getInt("Language_languageId");
-                bookSearchID = new Book(bookId, bookName, ISBN, author, publisher, noBooks, bookName);
+                String language=rs.getString("bookLanguage");
+                bookSearchID = new Book(bookId, bookName, ISBN, author, publisher, noBooks, language);
                 list.add(bookSearchID);
             }
 
         } catch (SQLException ex) {
+            ex.printStackTrace();
             bookSearchID = null;
         } finally {
             try {
-                rs.close();
-                pst.close();
-                con.close();
+                if(rs!=null)rs.close();
+                if(pst!=null)pst.close();
+                if(con!=null)con.close();
             } catch (SQLException ex) {
                 Logger.getLogger(BookPersistantDAO.class.getName()).log(Level.SEVERE, null, ex);
             }

@@ -164,7 +164,7 @@ public class BookCopyPersistantDAO implements BookCopyDAO {
     @Override
     public ArrayList<BookCopy> searchBookCopyByName(String bookcopyName) {
 
-        String sqlSearch = "SELECT * FROM bookcopy WHERE bookcopyName=?";
+        String sqlSearch = "SELECT * FROM bookcopy WHERE bookcopyName LIKE ?";
         Connection con = null;
         PreparedStatement pst = null;
         BookCopy bookcopySearchID = null;
@@ -174,16 +174,17 @@ public class BookCopyPersistantDAO implements BookCopyDAO {
         try {
             con = DBconnectionProject.connect();
             pst = con.prepareStatement(sqlSearch);
-            pst.setString(1, bookcopyName);
+            pst.setString(1, "%" + bookcopyName + "%");
             rs = pst.executeQuery();
 
             while (rs.next()) {
                 int bookcopyId = rs.getInt("bookcopyId");
                 bookcopyName = rs.getString("bookcopyName");
                 int bookId = rs.getInt("book_bookId");
-                String status = rs.getString("bookcopystatus");
+                boolean status = rs.getBoolean("bookcopystatus");
 
-                bookcopySearchID = new BookCopy(bookcopyId, bookcopyName, true, bookId);
+                bookcopySearchID = new BookCopy(bookcopyId, bookcopyName, status, bookId);
+                list.add(bookcopySearchID);
 
             }
 

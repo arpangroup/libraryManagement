@@ -103,7 +103,7 @@ public class EmployeePersistantDAO implements EmployeeDAO {
 
     public ArrayList<Employee> searchEmployeeByName(String name) {
 
-        String sqlSearch = "SELECT * FROM employee WHERE empName=?";
+        String sqlSearch = "SELECT * FROM employee WHERE empName LIKE ?";
         Connection con = null;
         PreparedStatement pst = null;
         Employee employeeSearchID = null;
@@ -113,7 +113,7 @@ public class EmployeePersistantDAO implements EmployeeDAO {
         try {
             con = DBconnectionProject.connect();
             pst = con.prepareStatement(sqlSearch);
-            pst.setString(1, name);
+            pst.setString(1, "%" + name + "%");
             rs = pst.executeQuery();
 
             while (rs.next()) {
