@@ -23,7 +23,7 @@ public class ReturnBookPersistantDAO implements ReturnBookDAO {
     private boolean mbrStatus = false;
     private int rtnId = 0;
     private int empId = 0;
-    private Date brwDate = null;
+    private Date rtnDate = null;
 
     public String getBkcName() {
         return bkcName;
@@ -81,12 +81,12 @@ public class ReturnBookPersistantDAO implements ReturnBookDAO {
         this.empId = empId;
     }
 
-    public Date getBrwDate() {
-        return brwDate;
+    public Date getRtnDate() {
+        return rtnDate;
     }
 
-    public void setBrwDate(Date brwDate) {
-        this.brwDate = brwDate;
+    public void setRtnDate(Date rtnDate) {
+        this.rtnDate = rtnDate;
     }
 
     @Override
@@ -142,7 +142,7 @@ public class ReturnBookPersistantDAO implements ReturnBookDAO {
                 bkcStatus = rsBookCopy.getBoolean("bookcopyStatus");
                 mbrName = rsMember.getString("memberName");
                 mbrStatus = rsMember.getBoolean("memberStatus");
-                brwDate = rsBrwDate.getDate("borrowDate");
+                rtnDate = rsBrwDate.getDate("borrowDate");
                 empId = rsEmployee.getInt("Employee_empId");
 
             }
