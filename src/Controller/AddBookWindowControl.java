@@ -66,6 +66,7 @@ public class AddBookWindowControl {
         
         window.getTxtNumBooks().addKeyListener(new KeyAdapter() {
 
+        @Override
         public void keyTyped(KeyEvent e) {
                  if (!txtValidate(e.getKeyChar())) e.consume();
             }
