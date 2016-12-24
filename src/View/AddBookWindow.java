@@ -35,7 +35,6 @@ public class AddBookWindow extends javax.swing.JFrame {
         lblAddBook = new javax.swing.JLabel();
         lblDate = new javax.swing.JLabel();
         lblTime = new javax.swing.JLabel();
-        txtId = new javax.swing.JTextField();
         txtName = new javax.swing.JTextField();
         txtISBN = new javax.swing.JTextField();
         txtAuthor = new javax.swing.JTextField();
@@ -70,7 +69,6 @@ public class AddBookWindow extends javax.swing.JFrame {
 
         lblTime.setText("Time:");
         getContentPane().add(lblTime, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 70, 114, 28));
-        getContentPane().add(txtId, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 110, 219, 20));
         getContentPane().add(txtName, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 140, 219, 20));
         getContentPane().add(txtISBN, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 170, 219, 20));
         getContentPane().add(txtAuthor, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 200, 219, 20));
@@ -119,7 +117,7 @@ public class AddBookWindow extends javax.swing.JFrame {
         jLabel9.setText("Language:");
         jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 290, 90, 20));
         jPanel1.add(txtLanguage, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 290, 219, -1));
-        jPanel1.add(lblId, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 214, 80, 20));
+        jPanel1.add(lblId, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 110, 220, 20));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 580, 410));
 
@@ -169,9 +167,6 @@ public class AddBookWindow extends javax.swing.JFrame {
         return txtISBN;
     }
 
-    public JTextField getTxtId() {
-        return txtId;
-    }
 
     public JTextField getTxtLanguage() {
         return txtLanguage;
@@ -214,7 +209,6 @@ public class AddBookWindow extends javax.swing.JFrame {
     private javax.swing.JLabel lblWelcome;
     private javax.swing.JTextField txtAuthor;
     private javax.swing.JTextField txtISBN;
-    private javax.swing.JTextField txtId;
     private javax.swing.JTextField txtLanguage;
     private javax.swing.JTextField txtName;
     private javax.swing.JTextField txtNumBooks;

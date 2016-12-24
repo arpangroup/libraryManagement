@@ -26,6 +26,7 @@ public class AddUserWindowControl {
         emp = new EmployeePersistantDAO();
         this.window = window;
         initialize();
+        setID();
         control();
     }
 
@@ -35,9 +36,8 @@ public class AddUserWindowControl {
             @Override
             public void actionPerformed(ActionEvent e) {
                 initialize();
-                setID();
                 SignUp();
-                
+
             }
         });
 
@@ -58,16 +58,15 @@ public class AddUserWindowControl {
             }
         });
 
-
     }
 
     private void Home() {
         window.dispose();
 
     }
-    
-    private void setID(){
-        window.getLblId().setText(String.valueOf(emp.setId()+1));
+
+    private void setID() {
+        window.getLblId().setText(String.valueOf(emp.setId() + 1));
     }
 
     private void SignUp() {

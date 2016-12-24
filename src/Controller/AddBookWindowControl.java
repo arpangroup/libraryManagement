@@ -30,6 +30,7 @@ public class AddBookWindowControl {
         book = new BookPersistantDAO();
         this.window = window;
         initialize();
+        setID();
         control();
     }
 
@@ -40,7 +41,6 @@ public class AddBookWindowControl {
             public void actionPerformed(ActionEvent e) {
                 try {
                     initialize();
-                    setID();
                     SignUp();
                 } catch (ParseException ex) {
                     Logger.getLogger(AddBookWindowControl.class.getName()).log(Level.SEVERE, null, ex);
@@ -80,7 +80,7 @@ public class AddBookWindowControl {
 
     private void SignUp() throws ParseException {
 
-        int id = Integer.parseInt(window.getTxtId().getText());
+        int id = Integer.parseInt(window.getLblId().getText());
         String name = window.getTxtName().getText();
         String isbn = window.getTxtISBN().getText();
         String author = window.getTxtAuthor().getText();
@@ -97,8 +97,8 @@ public class AddBookWindowControl {
             JOptionPane.showMessageDialog(window.getComponent(0), "Book not Added!", "Unsuccessful", JOptionPane.ERROR_MESSAGE);
         }
     }
-    
-     private void setID() {
+
+    private void setID() {
         window.getLblId().setText(String.valueOf(book.setId() + 1));
     }
 

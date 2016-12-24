@@ -35,7 +35,6 @@ public class AddGuarantorWindow extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         lblDate = new javax.swing.JLabel();
         lblTime = new javax.swing.JLabel();
-        txtId = new javax.swing.JTextField();
         txtName = new javax.swing.JTextField();
         txtContactNumber = new javax.swing.JTextField();
         txtAddress = new javax.swing.JTextField();
@@ -71,7 +70,6 @@ public class AddGuarantorWindow extends javax.swing.JFrame {
 
         lblTime.setText("Time:");
         getContentPane().add(lblTime, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 70, 114, 28));
-        getContentPane().add(txtId, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 100, 219, 32));
         getContentPane().add(txtName, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 150, 219, 32));
         getContentPane().add(txtContactNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 200, 219, 32));
         getContentPane().add(txtAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 240, 219, 32));
@@ -100,7 +98,7 @@ public class AddGuarantorWindow extends javax.swing.JFrame {
 
         lbl_fk.setText("MemberId:");
         jPanel2.add(lbl_fk, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 290, 90, 32));
-        jPanel2.add(lblId, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 214, 80, 20));
+        jPanel2.add(lblId, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 100, 220, 30));
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 560, 380));
 
@@ -134,7 +132,6 @@ public class AddGuarantorWindow extends javax.swing.JFrame {
     private javax.swing.JLabel lbl_fk;
     private javax.swing.JTextField txtAddress;
     private javax.swing.JTextField txtContactNumber;
-    private javax.swing.JTextField txtId;
     private javax.swing.JTextField txtName;
     private javax.swing.JTextField txt_memberId;
     // End of variables declaration//GEN-END:variables
@@ -195,12 +192,7 @@ public class AddGuarantorWindow extends javax.swing.JFrame {
         return txtContactNumber;
     }
 
-    /**
-     * @return the txtId
-     */
-    public javax.swing.JTextField getTxtId() {
-        return txtId;
-    }
+   
 
     /**
      * @return the txtName

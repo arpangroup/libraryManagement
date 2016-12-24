@@ -1,4 +1,3 @@
-
 package DataAccess;
 
 import Model.Member;
@@ -29,13 +28,13 @@ public class MemberPersistantDAO implements MemberDAO {
 
             con = DBconnectionProject.connect();
             pst = con.prepareStatement(sqlAdd);
-            
+
             pst.setInt(1, member.getMemberId());
             pst.setString(2, member.getMemberName());
             pst.setString(3, member.getMemberContactNo());
             pst.setString(4, member.getMemberAddress());
-            pst.setBoolean(5,member.isMemberStatus());
-           
+            pst.setBoolean(5, member.isMemberStatus());
+
             pst.executeUpdate();
 
             state = true;
@@ -58,7 +57,7 @@ public class MemberPersistantDAO implements MemberDAO {
 
     @Override
     public Member searchMemberById(int Id) {
-        
+
         String sqlSearch = "SELECT * FROM member WHERE memberId=?";
         Connection con = null;
         PreparedStatement pst = null;
@@ -77,10 +76,10 @@ public class MemberPersistantDAO implements MemberDAO {
                 String Name = rs.getString("memberName");
                 String Contact = rs.getString("memberContactNo");
                 String Address = rs.getString("memberAddress");
-                boolean memberStatus=rs.getBoolean("memberStatus");
-               
+                boolean memberStatus = rs.getBoolean("memberStatus");
+
                 memberSearchID = new Member(Id, Name, Contact, Address, memberStatus);
-                
+
             }
 
         } catch (SQLException ex) {
@@ -100,7 +99,7 @@ public class MemberPersistantDAO implements MemberDAO {
     }
 
     @Override
-    
+
     public ArrayList<Member> searchMemberByName(String Name) {
 
         String sqlSearch = "SELECT * FROM member WHERE memberName LIKE ?";
@@ -121,8 +120,7 @@ public class MemberPersistantDAO implements MemberDAO {
                 Name = rs.getString("memberName");
                 String Contact = rs.getString("memberContactNo");
                 String Address = rs.getString("memberAddress");
-                boolean memberStatus=rs.getBoolean("memberStatus");
-              
+                boolean memberStatus = rs.getBoolean("memberStatus");
 
                 memberSearchID = new Member(Id, Name, Contact, Address, memberStatus);
                 list.add(memberSearchID);
@@ -215,9 +213,9 @@ public class MemberPersistantDAO implements MemberDAO {
 
     @Override
     public int setId() {
-  int setId=0;
-        
-        String sqlMember = "SELECT COUNT(memberId) FROM Employee";
+        int setId = 0;
+
+        String sqlMember = "SELECT MAX(memberId) FROM Member";
         Connection conMember = null;
         PreparedStatement pstMember = null;
         ResultSet rsMember = null;
@@ -228,7 +226,7 @@ public class MemberPersistantDAO implements MemberDAO {
             rsMember = pstMember.executeQuery();
 
             if (rsMember.next()) {
-           setId = rsMember.getInt(1);
+                setId = rsMember.getInt(1);
             }
 
         } catch (SQLException ex) {
@@ -246,9 +244,8 @@ public class MemberPersistantDAO implements MemberDAO {
                                 .getName()).log(Level.SEVERE, null, ex);
             }
         }
-    
-    
+
         return setId;
-            }
+    }
 
 }

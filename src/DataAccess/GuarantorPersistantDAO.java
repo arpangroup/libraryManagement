@@ -208,7 +208,7 @@ public class GuarantorPersistantDAO implements GuarantorDAO {
     public int setId() {
   int setId=0;
         
-        String sqlGuarantor = "SELECT COUNT(GuarantorId) FROM Employee";
+        String sqlGuarantor = "SELECT MAX(GuarantorId) FROM Guarantor";
         Connection conGuarantor = null;
         PreparedStatement pstGuarantor = null;
         ResultSet rsGuarantor = null;

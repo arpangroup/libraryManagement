@@ -260,7 +260,7 @@ public class EmployeePersistantDAO implements EmployeeDAO {
     public int setId() {
         int setId=0;
         
-        String sqlEmp = "SELECT COUNT(EmpId) FROM Employee";
+        String sqlEmp = "SELECT MAX(EmpId) FROM Employee";
         Connection conEmp = null;
         PreparedStatement pstEmp = null;
         ResultSet rsEmp = null;

@@ -270,7 +270,7 @@ public class BookPersistantDAO implements BookDAO {
     public int setId() {
         int setId = 0;
 
-        String sqlBook = "SELECT COUNT(BookId) FROM Employee";
+        String sqlBook = "SELECT MAX(BookId) FROM Book";
         Connection conBook = null;
         PreparedStatement pstBook = null;
         ResultSet rsBook = null;

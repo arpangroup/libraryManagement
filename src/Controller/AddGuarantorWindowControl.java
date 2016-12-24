@@ -26,6 +26,7 @@ public class AddGuarantorWindowControl {
         gua = new GuarantorPersistantDAO();
         this.window = window;
         initialize();
+        setID();
         control();
     }
 
@@ -35,7 +36,6 @@ public class AddGuarantorWindowControl {
             @Override
             public void actionPerformed(ActionEvent e) {
                 initialize();
-                setID();
                 SignUp();
             }
         });
@@ -57,14 +57,6 @@ public class AddGuarantorWindowControl {
             }
         });
 
-        window.getTxtId().addKeyListener(new KeyAdapter() {
-            public void keyTyped(KeyEvent e) {
-                if (!idValidate(e.getKeyChar())) {
-                    e.consume();
-                }
-            }
-        });
-
     }
 
     private void Home() {
@@ -74,7 +66,7 @@ public class AddGuarantorWindowControl {
 
     private void SignUp() {
 
-        int id = Integer.parseInt(window.getTxtId().getText());
+        int id = Integer.parseInt(window.getLblId().getText());
         String name = window.getTxtName().getText();
         String contactno = window.getTxtContactNumber().getText();
         String address = window.getTxtAddress().getText();
@@ -101,8 +93,8 @@ public class AddGuarantorWindowControl {
     private boolean idValidate(char c) {
         return Character.isDigit(c);
     }
-    
-     private void setID() {
+
+    private void setID() {
         window.getLblId().setText(String.valueOf(gua.setId() + 1));
     }
 

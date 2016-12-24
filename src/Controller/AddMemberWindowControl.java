@@ -36,7 +36,6 @@ public class AddMemberWindowControl {
         window.getBtnSubmit().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                setID();
                 SignUp();
             }
         });
@@ -64,15 +63,7 @@ public class AddMemberWindowControl {
                 }
             }
         });
-        
-        window.getTxtId().addKeyListener(new KeyAdapter() {
-            @Override
-            public void keyTyped(KeyEvent e) {
-                if (!idValidate(e.getKeyChar()))
-                    e.consume();
-                }
-        
-        });
+
 
     }
 
@@ -92,7 +83,7 @@ public class AddMemberWindowControl {
 
     private void SignUp() {
 
-        int id = Integer.parseInt(window.getTxtId().getText());
+        int id = Integer.parseInt(window.getLblId().getText());
         String name = window.getTxtName().getText();
         String contactno = window.getTxtContactNumber().getText();
         String address = window.getTxtAddress().getText();

@@ -37,7 +37,6 @@ public class AddMemberWindow extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        txtId = new javax.swing.JTextField();
         txtName = new javax.swing.JTextField();
         txtContactNumber = new javax.swing.JTextField();
         txtAddress = new javax.swing.JTextField();
@@ -73,7 +72,6 @@ public class AddMemberWindow extends javax.swing.JFrame {
 
         jLabel3.setText("Contact Number:");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 200, 90, 32));
-        getContentPane().add(txtId, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 100, 219, 32));
         getContentPane().add(txtName, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 150, 219, 32));
         getContentPane().add(txtContactNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 200, 219, 32));
         getContentPane().add(txtAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 250, 219, 32));
@@ -104,7 +102,7 @@ public class AddMemberWindow extends javax.swing.JFrame {
 
         jLabel5.setText("Address:");
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 250, 90, 32));
-        jPanel1.add(lblId, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 214, 80, 20));
+        jPanel1.add(lblId, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 100, 220, 30));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 560, 430));
 
@@ -141,7 +139,6 @@ public class AddMemberWindow extends javax.swing.JFrame {
     private javax.swing.JLabel lblWelcome;
     private javax.swing.JTextField txtAddress;
     private javax.swing.JTextField txtContactNumber;
-    private javax.swing.JTextField txtId;
     private javax.swing.JTextField txtName;
     // End of variables declaration//GEN-END:variables
 
@@ -194,12 +191,7 @@ public class AddMemberWindow extends javax.swing.JFrame {
         return txtContactNumber;
     }
 
-    /**
-     * @return the txtId
-     */
-    public javax.swing.JTextField getTxtId() {
-        return txtId;
-    }
+ 
 
     /**
      * @return the txtName

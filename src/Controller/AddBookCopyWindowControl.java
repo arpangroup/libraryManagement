@@ -27,6 +27,7 @@ public class AddBookCopyWindowControl {
         copy = new BookCopyPersistantDAO();
         this.window = window;
         initialize();
+        setID();
         control();
     }
 
@@ -37,7 +38,6 @@ public class AddBookCopyWindowControl {
             public void actionPerformed(ActionEvent e) {
                 try {
                     initialize();
-                    setID();
                     SignUp();
                 } catch (ParseException ex) {
                     Logger.getLogger(AddBookCopyWindowControl.class.getName()).log(Level.SEVERE, null, ex);
@@ -61,7 +61,7 @@ public class AddBookCopyWindowControl {
 
     private void SignUp() throws ParseException {
 
-        int bookcopyId = Integer.parseInt(window.getTxtBookCopyId().getText());
+        int bookcopyId = Integer.parseInt(window.getLblId().getText());
         String bookcopyName = window.getTxtBookCopyName().getText();
         boolean state = window.getCheckBookCopyStatus().isSelected();
         int bookId = Integer.parseInt(window.getTxtBookId().getText());

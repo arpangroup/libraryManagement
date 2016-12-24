@@ -35,7 +35,6 @@ public class AddBookCopyWindow extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         lblAddBookCopy = new javax.swing.JLabel();
-        txtBookCopyId = new javax.swing.JTextField();
         txtBookCopyName = new javax.swing.JTextField();
         txtBookId = new javax.swing.JTextField();
         checkBookCopyStatus = new javax.swing.JCheckBox();
@@ -68,7 +67,6 @@ public class AddBookCopyWindow extends javax.swing.JFrame {
         lblAddBookCopy.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lblAddBookCopy.setText(" Add Book Copy");
         getContentPane().add(lblAddBookCopy, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 40, 150, 52));
-        getContentPane().add(txtBookCopyId, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 110, 219, 20));
         getContentPane().add(txtBookCopyName, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 140, 219, 20));
         getContentPane().add(txtBookId, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 170, 219, 20));
 
@@ -92,7 +90,7 @@ public class AddBookCopyWindow extends javax.swing.JFrame {
         getContentPane().add(btnHome, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 60, -1, -1));
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        jPanel1.add(lblId, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 214, 80, 20));
+        jPanel1.add(lblId, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 110, 220, 20));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 520, 310));
 
@@ -133,9 +131,7 @@ public class AddBookCopyWindow extends javax.swing.JFrame {
         return lblWelcome;
     }
 
-    public JTextField getTxtBookCopyId() {
-        return txtBookCopyId;
-    }
+  
 
     public JTextField getTxtBookCopyName() {
         return txtBookCopyName;
@@ -164,7 +160,6 @@ public class AddBookCopyWindow extends javax.swing.JFrame {
     private javax.swing.JLabel lblId;
     private javax.swing.JLabel lblTime;
     private javax.swing.JLabel lblWelcome;
-    private javax.swing.JTextField txtBookCopyId;
     private javax.swing.JTextField txtBookCopyName;
     private javax.swing.JTextField txtBookId;
     // End of variables declaration//GEN-END:variables

@@ -206,7 +206,7 @@ public class BookCopyPersistantDAO implements BookCopyDAO {
     public int setId() {
         int setId = 0;
 
-        String sqlBookcopy = "SELECT COUNT(BookcopyId) FROM Employee";
+        String sqlBookcopy = "SELECT MAX(BookcopyId) FROM Bookcopy";
         Connection conBookcopy = null;
         PreparedStatement pstBookcopy = null;
         ResultSet rsBookcopy = null;
