@@ -80,6 +80,8 @@ public class AddBookCopyWindowControl {
         window.getLblId().setText(String.valueOf(copy.setId() + 1));
     }
 
+   
+
     private void initialize() {
 
         try {

@@ -57,6 +57,8 @@ public class AddUserWindowControl {
                 }
             }
         });
+        
+  
 
     }
 
@@ -68,6 +70,9 @@ public class AddUserWindowControl {
     private void setID() {
         window.getLblId().setText(String.valueOf(emp.setId() + 1));
     }
+    
+
+
 
     private void SignUp() {
 

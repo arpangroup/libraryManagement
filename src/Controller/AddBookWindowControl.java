@@ -8,6 +8,8 @@ import View.AddBookWindow;
 import View.AppDetails;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -61,6 +63,13 @@ public class AddBookWindowControl {
                 addBookCopyPage();
             }
         });
+        
+        window.getTxtNumBooks().addKeyListener(new KeyAdapter() {
+
+        public void keyTyped(KeyEvent e) {
+                 if (!txtValidate(e.getKeyChar())) e.consume();
+            }
+        });
 
     }
 
@@ -100,6 +109,10 @@ public class AddBookWindowControl {
 
     private void setID() {
         window.getLblId().setText(String.valueOf(book.setId() + 1));
+    }
+    
+     private boolean txtValidate(char c) {
+        return Character.isDigit(c);
     }
 
     private void initialize() {
