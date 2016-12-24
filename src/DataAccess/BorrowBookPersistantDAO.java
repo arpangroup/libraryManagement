@@ -80,14 +80,19 @@ public class BorrowBookPersistantDAO implements BorrowBookDAO {
             rsMember = pstMember.executeQuery();
             rsBookCopy = pstBookCopy.executeQuery();
 
-            if (rsBookCopy.next() && rsMember.next()) {
+            if (rsBookCopy.next()) {
                 bkcName = rsBookCopy.getString("bookcopyName");
                 bkcStatus = rsBookCopy.getBoolean("bookcopyStatus");
+            }else{
+                bkcName = null;
+                bkcStatus = false;
+            }
+            if (rsMember.next()){
                 mbrName = rsMember.getString("memberName");
                 mbrStatus = rsMember.getBoolean("memberStatus");
-                state = true;
-               
-
+            }else{
+                mbrName = null;
+                mbrStatus = false;
             }
 
         } catch (SQLException ex) {
@@ -121,9 +126,10 @@ public class BorrowBookPersistantDAO implements BorrowBookDAO {
             pst = con.prepareStatement(sqlBorrow);
 
             pst.setInt(1, borrow.getBorrowId());
-            pst.setInt(2, borrow.getBookcopyId());
-            pst.setInt(3, borrow.getMemberId());
-            pst.setInt(4, borrow.getEmployeeId());
+            pst.setInt(2, borrow.getMemberId());
+            pst.setInt(3, borrow.getEmployeeId());
+            pst.setInt(4, borrow.getBookcopyId());
+
 
             pst.executeUpdate();
 

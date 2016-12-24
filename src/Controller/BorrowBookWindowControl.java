@@ -6,6 +6,8 @@ import View.AppDetails;
 import View.BorrowBookWindow;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -33,8 +35,6 @@ public class BorrowBookWindowControl {
         control();
     }
 
-    
-
     public void control() {
 
         window.getBtnSubmit().addActionListener(new ActionListener() {
@@ -60,6 +60,24 @@ public class BorrowBookWindowControl {
             @Override
             public void actionPerformed(ActionEvent e) {
                 info();
+            }
+        });
+
+        window.getTxtBookCopyId().addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyTyped(KeyEvent e) {
+                if (!txtValidate(e.getKeyChar())) {
+                    e.consume();
+                }
+            }
+        });
+
+        window.getTxtMemberId().addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyTyped(KeyEvent e) {
+                if (!txtValidate(e.getKeyChar())) {
+                    e.consume();
+                }
             }
         });
 
@@ -101,6 +119,10 @@ public class BorrowBookWindowControl {
 
         }
 
+    }
+
+    private boolean txtValidate(char c) {
+        return Character.isDigit(c);
     }
 
     private void addBrw() throws ParseException {

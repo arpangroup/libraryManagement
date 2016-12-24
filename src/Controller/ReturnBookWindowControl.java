@@ -7,6 +7,8 @@ import View.AppDetails;
 import View.ReturnBookWindow;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
@@ -66,15 +68,31 @@ public class ReturnBookWindowControl {
             @Override
             public void actionPerformed(ActionEvent e) {
                 info();
+                getFines();
             }
         });
 
         window.getBtnGrant().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                    setFree();
+                setFree();
             }
         });
+
+        window.getTxtReturnBookCopyId().addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyTyped(KeyEvent e) {
+                 if (!txtValidate(e.getKeyChar())) e.consume();
+            }
+        });
+        
+         window.getTxtReturnMemberId().addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyTyped(KeyEvent e) {
+                 if (!txtValidate(e.getKeyChar())) e.consume();
+            }
+        });
+          
 
     }
 
@@ -89,6 +107,9 @@ public class ReturnBookWindowControl {
             bkId = Integer.parseInt(window.getTxtReturnBookCopyId().getText());
             mbId = Integer.parseInt(window.getTxtReturnMemberId().getText());
             rtn.validate(bkId, mbId);
+            System.out.println("bkc name: "+rtn.getBkcName());
+            System.out.println("mbrname: "+rtn.getMbrName());
+            System.out.println("mbrstatus: "+rtn.isMbrStatus());
         } catch (NumberFormatException ee) {
 
             JOptionPane.showMessageDialog(window.getComponent(0), "Not Valid Details!", "Unsuccessful", JOptionPane.WARNING_MESSAGE);
@@ -97,7 +118,7 @@ public class ReturnBookWindowControl {
 
         if (rtn.getBkcName() == null) {
             JOptionPane.showMessageDialog(window.getComponent(0), "Book Copy Not Exist!", "Unsuccessful", JOptionPane.ERROR_MESSAGE);
-
+            
         } else if (rtn.getMbrName() == null) {
             JOptionPane.showMessageDialog(window.getComponent(0), "Member Not Exist!", "Unsuccessful", JOptionPane.ERROR_MESSAGE);
 
@@ -168,6 +189,11 @@ public class ReturnBookWindowControl {
     private void setFree() {
         fine.removeBlacklistMember(bkId);
     }
+
+    private boolean txtValidate(char c) {
+        return Character.isDigit(c);
+    }
+
 
     private void initialize() {
 
