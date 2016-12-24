@@ -22,5 +22,7 @@ public boolean updateBook(Book book);
 public boolean removeBook(int id);
 
 public ArrayList<Book> getAllBooks();
+
+public int setId();
     
 }

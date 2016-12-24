@@ -3,9 +3,11 @@ package Controller;
 import DataAccess.EmployeePersistantDAO;
 import Model.Employee;
 import View.AppDetails;
-import View.SignupUserWindow;
+import View.AddUserWindow;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.swing.JOptionPane;
@@ -17,9 +19,9 @@ import javax.swing.JOptionPane;
 public class AddUserWindowControl {
 
     EmployeePersistantDAO emp;
-    SignupUserWindow window;
+    AddUserWindow window;
 
-    public AddUserWindowControl(SignupUserWindow window) {
+    public AddUserWindowControl(AddUserWindow window) {
 
         emp = new EmployeePersistantDAO();
         this.window = window;
@@ -33,7 +35,9 @@ public class AddUserWindowControl {
             @Override
             public void actionPerformed(ActionEvent e) {
                 initialize();
+                setID();
                 SignUp();
+                
             }
         });
 
@@ -44,18 +48,33 @@ public class AddUserWindowControl {
             }
         });
 
+        window.getTxtContactNumber().addKeyListener(new KeyAdapter() {
+
+            @Override
+            public void keyTyped(KeyEvent e) {
+                if (!txtValidate(window.getTxtContactNumber().getText(), e.getKeyChar(), 10)) {
+                    e.consume();
+                }
+            }
+        });
+
+
     }
 
     private void Home() {
         window.dispose();
 
     }
+    
+    private void setID(){
+        window.getLblId().setText(String.valueOf(emp.setId()+1));
+    }
 
     private void SignUp() {
 
-        int id = Integer.parseInt(window.getTxtId().getText());
+        int id = Integer.parseInt(window.getLblId().getText());
         String name = window.getTxtName().getText();
-        String contactno = window.getTxtContactNumber().getText();
+        int contactno = Integer.parseInt(window.getTxtContactNumber().getText());
         String address = window.getTxtAddress().getText();
         String username = window.getTxtUserName().getText();
         String password = window.getTxtPassword().getText();
@@ -71,6 +90,17 @@ public class AddUserWindowControl {
 
             JOptionPane.showMessageDialog(window.getComponent(0), "User  not Added!", "Unsuccessful", JOptionPane.ERROR_MESSAGE);
         }
+    }
+
+    private boolean txtValidate(String text, char c, int size) {
+        if (!Character.isDigit(c)) {
+            return false;
+        }
+        return ((text + c).length() <= size);
+    }
+
+    private boolean idValidate(char c) {
+        return Character.isDigit(c);
     }
 
     private void initialize() {

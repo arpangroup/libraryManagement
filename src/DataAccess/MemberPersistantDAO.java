@@ -213,4 +213,42 @@ public class MemberPersistantDAO implements MemberDAO {
         return state;
     }
 
+    @Override
+    public int setId() {
+  int setId=0;
+        
+        String sqlMember = "SELECT COUNT(memberId) FROM Employee";
+        Connection conMember = null;
+        PreparedStatement pstMember = null;
+        ResultSet rsMember = null;
+
+        try {
+            conMember = DBconnectionProject.connect();
+            pstMember = conMember.prepareStatement(sqlMember);
+            rsMember = pstMember.executeQuery();
+
+            if (rsMember.next()) {
+           setId = rsMember.getInt(1);
+            }
+
+        } catch (SQLException ex) {
+        } finally {
+            try {
+                rsMember.close();
+                pstMember.close();
+                conMember.close();
+
+            } catch (SQLException ex) {
+                Logger.getLogger(MemberPersistantDAO.class
+                        .getName()).log(Level.SEVERE, null, ex);
+                Logger
+                        .getLogger(MemberPersistantDAO.class
+                                .getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    
+    
+        return setId;
+            }
+
 }

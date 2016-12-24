@@ -1,15 +1,17 @@
 package View;
 
+import javax.swing.JLabel;
+
 /**
  *
  * @author wijerath_ps13257
  */
-public class SignupUserWindow extends javax.swing.JFrame {
+public class AddUserWindow extends javax.swing.JFrame {
 
     /**
      * Creates new form SignUpProject
      */
-    public SignupUserWindow() {
+    public AddUserWindow() {
         initComponents();
 
        
@@ -21,7 +23,6 @@ public class SignupUserWindow extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        txtId = new javax.swing.JTextField();
         txtName = new javax.swing.JTextField();
         txtContactNumber = new javax.swing.JTextField();
         txtAddress = new javax.swing.JTextField();
@@ -41,6 +42,7 @@ public class SignupUserWindow extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         lblWelcome = new javax.swing.JLabel();
         lblAddUser = new javax.swing.JLabel();
+        lblId = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -49,7 +51,6 @@ public class SignupUserWindow extends javax.swing.JFrame {
 
         jLabel2.setText("Name:");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, 90, 32));
-        jPanel1.add(txtId, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 70, 219, 32));
         jPanel1.add(txtName, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 120, 219, 32));
         jPanel1.add(txtContactNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 170, 219, 32));
         jPanel1.add(txtAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 220, 219, 32));
@@ -105,6 +106,7 @@ public class SignupUserWindow extends javax.swing.JFrame {
         lblAddUser.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lblAddUser.setText("  Add User");
         jPanel2.add(lblAddUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 10, 130, 52));
+        jPanel2.add(lblId, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 70, 220, 30));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 620, 430));
 
@@ -144,12 +146,12 @@ public class SignupUserWindow extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel lblAddUser;
     private javax.swing.JLabel lblDate;
+    private javax.swing.JLabel lblId;
     private javax.swing.JLabel lblTime;
     private javax.swing.JLabel lblWelcome;
     private javax.swing.JTextField txtAddress;
     private javax.swing.JTextField txtClearance;
     private javax.swing.JTextField txtContactNumber;
-    private javax.swing.JTextField txtId;
     private javax.swing.JTextField txtName;
     private javax.swing.JTextField txtPassword;
     private javax.swing.JTextField txtUserName;
@@ -190,12 +192,6 @@ public class SignupUserWindow extends javax.swing.JFrame {
         return txtContactNumber;
     }
 
-    /**
-     * @return the txtId
-     */
-    public javax.swing.JTextField getTxtId() {
-        return txtId;
-    }
 
     /**
      * @return the txtName
@@ -239,8 +235,10 @@ public class SignupUserWindow extends javax.swing.JFrame {
         return lblWelcome;
     }
 
-    /**
-     * @return the lblWelcome
-     */
+    public JLabel getLblId() {
+        return lblId;
+    }
+
+    
   
 }

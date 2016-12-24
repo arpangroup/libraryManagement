@@ -27,7 +27,7 @@ public class EmployeePersistantDAO implements EmployeeDAO {
 
             pst.setInt(1, employee.getUserId());
             pst.setString(2, employee.getUserName());
-            pst.setString(3, employee.getUserContactNo());
+            pst.setInt(3, employee.getUserContactNo());
             pst.setString(4, employee.getUserAddress());
             pst.setString(5, employee.getUsername());
             pst.setString(6, employee.getUserPassword());
@@ -74,7 +74,7 @@ public class EmployeePersistantDAO implements EmployeeDAO {
             if (rs.next()) {
                 Id = rs.getInt("empId");
                 String userName = rs.getString("empName");
-                String contact = rs.getString("empContactNo");
+                int contact = rs.getInt("empContactNo");
                 String address = rs.getString("empAddress");
                 String username = rs.getString("empUsername");
                 String password = rs.getString("empPassword");
@@ -119,7 +119,7 @@ public class EmployeePersistantDAO implements EmployeeDAO {
             while (rs.next()) {
                 int Id = rs.getInt("empId");
                 name = rs.getString("empName");
-                String contact = rs.getString("empContactNo");
+                int contact = rs.getInt("empContactNo");
                 String address = rs.getString("empAddress");
                 String username = rs.getString("empUsername");
                 String password = rs.getString("empPassword");
@@ -156,7 +156,7 @@ public class EmployeePersistantDAO implements EmployeeDAO {
             pst = con.prepareStatement(sqlUpdate);
             state = true;
             pst.setString(1, employee.getUserName());
-            pst.setString(2, employee.getUserContactNo());
+            pst.setInt(2, employee.getUserContactNo());
             pst.setString(3, employee.getUserAddress());
             pst.setInt(4, employee.getUserId());
 
@@ -231,7 +231,7 @@ public class EmployeePersistantDAO implements EmployeeDAO {
             if (rs.next()) {
                 int id = rs.getInt("empId");
                 String userName = rs.getString("empName");
-                String contact = rs.getString("empContactNo");
+                int contact = rs.getInt("empContactNo");
                 String address = rs.getString("empAddress");
                 username = rs.getString("empUsername");
                 password = rs.getString("empPassword");
@@ -254,5 +254,44 @@ public class EmployeePersistantDAO implements EmployeeDAO {
             }
         }
         return employee;
+    }
+
+    @Override
+    public int setId() {
+        int setId=0;
+        
+        String sqlEmp = "SELECT COUNT(EmpId) FROM Employee";
+        Connection conEmp = null;
+        PreparedStatement pstEmp = null;
+        ResultSet rsEmp = null;
+
+        try {
+            conEmp = DBconnectionProject.connect();
+            pstEmp = conEmp.prepareStatement(sqlEmp);
+            rsEmp = pstEmp.executeQuery();
+
+            if (rsEmp.next()) {
+           setId = rsEmp.getInt(1);
+            }
+
+        } catch (SQLException ex) {
+        } finally {
+            try {
+                rsEmp.close();
+                pstEmp.close();
+                conEmp.close();
+
+            } catch (SQLException ex) {
+                Logger.getLogger(EmployeePersistantDAO.class
+                        .getName()).log(Level.SEVERE, null, ex);
+                Logger
+                        .getLogger(EmployeePersistantDAO.class
+                                .getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    
+    
+        return setId;
+        
     }
 }

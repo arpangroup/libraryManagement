@@ -8,7 +8,7 @@ import View.AddMemberWindow;
 import View.BorrowBookWindow;
 import View.ReturnBookWindow;
 import View.ViewUserWindow;
-import View.SignupUserWindow;
+import View.AddUserWindow;
 import View.ViewBookWindow;
 import View.ViewMemberWindow;
 import java.awt.event.ActionEvent;
@@ -153,7 +153,7 @@ public class AdminPanelWindowControl {
     private void signupUserPage() {
 
         // window.dispose();
-        SignupUserWindow newWindow = new SignupUserWindow();
+        AddUserWindow newWindow = new AddUserWindow();
         AddUserWindowControl controller = new AddUserWindowControl(newWindow);
         newWindow.setVisible(true);
     }

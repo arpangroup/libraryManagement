@@ -107,9 +107,6 @@ public class ReturnBookWindowControl {
             bkId = Integer.parseInt(window.getTxtReturnBookCopyId().getText());
             mbId = Integer.parseInt(window.getTxtReturnMemberId().getText());
             rtn.validate(bkId, mbId);
-            System.out.println("bkc name: "+rtn.getBkcName());
-            System.out.println("mbrname: "+rtn.getMbrName());
-            System.out.println("mbrstatus: "+rtn.isMbrStatus());
         } catch (NumberFormatException ee) {
 
             JOptionPane.showMessageDialog(window.getComponent(0), "Not Valid Details!", "Unsuccessful", JOptionPane.WARNING_MESSAGE);

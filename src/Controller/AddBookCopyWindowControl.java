@@ -1,4 +1,3 @@
-
 package Controller;
 
 import DataAccess.BookCopyPersistantDAO;
@@ -19,8 +18,7 @@ import javax.swing.JOptionPane;
  * @author wijerath_ps13257
  */
 public class AddBookCopyWindowControl {
-  
-    
+
     BookCopyPersistantDAO copy;
     AddBookCopyWindow window;
 
@@ -39,6 +37,7 @@ public class AddBookCopyWindowControl {
             public void actionPerformed(ActionEvent e) {
                 try {
                     initialize();
+                    setID();
                     SignUp();
                 } catch (ParseException ex) {
                     Logger.getLogger(AddBookCopyWindowControl.class.getName()).log(Level.SEVERE, null, ex);
@@ -53,7 +52,6 @@ public class AddBookCopyWindowControl {
             }
         });
 
-     
     }
 
     private void Home() {
@@ -61,26 +59,25 @@ public class AddBookCopyWindowControl {
 
     }
 
-
-     
     private void SignUp() throws ParseException {
 
         int bookcopyId = Integer.parseInt(window.getTxtBookCopyId().getText());
         String bookcopyName = window.getTxtBookCopyName().getText();
         boolean state = window.getCheckBookCopyStatus().isSelected();
         int bookId = Integer.parseInt(window.getTxtBookId().getText());
-      
 
-       
-        BookCopy bookcopy=new BookCopy(bookcopyId, bookcopyName, state, bookId);
-          this.copy.addBookCopy(bookcopy);
+        BookCopy bookcopy = new BookCopy(bookcopyId, bookcopyName, state, bookId);
+        this.copy.addBookCopy(bookcopy);
         if (bookcopy != null) {
             JOptionPane.showMessageDialog(window.getComponent(0), "Book Copy Added!", "Success", JOptionPane.INFORMATION_MESSAGE);
-        }
-        else {
+        } else {
 
             JOptionPane.showMessageDialog(window.getComponent(0), "Book Copy not Added!", "Unsuccessful", JOptionPane.ERROR_MESSAGE);
         }
+    }
+
+    private void setID() {
+        window.getLblId().setText(String.valueOf(copy.setId() + 1));
     }
 
     private void initialize() {
@@ -98,21 +95,18 @@ public class AddBookCopyWindowControl {
                         window.getLblTime().setText(time[3]);
                         window.getLblDate().setText(stDate);
                         window.getLblWelcome().setText("Welcome: " + AppDetails.loggedOnUser.getUserName());
-                        try{
-                        Thread.sleep(1000);
-                        }catch(InterruptedException e){
-                            
-                        }  
-                        
-                        
+                        try {
+                            Thread.sleep(1000);
+                        } catch (InterruptedException e) {
+
+                        }
+
                     }
                 }
             }).start();
-            
 
         } catch (Exception e) {
         }
     }
-    
 
 }

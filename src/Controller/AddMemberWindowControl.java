@@ -7,6 +7,8 @@ import View.AddGuarantorWindow;
 import View.AddMemberWindow;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.swing.JOptionPane;
@@ -17,13 +19,14 @@ import javax.swing.JOptionPane;
  */
 public class AddMemberWindowControl {
 
-    MemberPersistantDAO emp;
+    MemberPersistantDAO mem;
     AddMemberWindow window;
 
     public AddMemberWindowControl(AddMemberWindow window) {
 
-        emp = new MemberPersistantDAO();
+        mem = new MemberPersistantDAO();
         this.window = window;
+        setID();
         initialize();
         control();
     }
@@ -33,7 +36,7 @@ public class AddMemberWindowControl {
         window.getBtnSubmit().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //initialize();
+                setID();
                 SignUp();
             }
         });
@@ -50,6 +53,25 @@ public class AddMemberWindowControl {
             public void actionPerformed(ActionEvent e) {
                 signupGuarantorPage();
             }
+        });
+
+        window.getTxtContactNumber().addKeyListener(new KeyAdapter() {
+
+            @Override
+            public void keyTyped(KeyEvent e) {
+                if (!txtValidate(window.getTxtContactNumber().getText(),e.getKeyChar(),10)) {
+                    e.consume();
+                }
+            }
+        });
+        
+        window.getTxtId().addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyTyped(KeyEvent e) {
+                if (!idValidate(e.getKeyChar()))
+                    e.consume();
+                }
+        
         });
 
     }
@@ -77,7 +99,7 @@ public class AddMemberWindowControl {
         boolean memberStatus = window.getCheckMemberStatus().isSelected();
 
         Member member = new Member(id, name, contactno, address, memberStatus);
-        emp.addMember(member);
+        mem.addMember(member);
 
         if (member != null) {
             JOptionPane.showMessageDialog(window.getComponent(0), "Member Added!", "Success", JOptionPane.INFORMATION_MESSAGE);
@@ -87,6 +109,19 @@ public class AddMemberWindowControl {
         }
     }
 
+    private boolean txtValidate(String text, char c,int size) {
+        if (!Character.isDigit(c)) return false;
+        return ((text + c).length() <= size);
+    }
+    
+      private boolean idValidate(char c) {
+        return Character.isDigit(c);
+    }
+
+       private void setID() {
+        window.getLblId().setText(String.valueOf(mem.setId() + 1));
+    }
+      
     private void initialize() {
 
         try {

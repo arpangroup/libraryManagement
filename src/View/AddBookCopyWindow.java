@@ -42,6 +42,7 @@ public class AddBookCopyWindow extends javax.swing.JFrame {
         btnSubmit = new javax.swing.JButton();
         btnHome = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
+        lblId = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -91,6 +92,8 @@ public class AddBookCopyWindow extends javax.swing.JFrame {
         getContentPane().add(btnHome, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 60, -1, -1));
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel1.add(lblId, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 214, 80, 20));
+
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 520, 310));
 
         pack();
@@ -142,6 +145,10 @@ public class AddBookCopyWindow extends javax.swing.JFrame {
         return txtBookId;
     }
 
+    public JLabel getLblId() {
+        return lblId;
+    }
+
    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -154,6 +161,7 @@ public class AddBookCopyWindow extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblAddBookCopy;
     private javax.swing.JLabel lblDate;
+    private javax.swing.JLabel lblId;
     private javax.swing.JLabel lblTime;
     private javax.swing.JLabel lblWelcome;
     private javax.swing.JTextField txtBookCopyId;

@@ -117,14 +117,14 @@ public class BookPersistantDAO implements BookDAO {
             rs = pst.executeQuery();
 
             while (rs.next()) {
-                
+
                 int bookId = rs.getInt("bookId");
                 bookName = rs.getString("bookName");
                 String ISBN = rs.getString("isbn");
                 String author = rs.getString("bookAuthor");
                 String publisher = rs.getString("bookPublisher");
                 int noBooks = rs.getInt("bookNumber");
-                String language=rs.getString("bookLanguage");
+                String language = rs.getString("bookLanguage");
                 bookSearchID = new Book(bookId, bookName, ISBN, author, publisher, noBooks, language);
                 list.add(bookSearchID);
             }
@@ -134,9 +134,15 @@ public class BookPersistantDAO implements BookDAO {
             bookSearchID = null;
         } finally {
             try {
-                if(rs!=null)rs.close();
-                if(pst!=null)pst.close();
-                if(con!=null)con.close();
+                if (rs != null) {
+                    rs.close();
+                }
+                if (pst != null) {
+                    pst.close();
+                }
+                if (con != null) {
+                    con.close();
+                }
             } catch (SQLException ex) {
                 Logger.getLogger(BookPersistantDAO.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -258,6 +264,43 @@ public class BookPersistantDAO implements BookDAO {
 
         return list;
 
+    }
+
+    @Override
+    public int setId() {
+        int setId = 0;
+
+        String sqlBook = "SELECT COUNT(BookId) FROM Employee";
+        Connection conBook = null;
+        PreparedStatement pstBook = null;
+        ResultSet rsBook = null;
+
+        try {
+            conBook = DBconnectionProject.connect();
+            pstBook = conBook.prepareStatement(sqlBook);
+            rsBook = pstBook.executeQuery();
+
+            if (rsBook.next()) {
+                setId = rsBook.getInt(1);
+            }
+
+        } catch (SQLException ex) {
+        } finally {
+            try {
+                rsBook.close();
+                pstBook.close();
+                conBook.close();
+
+            } catch (SQLException ex) {
+                Logger.getLogger(BookPersistantDAO.class
+                        .getName()).log(Level.SEVERE, null, ex);
+                Logger
+                        .getLogger(BookPersistantDAO.class
+                                .getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+
+        return setId;
     }
 
 }

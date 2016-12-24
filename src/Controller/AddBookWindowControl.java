@@ -40,6 +40,7 @@ public class AddBookWindowControl {
             public void actionPerformed(ActionEvent e) {
                 try {
                     initialize();
+                    setID();
                     SignUp();
                 } catch (ParseException ex) {
                     Logger.getLogger(AddBookWindowControl.class.getName()).log(Level.SEVERE, null, ex);
@@ -95,6 +96,10 @@ public class AddBookWindowControl {
 
             JOptionPane.showMessageDialog(window.getComponent(0), "Book not Added!", "Unsuccessful", JOptionPane.ERROR_MESSAGE);
         }
+    }
+    
+     private void setID() {
+        window.getLblId().setText(String.valueOf(book.setId() + 1));
     }
 
     private void initialize() {

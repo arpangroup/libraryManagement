@@ -2,6 +2,7 @@
 package View;
 
 import javax.swing.JCheckBox;
+import javax.swing.JLabel;
 
 /**
  *
@@ -46,6 +47,7 @@ public class AddMemberWindow extends javax.swing.JFrame {
         btnHome = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
+        lblId = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -102,6 +104,7 @@ public class AddMemberWindow extends javax.swing.JFrame {
 
         jLabel5.setText("Address:");
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 250, 90, 32));
+        jPanel1.add(lblId, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 214, 80, 20));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 560, 430));
 
@@ -133,6 +136,7 @@ public class AddMemberWindow extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblAddUser;
     private javax.swing.JLabel lblDate;
+    private javax.swing.JLabel lblId;
     private javax.swing.JLabel lblTime;
     private javax.swing.JLabel lblWelcome;
     private javax.swing.JTextField txtAddress;
@@ -210,4 +214,10 @@ public class AddMemberWindow extends javax.swing.JFrame {
     public javax.swing.JButton getBtnAddGuarantor() {
         return btnAddGuarantor;
     }
+
+    public JLabel getLblId() {
+        return lblId;
+    }
+    
+    
 }

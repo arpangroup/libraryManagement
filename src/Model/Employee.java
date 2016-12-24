@@ -5,14 +5,14 @@ public class Employee {
     
     private int userId;
     private String userName;
-    private String userContactNo;
+    private int userContactNo;
     private String userAddress;
     private String username;
     private String userPassword;
     private String userAccess;
 
  
-    public Employee(int userId, String userName,String userContactNo, String userAddress, String username,String userPassword, String userAccess ){
+    public Employee(int userId, String userName,int userContactNo, String userAddress, String username,String userPassword, String userAccess ){
                 this.userId=userId;
                 this.userName=userName;
                 this.userContactNo=userContactNo;
@@ -56,14 +56,14 @@ public class Employee {
     /**
      * @return the userContactNo
      */
-    public String getUserContactNo() {
+    public int getUserContactNo() {
         return userContactNo;
     }
 
     /**
      * @param userContactNo the userContactNo to set
      */
-    public void setUserContactNo(String userContactNo) {
+    public void setUserContactNo(int userContactNo) {
         this.userContactNo = userContactNo;
     }
 

@@ -53,6 +53,7 @@ public class AddBookWindow extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
         txtLanguage = new javax.swing.JTextField();
+        lblId = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -118,6 +119,7 @@ public class AddBookWindow extends javax.swing.JFrame {
         jLabel9.setText("Language:");
         jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 290, 90, 20));
         jPanel1.add(txtLanguage, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 290, 219, -1));
+        jPanel1.add(lblId, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 214, 80, 20));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 580, 410));
 
@@ -187,6 +189,10 @@ public class AddBookWindow extends javax.swing.JFrame {
         return txtPublisher;
     }
 
+    public JLabel getLblId() {
+        return lblId;
+    }
+
    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -203,6 +209,7 @@ public class AddBookWindow extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblAddBook;
     private javax.swing.JLabel lblDate;
+    private javax.swing.JLabel lblId;
     private javax.swing.JLabel lblTime;
     private javax.swing.JLabel lblWelcome;
     private javax.swing.JTextField txtAuthor;

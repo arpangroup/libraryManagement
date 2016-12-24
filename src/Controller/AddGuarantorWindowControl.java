@@ -6,6 +6,8 @@ import View.AppDetails;
 import View.AddGuarantorWindow;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.swing.JOptionPane;
@@ -16,12 +18,12 @@ import javax.swing.JOptionPane;
  */
 public class AddGuarantorWindowControl {
 
-    GuarantorPersistantDAO emp;
+    GuarantorPersistantDAO gua;
     AddGuarantorWindow window;
 
     public AddGuarantorWindowControl(AddGuarantorWindow window) {
 
-        emp = new GuarantorPersistantDAO();
+        gua = new GuarantorPersistantDAO();
         this.window = window;
         initialize();
         control();
@@ -33,6 +35,7 @@ public class AddGuarantorWindowControl {
             @Override
             public void actionPerformed(ActionEvent e) {
                 initialize();
+                setID();
                 SignUp();
             }
         });
@@ -41,6 +44,24 @@ public class AddGuarantorWindowControl {
             @Override
             public void actionPerformed(ActionEvent e) {
                 Home();
+            }
+        });
+
+        window.getTxtContactNumber().addKeyListener(new KeyAdapter() {
+
+            @Override
+            public void keyTyped(KeyEvent e) {
+                if (!txtValidate(window.getTxtContactNumber().getText(), e.getKeyChar(), 10)) {
+                    e.consume();
+                }
+            }
+        });
+
+        window.getTxtId().addKeyListener(new KeyAdapter() {
+            public void keyTyped(KeyEvent e) {
+                if (!idValidate(e.getKeyChar())) {
+                    e.consume();
+                }
             }
         });
 
@@ -60,7 +81,7 @@ public class AddGuarantorWindowControl {
         String fk_memberId = window.getTxt_memberId().getText();
 
         Guarantor guarantor = new Guarantor(id, name, contactno, address, fk_memberId);
-        emp.addGuarantor(guarantor);
+        gua.addGuarantor(guarantor);
 
         if (guarantor != null) {
             JOptionPane.showMessageDialog(window.getComponent(0), "Guarantor Added!", "Success", JOptionPane.INFORMATION_MESSAGE);
@@ -68,6 +89,21 @@ public class AddGuarantorWindowControl {
 
             JOptionPane.showMessageDialog(window.getComponent(0), "Guarantor not Added!", "Unsuccessful", JOptionPane.ERROR_MESSAGE);
         }
+    }
+
+    private boolean txtValidate(String text, char c, int size) {
+        if (!Character.isDigit(c)) {
+            return false;
+        }
+        return ((text + c).length() <= size);
+    }
+
+    private boolean idValidate(char c) {
+        return Character.isDigit(c);
+    }
+    
+     private void setID() {
+        window.getLblId().setText(String.valueOf(gua.setId() + 1));
     }
 
     private void initialize() {

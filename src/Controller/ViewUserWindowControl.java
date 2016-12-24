@@ -2,7 +2,6 @@ package Controller;
 
 import DataAccess.EmployeePersistantDAO;
 import Model.Employee;
-import View.AdminPanelWindow;
 import View.AppDetails;
 import View.ViewUserWindow;
 import java.awt.event.ActionEvent;
@@ -153,7 +152,7 @@ public class ViewUserWindowControl {
         int rowNum = window.getTblSearch().getSelectedRow();
         int userid = (int) window.getTblSearch().getModel().getValueAt(rowNum, 0);
         String name = (String) window.getTblSearch().getModel().getValueAt(rowNum, 1);
-        String contactNo = (String) window.getTblSearch().getModel().getValueAt(rowNum, 2);
+        int contactNo = (int) window.getTblSearch().getModel().getValueAt(rowNum, 2);
         String address = (String) window.getTblSearch().getModel().getValueAt(rowNum, 3);
         String username = null;
         String password = null;

@@ -143,7 +143,7 @@ public class ReturnBookPersistantDAO implements ReturnBookDAO {
             rsBookCopy = pstBookCopy.executeQuery();
             rsEmployee = pstEmployee.executeQuery();
             rsBrwDate = pstBrwdate.executeQuery();
-            
+
             if (rsBookCopy.next()) {
                 bkcName = rsBookCopy.getString("bookcopyName");
                 bkcStatus = rsBookCopy.getBoolean("bookcopyStatus");
@@ -151,7 +151,7 @@ public class ReturnBookPersistantDAO implements ReturnBookDAO {
                 bkcName = null;
                 bkcStatus = false;
             }
-            
+
             if (rsMember.next()) {
                 mbrName = rsMember.getString("memberName");
                 mbrStatus = rsMember.getBoolean("memberStatus");
@@ -159,59 +159,49 @@ public class ReturnBookPersistantDAO implements ReturnBookDAO {
                 mbrName = null;
                 mbrStatus = false;
             }
-            
 
             if (rsBrwDate.next()) {
                 rtnDate = rsBrwDate.getDate("borrowDate");
             } else {
                 rtnDate = null;
             }
-            
-            
+
             if (rsEmployee.next()) {
                 empId = rsEmployee.getInt("Employee_empId");
             } else {
                 empId = 0;
             }
-            
-            
-
-        }
-    
-
-    catch (SQLException ex ) {
-            System.out.println("Exception occured");
-        ex.printStackTrace();
-    }
-
-    
-        finally {
-            try {
-            rsMember.close();
-            rsBookCopy.close();
-            rsEmployee.close();
-            rsBrwDate.close();
-
-            pstMember.close();
-            pstBookCopy.close();
-            pstEmployee.close();
-            pstBrwdate.close();
-
-            conMember.close();
-            conBookCopy.close();
-            conEmployee.close();
-            conBrwDate.close();
 
         } catch (SQLException ex) {
-            Logger.getLogger(BookCopyPersistantDAO.class.getName()).log(Level.SEVERE, null, ex);
-            Logger.getLogger(MemberPersistantDAO.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("Exception occured");
+            ex.printStackTrace();
+        } finally {
+            try {
+                rsMember.close();
+                rsBookCopy.close();
+                rsEmployee.close();
+                rsBrwDate.close();
+
+                pstMember.close();
+                pstBookCopy.close();
+                pstEmployee.close();
+                pstBrwdate.close();
+
+                conMember.close();
+                conBookCopy.close();
+                conEmployee.close();
+                conBrwDate.close();
+
+            } catch (SQLException ex) {
+                Logger.getLogger(BookCopyPersistantDAO.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(MemberPersistantDAO.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
+
     }
 
-}
-
-@Override
-        public void addReturn(ReturnBook rtnbook) {
+    @Override
+    public void addReturn(ReturnBook rtnbook) {
         String sqlReturn = "INSERT INTO returnbook VALUES(?,CURRENT_DATE,?,?,?)";
         Connection con = null;
         PreparedStatement pst = null;
@@ -231,14 +221,9 @@ public class ReturnBookPersistantDAO implements ReturnBookDAO {
 
             state = true;
 
-        
-
-
-
-} catch (SQLException ex) {
+        } catch (SQLException ex) {
             Logger.getLogger(ReturnBookDAO.class
-
-.getName()).log(Level.SEVERE, null, ex);
+                    .getName()).log(Level.SEVERE, null, ex);
             state = false;
 
         } finally {
@@ -246,20 +231,16 @@ public class ReturnBookPersistantDAO implements ReturnBookDAO {
             try {
                 pst.close();
                 con.close();
-            
 
-
-
-} catch (SQLException ex) {
+            } catch (SQLException ex) {
                 Logger.getLogger(BorrowBookDAO.class
-
-.getName()).log(Level.SEVERE, null, ex);
+                        .getName()).log(Level.SEVERE, null, ex);
             }
         }
     }
 
     @Override
-        public void updateStatus(int bookcopyId) {
+    public void updateStatus(int bookcopyId) {
         String sqlUpdate = "UPDATE bookcopy SET bookcopyStatus=? WHERE bookcopyId=?";
         Connection con = null;
         PreparedStatement pst = null;
@@ -280,25 +261,20 @@ public class ReturnBookPersistantDAO implements ReturnBookDAO {
             try {
                 pst.close();
                 con.close();
-            
 
-
-
-} catch (SQLException ex) {
+            } catch (SQLException ex) {
                 Logger.getLogger(ReturnBookPersistantDAO.class
-
-.getName()).log(Level.SEVERE, null, ex);
+                        .getName()).log(Level.SEVERE, null, ex);
             }
         }
     }
 
     @Override
-        public int getRtnId(int bookcopyId, int memberId) {
+    public int getRtnId(int bookcopyId, int memberId) {
         String sqlReturn = "SELECT returnbookId FROM returnbook WHERE  Bookcopy_bookcopyId=? and Member_memberId=?";
         Connection conReturn = null;
         PreparedStatement pstReturn = null;
         ResultSet rsReturn = null;
-        // boolean state = false;
 
         try {
             conReturn = DBconnectionProject.connect();
@@ -309,8 +285,6 @@ public class ReturnBookPersistantDAO implements ReturnBookDAO {
 
             if (rsReturn.next()) {
                 rtnId = rsReturn.getInt("returnbookId");
-
-                // state = true;
             }
 
         } catch (SQLException ex) {
@@ -319,21 +293,13 @@ public class ReturnBookPersistantDAO implements ReturnBookDAO {
                 rsReturn.close();
                 pstReturn.close();
                 conReturn.close();
-            
 
-
-
-} catch (SQLException ex) {
+            } catch (SQLException ex) {
                 Logger.getLogger(ReturnBookPersistantDAO.class
-
-.getName()).log(Level.SEVERE, null, ex);
+                        .getName()).log(Level.SEVERE, null, ex);
                 Logger
-
-
-
-.getLogger(ReturnBookPersistantDAO.class
-
-.getName()).log(Level.SEVERE, null, ex);
+                        .getLogger(ReturnBookPersistantDAO.class
+                                .getName()).log(Level.SEVERE, null, ex);
             }
         }
         return rtnId;

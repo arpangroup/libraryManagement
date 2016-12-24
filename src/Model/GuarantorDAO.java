@@ -25,4 +25,7 @@ public interface GuarantorDAO {
     public boolean updateGuarantor(Guarantor guarantor);
 
     public boolean deleteGuarantor(int Id);
+    
+    public int setId();
 }
+

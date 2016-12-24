@@ -203,4 +203,42 @@ public class GuarantorPersistantDAO implements GuarantorDAO {
 
         return state;
     }
+
+    @Override
+    public int setId() {
+  int setId=0;
+        
+        String sqlGuarantor = "SELECT COUNT(GuarantorId) FROM Employee";
+        Connection conGuarantor = null;
+        PreparedStatement pstGuarantor = null;
+        ResultSet rsGuarantor = null;
+
+        try {
+            conGuarantor = DBconnectionProject.connect();
+            pstGuarantor = conGuarantor.prepareStatement(sqlGuarantor);
+            rsGuarantor = pstGuarantor.executeQuery();
+
+            if (rsGuarantor.next()) {
+           setId = rsGuarantor.getInt(1);
+            }
+
+        } catch (SQLException ex) {
+        } finally {
+            try {
+                rsGuarantor.close();
+                pstGuarantor.close();
+                conGuarantor.close();
+
+            } catch (SQLException ex) {
+                Logger.getLogger(GuarantorPersistantDAO.class
+                        .getName()).log(Level.SEVERE, null, ex);
+                Logger
+                        .getLogger(GuarantorPersistantDAO.class
+                                .getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    
+    
+        return setId;
+            }
 }

@@ -66,7 +66,6 @@ public class BookCopyPersistantDAO implements BookCopyDAO {
             pst = con.prepareStatement(sqlUpdate);
             state = true;
 
-            
             pst.setString(1, bookcopy.getBookcopyName());
             pst.setBoolean(2, bookcopy.isBookcopyStatus());
             pst.setInt(3, bookcopy.getBookcopyId());
@@ -201,6 +200,43 @@ public class BookCopyPersistantDAO implements BookCopyDAO {
         }
 
         return list;
+    }
+
+    @Override
+    public int setId() {
+        int setId = 0;
+
+        String sqlBookcopy = "SELECT COUNT(BookcopyId) FROM Employee";
+        Connection conBookcopy = null;
+        PreparedStatement pstBookcopy = null;
+        ResultSet rsBookcopy = null;
+
+        try {
+            conBookcopy = DBconnectionProject.connect();
+            pstBookcopy = conBookcopy.prepareStatement(sqlBookcopy);
+            rsBookcopy = pstBookcopy.executeQuery();
+
+            if (rsBookcopy.next()) {
+                setId = rsBookcopy.getInt(1);
+            }
+
+        } catch (SQLException ex) {
+        } finally {
+            try {
+                rsBookcopy.close();
+                pstBookcopy.close();
+                conBookcopy.close();
+
+            } catch (SQLException ex) {
+                Logger.getLogger(BookCopyPersistantDAO.class
+                        .getName()).log(Level.SEVERE, null, ex);
+                Logger
+                        .getLogger(BookCopyPersistantDAO.class
+                                .getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+
+        return setId;
     }
 
 }

@@ -27,4 +27,6 @@ public interface MemberDAO {
 
     public boolean deleteMember(int Id);
     
+    public int setId();
+    
 }

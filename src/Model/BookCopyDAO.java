@@ -18,5 +18,6 @@ public interface BookCopyDAO {
 
     public ArrayList<BookCopy> searchBookCopyByName(String bookName);
 
+    public int setId();
 
 }

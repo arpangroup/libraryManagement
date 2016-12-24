@@ -2,6 +2,7 @@
 
 package View;
 
+import javax.swing.JLabel;
 import javax.swing.JTextField;
 
 /**
@@ -44,6 +45,7 @@ public class AddGuarantorWindow extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         lbl_fk = new javax.swing.JLabel();
+        lblId = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -98,6 +100,7 @@ public class AddGuarantorWindow extends javax.swing.JFrame {
 
         lbl_fk.setText("MemberId:");
         jPanel2.add(lbl_fk, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 290, 90, 32));
+        jPanel2.add(lblId, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 214, 80, 20));
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 560, 380));
 
@@ -125,6 +128,7 @@ public class AddGuarantorWindow extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel lblAddUser;
     private javax.swing.JLabel lblDate;
+    private javax.swing.JLabel lblId;
     private javax.swing.JLabel lblTime;
     private javax.swing.JLabel lblWelcome;
     private javax.swing.JLabel lbl_fk;
@@ -208,5 +212,11 @@ public class AddGuarantorWindow extends javax.swing.JFrame {
    public JTextField getTxt_memberId() {
         return txt_memberId;
     }
+
+    public JLabel getLblId() {
+        return lblId;
+    }
+   
+   
 
 }
