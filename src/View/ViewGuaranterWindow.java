@@ -5,6 +5,8 @@
  */
 package View;
 
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import javax.swing.JTable;
 
 /**
@@ -18,6 +20,8 @@ public class ViewGuaranterWindow extends javax.swing.JFrame {
      */
     public ViewGuaranterWindow() {
         initComponents();
+        Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+        this.setLocation(dim.width/2-this.getSize().width/2, dim.height/2-this.getSize().height/2);
     }
 
     /**
@@ -35,8 +39,9 @@ public class ViewGuaranterWindow extends javax.swing.JFrame {
         checkGuarantorName = new javax.swing.JCheckBox();
         txtSearchGuarantor = new javax.swing.JTextField();
         btnSearchGuarantor = new javax.swing.JButton();
-        btnDeleteGuarantor = new javax.swing.JButton();
         btnUpdateGuarantor = new javax.swing.JButton();
+        btnDeleteGuarantor = new javax.swing.JButton();
+        btnHome = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblSearch = new javax.swing.JTable();
@@ -46,7 +51,6 @@ public class ViewGuaranterWindow extends javax.swing.JFrame {
         lblTime = new javax.swing.JLabel();
         lblDate = new javax.swing.JLabel();
         lblWelcome = new javax.swing.JLabel();
-        btnHome = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -82,6 +86,14 @@ public class ViewGuaranterWindow extends javax.swing.JFrame {
         });
         getContentPane().add(btnSearchGuarantor, new org.netbeans.lib.awtextra.AbsoluteConstraints(331, 102, 106, -1));
 
+        btnUpdateGuarantor.setText("Update");
+        btnUpdateGuarantor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUpdateGuarantorActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnUpdateGuarantor, new org.netbeans.lib.awtextra.AbsoluteConstraints(228, 329, 209, 30));
+
         btnDeleteGuarantor.setText("Delete");
         btnDeleteGuarantor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -90,13 +102,13 @@ public class ViewGuaranterWindow extends javax.swing.JFrame {
         });
         getContentPane().add(btnDeleteGuarantor, new org.netbeans.lib.awtextra.AbsoluteConstraints(8, 329, 210, 30));
 
-        btnUpdateGuarantor.setText("Update");
-        btnUpdateGuarantor.addActionListener(new java.awt.event.ActionListener() {
+        btnHome.setText("Home");
+        btnHome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnUpdateGuarantorActionPerformed(evt);
+                btnHomeActionPerformed(evt);
             }
         });
-        getContentPane().add(btnUpdateGuarantor, new org.netbeans.lib.awtextra.AbsoluteConstraints(228, 329, 209, 30));
+        getContentPane().add(btnHome, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 100, 132, -1));
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -165,14 +177,6 @@ public class ViewGuaranterWindow extends javax.swing.JFrame {
 
         lblWelcome.setText("Welcome: User name");
         jPanel1.add(lblWelcome, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 150, -1, 20));
-
-        btnHome.setText("Home");
-        btnHome.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnHomeActionPerformed(evt);
-            }
-        });
-        jPanel1.add(btnHome, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 100, 132, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 630, 400));
 

@@ -42,8 +42,8 @@ public class ViewUserWindow extends javax.swing.JFrame {
         checkName = new javax.swing.JCheckBox();
         txtSearchUser = new javax.swing.JTextField();
         btnSearchUser = new javax.swing.JButton();
-        btnDeleteUser = new javax.swing.JButton();
         btnUpdateUser = new javax.swing.JButton();
+        btnDeleteUser = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblSearch = new javax.swing.JTable();
         jPanel2 = new javax.swing.JPanel();
@@ -97,14 +97,6 @@ public class ViewUserWindow extends javax.swing.JFrame {
         });
         getContentPane().add(btnSearchUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(331, 102, 106, -1));
 
-        btnDeleteUser.setText("Delete");
-        btnDeleteUser.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnDeleteUserActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnDeleteUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 340, 208, -1));
-
         btnUpdateUser.setText("Update");
         btnUpdateUser.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -112,6 +104,14 @@ public class ViewUserWindow extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnUpdateUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 340, 209, -1));
+
+        btnDeleteUser.setText("Delete");
+        btnDeleteUser.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeleteUserActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnDeleteUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 340, 208, -1));
 
         tblSearch.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {

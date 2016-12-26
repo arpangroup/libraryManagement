@@ -5,13 +5,16 @@
  */
 package View;
 
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import javax.swing.JButton;
 
 public class AdminPanelWindow extends javax.swing.JFrame {
     
     public AdminPanelWindow() {
         initComponents();
-
+        Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+        this.setLocation(dim.width/2-this.getSize().width/2, dim.height/2-this.getSize().height/2);
     }
     
     @SuppressWarnings("unchecked")
@@ -20,9 +23,9 @@ public class AdminPanelWindow extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jTextField1 = new javax.swing.JTextField();
-        btnAddUser = new javax.swing.JButton();
-        btnAddMember = new javax.swing.JButton();
         btnAddBook = new javax.swing.JButton();
+        btnAddMember = new javax.swing.JButton();
+        btnAddUser = new javax.swing.JButton();
         btnViewBook = new javax.swing.JButton();
         btnViewMember = new javax.swing.JButton();
         btnViewUser = new javax.swing.JButton();
@@ -54,14 +57,14 @@ public class AdminPanelWindow extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btnAddUser.setText("Add User");
-        getContentPane().add(btnAddUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(418, 88, 133, 43));
+        btnAddBook.setText("Add Book");
+        getContentPane().add(btnAddBook, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 88, 133, 43));
 
         btnAddMember.setText("Add Member");
         getContentPane().add(btnAddMember, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 88, 133, 43));
 
-        btnAddBook.setText("Add Book");
-        getContentPane().add(btnAddBook, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 88, 133, 43));
+        btnAddUser.setText("Add User");
+        getContentPane().add(btnAddUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(418, 88, 133, 43));
 
         btnViewBook.setText("View Book");
         getContentPane().add(btnViewBook, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 159, 133, 43));

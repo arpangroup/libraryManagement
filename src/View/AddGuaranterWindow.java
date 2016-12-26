@@ -2,6 +2,8 @@
 
 package View;
 
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
@@ -14,6 +16,8 @@ public class AddGuaranterWindow extends javax.swing.JFrame {
     /** Creates new form SignUpGuarantorWindow */
     public AddGuaranterWindow() {
         initComponents();
+        Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+        this.setLocation(dim.width/2-this.getSize().width/2, dim.height/2-this.getSize().height/2);
     }
 
     
@@ -36,6 +40,7 @@ public class AddGuaranterWindow extends javax.swing.JFrame {
         txtAddress = new javax.swing.JTextField();
         txt_memberId = new javax.swing.JTextField();
         btnSubmit = new javax.swing.JButton();
+        btnHome = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         lbl_fk = new javax.swing.JLabel();
@@ -43,7 +48,6 @@ public class AddGuaranterWindow extends javax.swing.JFrame {
         lblTime = new javax.swing.JLabel();
         lblDate = new javax.swing.JLabel();
         lblWelcome = new javax.swing.JLabel();
-        btnHome = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         lblSearchUser = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
@@ -72,6 +76,14 @@ public class AddGuaranterWindow extends javax.swing.JFrame {
         });
         getContentPane().add(btnSubmit, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 340, 170, -1));
 
+        btnHome.setText("Home");
+        btnHome.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnHomeActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnHome, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 110, -1, -1));
+
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel4.setText("Address:");
@@ -89,14 +101,6 @@ public class AddGuaranterWindow extends javax.swing.JFrame {
 
         lblWelcome.setText("Welcome: User name");
         jPanel2.add(lblWelcome, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 160, -1, -1));
-
-        btnHome.setText("Home");
-        btnHome.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnHomeActionPerformed(evt);
-            }
-        });
-        jPanel2.add(btnHome, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 110, -1, -1));
 
         jPanel3.setBackground(new java.awt.Color(153, 153, 153));
 

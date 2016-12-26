@@ -5,6 +5,8 @@
  */
 package View;
 
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JLabel;
@@ -22,6 +24,8 @@ public class ViewBookCopyWindow extends javax.swing.JFrame {
      */
     public ViewBookCopyWindow() {
         initComponents();
+        Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+        this.setLocation(dim.width/2-this.getSize().width/2, dim.height/2-this.getSize().height/2);
     }
 
     /**
@@ -42,6 +46,7 @@ public class ViewBookCopyWindow extends javax.swing.JFrame {
         btnSearch = new javax.swing.JButton();
         btnUpdateBookCopy = new javax.swing.JButton();
         btnDeleteBookCopy = new javax.swing.JButton();
+        btnHome = new javax.swing.JButton();
         lblSearchFrom = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
@@ -49,7 +54,6 @@ public class ViewBookCopyWindow extends javax.swing.JFrame {
         lblWelcome = new javax.swing.JLabel();
         lblDate = new javax.swing.JLabel();
         lblTime = new javax.swing.JLabel();
-        btnHome = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -125,6 +129,14 @@ public class ViewBookCopyWindow extends javax.swing.JFrame {
         });
         getContentPane().add(btnDeleteBookCopy, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 310, 210, 30));
 
+        btnHome.setText("Home");
+        btnHome.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnHomeActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnHome, new org.netbeans.lib.awtextra.AbsoluteConstraints(512, 100, 110, -1));
+
         lblSearchFrom.setText("Search By");
         getContentPane().add(lblSearchFrom, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 66, 60, 30));
 
@@ -163,14 +175,6 @@ public class ViewBookCopyWindow extends javax.swing.JFrame {
 
         lblTime.setText("Time:");
         jPanel1.add(lblTime, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 220, 90, 20));
-
-        btnHome.setText("Home");
-        btnHome.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnHomeActionPerformed(evt);
-            }
-        });
-        jPanel1.add(btnHome, new org.netbeans.lib.awtextra.AbsoluteConstraints(512, 100, 110, -1));
 
         jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
         jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(485, 106, 10, 240));

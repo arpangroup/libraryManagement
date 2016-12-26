@@ -1,6 +1,8 @@
 package View;
 
+import java.awt.Dimension;
 import java.awt.Image;
+import java.awt.Toolkit;
 import javax.swing.ImageIcon;
 
 /**
@@ -13,7 +15,8 @@ public class LoginWindow extends javax.swing.JFrame {
         initComponents();
         ImageIcon imageIcon = new ImageIcon(new ImageIcon("C:\\Users\\Wishwa\\Desktop\\llogo.png").getImage().getScaledInstance(120, 100, Image.SCALE_DEFAULT));
         jLabel2.setIcon(imageIcon);
-
+        Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+        this.setLocation(dim.width/2-this.getSize().width/2, dim.height/2-this.getSize().height/2);
     }
 
     @SuppressWarnings("unchecked")

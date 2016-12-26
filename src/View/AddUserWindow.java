@@ -1,5 +1,7 @@
 package View;
 
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import javax.swing.JLabel;
 
 /**
@@ -13,7 +15,8 @@ public class AddUserWindow extends javax.swing.JFrame {
      */
     public AddUserWindow() {
         initComponents();
-
+        Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+        this.setLocation(dim.width/2-this.getSize().width/2, dim.height/2-this.getSize().height/2);
        
     }
 
@@ -29,6 +32,8 @@ public class AddUserWindow extends javax.swing.JFrame {
         txtUserName = new javax.swing.JTextField();
         txtPassword = new javax.swing.JTextField();
         txtClearance = new javax.swing.JTextField();
+        btnSubmit = new javax.swing.JButton();
+        btnHome = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
@@ -38,10 +43,8 @@ public class AddUserWindow extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         lblWelcome = new javax.swing.JLabel();
         lblId = new javax.swing.JLabel();
-        btnSubmit = new javax.swing.JButton();
         lblTime = new javax.swing.JLabel();
         lblDate = new javax.swing.JLabel();
-        btnHome = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         lblSearchUser = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
@@ -59,6 +62,22 @@ public class AddUserWindow extends javax.swing.JFrame {
         jPanel1.add(txtUserName, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 280, 219, 32));
         jPanel1.add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 330, 219, 32));
         jPanel1.add(txtClearance, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 380, 219, 32));
+
+        btnSubmit.setText("Submit");
+        btnSubmit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSubmitActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnSubmit, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 240, 170, -1));
+
+        btnHome.setText("Home");
+        btnHome.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnHomeActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnHome, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 100, -1, -1));
 
         jLabel3.setText("Contact Number:");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, 90, 32));
@@ -84,27 +103,11 @@ public class AddUserWindow extends javax.swing.JFrame {
         jPanel2.add(lblWelcome, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 130, -1, -1));
         jPanel2.add(lblId, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 70, 220, 30));
 
-        btnSubmit.setText("Submit");
-        btnSubmit.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSubmitActionPerformed(evt);
-            }
-        });
-        jPanel2.add(btnSubmit, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 240, 170, -1));
-
         lblTime.setText("Time:");
         jPanel2.add(lblTime, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 180, 114, 28));
 
         lblDate.setText("Date:");
         jPanel2.add(lblDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 150, 114, 28));
-
-        btnHome.setText("Home");
-        btnHome.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnHomeActionPerformed(evt);
-            }
-        });
-        jPanel2.add(btnHome, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 100, -1, -1));
 
         jPanel3.setBackground(new java.awt.Color(153, 153, 153));
 

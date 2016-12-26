@@ -5,6 +5,8 @@
  */
 package View;
 
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JLabel;
@@ -22,6 +24,8 @@ public class ViewBookWindow extends javax.swing.JFrame {
      */
     public ViewBookWindow() {
         initComponents();
+        Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+        this.setLocation(dim.width/2-this.getSize().width/2, dim.height/2-this.getSize().height/2);
     }
 
     /**
@@ -41,9 +45,9 @@ public class ViewBookWindow extends javax.swing.JFrame {
         checkBookName = new javax.swing.JCheckBox();
         txtSearchBook = new javax.swing.JTextField();
         btnSearchBook = new javax.swing.JButton();
-        btnViewBookCopy = new javax.swing.JButton();
-        btnDeleteBook = new javax.swing.JButton();
         btnUpdateBook = new javax.swing.JButton();
+        btnDeleteBook = new javax.swing.JButton();
+        btnViewBookCopy = new javax.swing.JButton();
         btnHome = new javax.swing.JButton();
         lblWelcome = new javax.swing.JLabel();
         lblDate = new javax.swing.JLabel();
@@ -106,8 +110,13 @@ public class ViewBookWindow extends javax.swing.JFrame {
         });
         getContentPane().add(btnSearchBook, new org.netbeans.lib.awtextra.AbsoluteConstraints(313, 102, 106, -1));
 
-        btnViewBookCopy.setText("View Book Copy");
-        getContentPane().add(btnViewBookCopy, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 100, 147, -1));
+        btnUpdateBook.setText("Update");
+        btnUpdateBook.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUpdateBookActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnUpdateBook, new org.netbeans.lib.awtextra.AbsoluteConstraints(248, 371, 167, -1));
 
         btnDeleteBook.setText("Delete");
         btnDeleteBook.addActionListener(new java.awt.event.ActionListener() {
@@ -117,13 +126,8 @@ public class ViewBookWindow extends javax.swing.JFrame {
         });
         getContentPane().add(btnDeleteBook, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 371, 165, -1));
 
-        btnUpdateBook.setText("Update");
-        btnUpdateBook.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnUpdateBookActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnUpdateBook, new org.netbeans.lib.awtextra.AbsoluteConstraints(248, 371, 167, -1));
+        btnViewBookCopy.setText("View Book Copy");
+        getContentPane().add(btnViewBookCopy, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 100, 147, -1));
 
         btnHome.setText("Home");
         btnHome.addActionListener(new java.awt.event.ActionListener() {

@@ -1,6 +1,9 @@
 
 package View;
 
+import java.awt.Dimension;
+import java.awt.Toolkit;
+
 /**
  *
  * @author Wishwa
@@ -12,6 +15,8 @@ public class ViewMemberWindow extends javax.swing.JFrame {
      */
     public ViewMemberWindow() {
         initComponents();
+        Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+        this.setLocation(dim.width/2-this.getSize().width/2, dim.height/2-this.getSize().height/2);
     }
 
     /**
@@ -34,9 +39,9 @@ public class ViewMemberWindow extends javax.swing.JFrame {
         checkMemberName = new javax.swing.JCheckBox();
         txtSearchMember = new javax.swing.JTextField();
         btnSearchMember = new javax.swing.JButton();
-        btnViewGuarantor = new javax.swing.JButton();
-        btnDeleteMember = new javax.swing.JButton();
         btnUpdateMember = new javax.swing.JButton();
+        btnDeleteMember = new javax.swing.JButton();
+        btnViewGuarantor = new javax.swing.JButton();
         btnHome = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
@@ -110,8 +115,13 @@ public class ViewMemberWindow extends javax.swing.JFrame {
         });
         getContentPane().add(btnSearchMember, new org.netbeans.lib.awtextra.AbsoluteConstraints(331, 102, 106, -1));
 
-        btnViewGuarantor.setText("View Guarantor");
-        getContentPane().add(btnViewGuarantor, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 210, 120, -1));
+        btnUpdateMember.setText("Update");
+        btnUpdateMember.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUpdateMemberActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnUpdateMember, new org.netbeans.lib.awtextra.AbsoluteConstraints(228, 329, 209, 30));
 
         btnDeleteMember.setText("Delete");
         btnDeleteMember.addActionListener(new java.awt.event.ActionListener() {
@@ -121,13 +131,8 @@ public class ViewMemberWindow extends javax.swing.JFrame {
         });
         getContentPane().add(btnDeleteMember, new org.netbeans.lib.awtextra.AbsoluteConstraints(8, 329, 210, 30));
 
-        btnUpdateMember.setText("Update");
-        btnUpdateMember.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnUpdateMemberActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnUpdateMember, new org.netbeans.lib.awtextra.AbsoluteConstraints(228, 329, 209, 30));
+        btnViewGuarantor.setText("View Guarantor");
+        getContentPane().add(btnViewGuarantor, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 210, 120, -1));
 
         btnHome.setText("Home");
         btnHome.addActionListener(new java.awt.event.ActionListener() {

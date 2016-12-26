@@ -1,6 +1,8 @@
 
 package View;
 
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JLabel;
@@ -17,6 +19,8 @@ public class AddBookCopyWindow extends javax.swing.JFrame {
      */
     public AddBookCopyWindow() {
         initComponents();
+        Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+        this.setLocation(dim.width/2-this.getSize().width/2, dim.height/2-this.getSize().height/2);
     }
 
     /**
@@ -35,12 +39,12 @@ public class AddBookCopyWindow extends javax.swing.JFrame {
         txtBookId = new javax.swing.JTextField();
         checkBookCopyStatus = new javax.swing.JCheckBox();
         btnSubmit = new javax.swing.JButton();
+        btnHome = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         lblId = new javax.swing.JLabel();
         lblTime = new javax.swing.JLabel();
         lblDate = new javax.swing.JLabel();
         lblWelcome = new javax.swing.JLabel();
-        btnHome = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         lblSearchUser = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
@@ -70,6 +74,14 @@ public class AddBookCopyWindow extends javax.swing.JFrame {
         });
         getContentPane().add(btnSubmit, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 240, 170, -1));
 
+        btnHome.setText("Home");
+        btnHome.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnHomeActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnHome, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 90, -1, -1));
+
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         jPanel1.add(lblId, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 110, 220, 20));
 
@@ -81,14 +93,6 @@ public class AddBookCopyWindow extends javax.swing.JFrame {
 
         lblWelcome.setText("Welcome: User name");
         jPanel1.add(lblWelcome, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 120, -1, -1));
-
-        btnHome.setText("Home");
-        btnHome.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnHomeActionPerformed(evt);
-            }
-        });
-        jPanel1.add(btnHome, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 90, -1, -1));
 
         jPanel3.setBackground(new java.awt.Color(153, 153, 153));
 
