@@ -36,6 +36,7 @@ public class AdminPanelWindow extends javax.swing.JFrame {
         lblDate = new javax.swing.JLabel();
         lblTime = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
+        jLabel1 = new javax.swing.JLabel();
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -97,6 +98,9 @@ public class AdminPanelWindow extends javax.swing.JFrame {
         jPanel2.add(lblTime, new org.netbeans.lib.awtextra.AbsoluteConstraints(476, 45, 114, 28));
         jPanel2.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 310, 541, 10));
 
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/llogo.png"))); // NOI18N
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 70, 170, 340));
+
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 610, 430));
 
         pack();
@@ -112,6 +116,7 @@ public class AdminPanelWindow extends javax.swing.JFrame {
     private javax.swing.JButton btnViewBook;
     private javax.swing.JButton btnViewMember;
     private javax.swing.JButton btnViewUser;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JSeparator jSeparator1;

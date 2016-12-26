@@ -1,5 +1,8 @@
 package View;
 
+import java.awt.Image;
+import javax.swing.ImageIcon;
+
 /**
  *
  * @author Wishwa
@@ -8,6 +11,8 @@ public class LoginWindow extends javax.swing.JFrame {
 
     public LoginWindow() {
         initComponents();
+        ImageIcon imageIcon = new ImageIcon(new ImageIcon("C:\\Users\\Wishwa\\Desktop\\llogo.png").getImage().getScaledInstance(120, 100, Image.SCALE_DEFAULT));
+        jLabel2.setIcon(imageIcon);
 
     }
 
@@ -23,7 +28,7 @@ public class LoginWindow extends javax.swing.JFrame {
         txtUsername = new javax.swing.JTextField();
         txtPassword = new javax.swing.JPasswordField();
         btnLogin = new javax.swing.JButton();
-        icon = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -54,8 +59,8 @@ public class LoginWindow extends javax.swing.JFrame {
         });
         jPanel1.add(btnLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 180, 110, 40));
 
-        icon.setIcon(new javax.swing.ImageIcon("C:\\Users\\Wishwa\\Downloads\\wwq.png_128x128.png")); // NOI18N
-        jPanel1.add(icon, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 190, 120, 90));
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/llogo.png"))); // NOI18N
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 180, 120, 100));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 300));
 
@@ -73,8 +78,8 @@ public class LoginWindow extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnLogin;
-    private javax.swing.JLabel icon;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblPassword;
