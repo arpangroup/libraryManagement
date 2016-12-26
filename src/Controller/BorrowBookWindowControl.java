@@ -25,12 +25,14 @@ public class BorrowBookWindowControl {
     BorrowBookWindow window;
     int bkId = 0;
     int mbId = 0;
+    BorrowBook borrowbook;
 
     public BorrowBookWindowControl(BorrowBookWindow window) {
 
         brw = new BorrowBookPersistantDAO();
         this.window = window;
         initialize();
+        setID();
         window.getBtnSubmit().setEnabled(false);
         control();
     }
@@ -87,31 +89,38 @@ public class BorrowBookWindowControl {
         window.dispose();
 
     }
+    
+       private void setID() {
+        window.getLblId().setText(String.valueOf(brw.setId() + 1));
+    }
 
     private void info() {
 
         try {
             bkId = Integer.parseInt(window.getTxtBookCopyId().getText());
             mbId = Integer.parseInt(window.getTxtMemberId().getText());
-            brw.validate(bkId, mbId);
+            borrowbook = brw.validate(bkId, mbId);
         } catch (NumberFormatException ee) {
 
             JOptionPane.showMessageDialog(window.getComponent(0), "Not Valid Details!", "Unsuccessful", JOptionPane.WARNING_MESSAGE);
 
         }
 
-        if (brw.getBkcName() == null) {
+        if (borrowbook.getBkcName() == null) {
             JOptionPane.showMessageDialog(window.getComponent(0), "Book Copy Not Exist!", "Unsuccessful", JOptionPane.ERROR_MESSAGE);
 
-        } else if (brw.getMbrName() == null) {
+        } else if (borrowbook.getMbrName() == null) {
             JOptionPane.showMessageDialog(window.getComponent(0), "Member Not Exist!", "Unsuccessful", JOptionPane.ERROR_MESSAGE);
 
-        } else if (brw.isMbrStatus() == false) {
+        }else if(borrowbook.isBkcStatus() == false){
+            JOptionPane.showMessageDialog(window.getComponent(0), "Book copy not available!", "Unsuccessful", JOptionPane.ERROR_MESSAGE);
+
+        } else if (borrowbook.isMbrStatus() == false) {
             JOptionPane.showMessageDialog(window.getComponent(0), "Member Blacklisted!", "Unsuccessful", JOptionPane.ERROR_MESSAGE);
 
         } else {
-            window.getLblBookName().setText("Book Name: " + brw.getBkcName());
-            window.getLblMemberName().setText("Member Name: " + brw.getMbrName());
+            window.getLblBookName().setText("Book Name: " + borrowbook.getBkcName());
+            window.getLblMemberName().setText("Member Name: " + borrowbook.getMbrName());
             // brw.updateStatus(bkId);
             JOptionPane.showMessageDialog(window.getComponent(0), "Validated", "Successful", JOptionPane.INFORMATION_MESSAGE);
 
@@ -138,8 +147,8 @@ public class BorrowBookWindowControl {
         brw.addBorrow(borrowbook);
         if (borrowbook != null) {
 
-            window.getLblId().setText(String.valueOf(brw.getBrwId(bookcopyId, memberId)));
             JOptionPane.showMessageDialog(window.getComponent(0), "Borrow Added!", "Success", JOptionPane.INFORMATION_MESSAGE);
+            window.getBtnSubmit().setEnabled(false);
         } else {
 
             JOptionPane.showMessageDialog(window.getComponent(0), "Borrow not Added!", "Unsuccessful", JOptionPane.ERROR_MESSAGE);

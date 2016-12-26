@@ -1,13 +1,13 @@
 package DataAccess;
 
-import Model.Employee;
-import Model.EmployeeDAO;
+import Model.Fine;
 import Model.FineDAO;
 import java.sql.PreparedStatement;
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -17,60 +17,45 @@ import java.util.logging.Logger;
  */
 public class FinePersistantDAO implements FineDAO {
 
-    private Date returnDay;
-    private int fineDays;
-    private double fineAmount;
-    private String bookcopyName;
-
-    public Date getReturnDay() {
-        return returnDay;
-    }
-
-    public int getFineDays() {
-        return fineDays;
-    }
-
-    public double getFineAmount() {
-        return fineAmount;
-    }
-
-    public String getBookcopyName() {
-        return bookcopyName;
-    }
+    int setId = 0;
 
     @Override
-    public void fineOnMember(int Id) {
-        String sqlFine = "SELECT * FROM Fine,ReturnBook,Bookcopy WHERE ReturnBook_returnbookId=ReturnbookId and Bookcopy_bookcopyId=bookcopyId and Member_memberId=?";
+    public List<Fine> fineOnMember(int Id) {
+
+        String sqlFine = "SELECT * FROM Fine,ReturnBook,bookcopy WHERE ReturnBook_returnbookId=ReturnbookId and "
+                + "bookcopy_bookcopyId = bookcopyId and Member_memberId=?";
         Connection conFine = null;
         PreparedStatement pstFine = null;
         ResultSet rsFine = null;
-
-        ReturnBookPersistantDAO rbook = new ReturnBookPersistantDAO();
+        List<Fine> fines = null;
 
         try {
 
             conFine = DBconnectionProject.connect();
             pstFine = conFine.prepareStatement(sqlFine);
             pstFine.setInt(1, Id);
-            pstFine.executeUpdate();
+
+            pstFine.executeQuery();
 
             rsFine = pstFine.executeQuery();
+            fines = new ArrayList<>();
 
             while (rsFine.next()) {
-
-                returnDay = rsFine.getDate("returnbookDate");
-                fineDays = rsFine.getInt("overdueDays");
-                fineAmount = rsFine.getDouble("overdueFine");
-                bookcopyName = rsFine.getString("bookcopyname");
-
+                Fine ff = new Fine();
+                ff.setReturnDay(rsFine.getDate("returnbookDate"));
+                ff.setOverdueDays(rsFine.getInt("overdueDays"));
+                ff.setFineAmount(rsFine.getDouble("overdueFine"));
+                ff.setBookcopyName(rsFine.getString("bookcopyname"));
+                fines.add(ff);
             }
 
         } catch (SQLException ex) {
             Logger.getLogger(FineDAO.class.getName()).log(Level.SEVERE, null, ex);
-
+            fines = null;
         } finally {
 
             try {
+                rsFine.close();
                 pstFine.close();
                 conFine.close();
             } catch (SQLException ex) {
@@ -78,6 +63,7 @@ public class FinePersistantDAO implements FineDAO {
             }
         }
 
+        return fines;
     }
 
     @Override
@@ -139,6 +125,75 @@ public class FinePersistantDAO implements FineDAO {
                 Logger.getLogger(FineDAO.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
+    }
+
+    @Override
+    public void addFine(Fine fine) {
+
+        String sqlAdd = "INSERT INTO fine VALUES(?,?,?,?)";
+        Connection con = null;
+        PreparedStatement pst = null;
+        int id = setId();
+        System.out.println("check this: overdue days " + fine.getOverdueDays());
+
+        try {
+
+            con = DBconnectionProject.connect();
+            pst = con.prepareStatement(sqlAdd);
+            pst.setInt(1, id);
+            pst.setInt(2, fine.getOverdueDays());
+            pst.setDouble(3, fine.getFineAmount());
+            pst.setInt(4, fine.getReturnId());
+            pst.executeUpdate();
+
+        } catch (SQLException ex) {
+            Logger.getLogger(Fine.class.getName()).log(Level.SEVERE, null, ex);
+
+        } finally {
+
+            try {
+                pst.close();
+                con.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(Fine.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }
+
+    @Override
+    public int setId() {
+
+        String sqlFine = "SELECT MAX(FineId) FROM Fine";
+        Connection conFine = null;
+        PreparedStatement pstFine = null;
+        ResultSet rsFine = null;
+
+        try {
+            conFine = DBconnectionProject.connect();
+            pstFine = conFine.prepareStatement(sqlFine);
+            rsFine = pstFine.executeQuery();
+
+            if (rsFine.next()) {
+                setId = rsFine.getInt(1) + 1;
+            }
+
+        } catch (SQLException ex) {
+        } finally {
+            try {
+                rsFine.close();
+                pstFine.close();
+                conFine.close();
+
+            } catch (SQLException ex) {
+                Logger.getLogger(FinePersistantDAO.class
+                        .getName()).log(Level.SEVERE, null, ex);
+                Logger
+                        .getLogger(FinePersistantDAO.class
+                                .getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+
+        return setId;
     }
 
 }

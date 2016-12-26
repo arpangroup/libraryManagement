@@ -42,13 +42,15 @@ public class ViewBookCopyWindow extends javax.swing.JFrame {
         btnSearch = new javax.swing.JButton();
         btnUpdateBookCopy = new javax.swing.JButton();
         btnDeleteBookCopy = new javax.swing.JButton();
-        btnHome = new javax.swing.JButton();
-        lblTime = new javax.swing.JLabel();
-        lblDate = new javax.swing.JLabel();
-        lblWelcome = new javax.swing.JLabel();
         lblSearchFrom = new javax.swing.JLabel();
-        lblSearchUser = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
+        lblSearchUser = new javax.swing.JLabel();
+        lblWelcome = new javax.swing.JLabel();
+        lblDate = new javax.swing.JLabel();
+        lblTime = new javax.swing.JLabel();
+        btnHome = new javax.swing.JButton();
+        jSeparator1 = new javax.swing.JSeparator();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -123,33 +125,56 @@ public class ViewBookCopyWindow extends javax.swing.JFrame {
         });
         getContentPane().add(btnDeleteBookCopy, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 310, 210, 30));
 
+        lblSearchFrom.setText("Search By");
+        getContentPane().add(lblSearchFrom, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 66, 60, 30));
+
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel2.setBackground(new java.awt.Color(153, 153, 153));
+
+        lblSearchUser.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lblSearchUser.setForeground(new java.awt.Color(255, 255, 255));
+        lblSearchUser.setText("View Book Copy");
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(22, 22, 22)
+                .addComponent(lblSearchUser)
+                .addContainerGap(495, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addComponent(lblSearchUser)
+                .addContainerGap(24, Short.MAX_VALUE))
+        );
+
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 630, -1));
+
+        lblWelcome.setText("Welcome: User name");
+        jPanel1.add(lblWelcome, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 150, -1, -1));
+
+        lblDate.setText("Date:");
+        jPanel1.add(lblDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 190, 90, 20));
+
+        lblTime.setText("Time:");
+        jPanel1.add(lblTime, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 220, 90, 20));
+
         btnHome.setText("Home");
         btnHome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnHomeActionPerformed(evt);
             }
         });
-        getContentPane().add(btnHome, new org.netbeans.lib.awtextra.AbsoluteConstraints(472, 71, 132, -1));
+        jPanel1.add(btnHome, new org.netbeans.lib.awtextra.AbsoluteConstraints(512, 100, 110, -1));
 
-        lblTime.setText("Time:");
-        getContentPane().add(lblTime, new org.netbeans.lib.awtextra.AbsoluteConstraints(483, 175, 90, 20));
+        jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
+        jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(485, 106, 10, 240));
 
-        lblDate.setText("Date:");
-        getContentPane().add(lblDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(483, 144, 90, 20));
-
-        lblWelcome.setText("Welcome: User name");
-        getContentPane().add(lblWelcome, new org.netbeans.lib.awtextra.AbsoluteConstraints(483, 112, -1, -1));
-
-        lblSearchFrom.setText("Search By");
-        getContentPane().add(lblSearchFrom, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 66, 60, 30));
-
-        lblSearchUser.setBackground(new java.awt.Color(102, 102, 102));
-        lblSearchUser.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        lblSearchUser.setForeground(new java.awt.Color(102, 102, 102));
-        lblSearchUser.setText("View Book Copy");
-        getContentPane().add(lblSearchUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 140, 28));
-
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 630, 400));
 
         pack();
@@ -236,7 +261,9 @@ public class ViewBookCopyWindow extends javax.swing.JFrame {
     private javax.swing.JCheckBox checkBookCopyId;
     private javax.swing.JCheckBox checkBookCopyName;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JSeparator jSeparator1;
     private javax.swing.JLabel lblDate;
     private javax.swing.JLabel lblSearchFrom;
     private javax.swing.JLabel lblSearchUser;

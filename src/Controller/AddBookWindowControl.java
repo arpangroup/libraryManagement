@@ -63,12 +63,24 @@ public class AddBookWindowControl {
                 addBookCopyPage();
             }
         });
-        
+
         window.getTxtNumBooks().addKeyListener(new KeyAdapter() {
 
-        @Override
-        public void keyTyped(KeyEvent e) {
-                 if (!txtValidate(e.getKeyChar())) e.consume();
+            @Override
+            public void keyTyped(KeyEvent e) {
+                if (!txtValidate(e.getKeyChar())) {
+                    e.consume();
+                }
+            }
+        });
+        
+          window.getTxtISBN().addKeyListener(new KeyAdapter() {
+
+            @Override
+            public void keyTyped(KeyEvent e) {
+                if (!txtValidate(e.getKeyChar())) {
+                    e.consume();
+                }
             }
         });
 
@@ -87,6 +99,8 @@ public class AddBookWindowControl {
         newWindow.setVisible(true);
         window.dispose();
     }
+
+    
 
     private void SignUp() throws ParseException {
 
@@ -111,8 +125,8 @@ public class AddBookWindowControl {
     private void setID() {
         window.getLblId().setText(String.valueOf(book.setId() + 1));
     }
-    
-     private boolean txtValidate(char c) {
+
+    private boolean txtValidate(char c) {
         return Character.isDigit(c);
     }
 

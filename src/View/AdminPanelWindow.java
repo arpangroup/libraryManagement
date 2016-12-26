@@ -19,6 +19,7 @@ public class AdminPanelWindow extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        jTextField1 = new javax.swing.JTextField();
         btnAddUser = new javax.swing.JButton();
         btnAddMember = new javax.swing.JButton();
         btnAddBook = new javax.swing.JButton();
@@ -27,9 +28,6 @@ public class AdminPanelWindow extends javax.swing.JFrame {
         btnViewUser = new javax.swing.JButton();
         btnBorrowBook = new javax.swing.JButton();
         btnReturnBook = new javax.swing.JButton();
-        rdoWeekly = new javax.swing.JRadioButton();
-        rdoMonthly = new javax.swing.JRadioButton();
-        rdoAnnual = new javax.swing.JRadioButton();
         btnGetReport = new javax.swing.JButton();
         jSeparator2 = new javax.swing.JSeparator();
         jPanel2 = new javax.swing.JPanel();
@@ -49,6 +47,8 @@ public class AdminPanelWindow extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 100, Short.MAX_VALUE)
         );
+
+        jTextField1.setText("jTextField1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -76,15 +76,6 @@ public class AdminPanelWindow extends javax.swing.JFrame {
 
         btnReturnBook.setText("Return Book");
         getContentPane().add(btnReturnBook, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 240, 133, 43));
-
-        rdoWeekly.setText("Weekly");
-        getContentPane().add(rdoWeekly, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 320, 92, 32));
-
-        rdoMonthly.setText("Monthly");
-        getContentPane().add(rdoMonthly, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 320, 95, 32));
-
-        rdoAnnual.setText("Annual");
-        getContentPane().add(rdoAnnual, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 320, 94, 32));
 
         btnGetReport.setText("Get Report");
         getContentPane().add(btnGetReport, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 370, 167, -1));
@@ -125,13 +116,11 @@ public class AdminPanelWindow extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel lblDate;
     private javax.swing.JLabel lblHeading;
     private javax.swing.JLabel lblTime;
     private javax.swing.JLabel lblWelcome;
-    private javax.swing.JRadioButton rdoAnnual;
-    private javax.swing.JRadioButton rdoMonthly;
-    private javax.swing.JRadioButton rdoWeekly;
     // End of variables declaration//GEN-END:variables
 
     /**
@@ -202,27 +191,6 @@ public class AdminPanelWindow extends javax.swing.JFrame {
      */
     public javax.swing.JLabel getLblWelcome() {
         return lblWelcome;
-    }
-
-    /**
-     * @return the rdoAnnual
-     */
-    public javax.swing.JRadioButton getRdoAnnual() {
-        return rdoAnnual;
-    }
-
-    /**
-     * @return the rdoMonthly
-     */
-    public javax.swing.JRadioButton getRdoMonthly() {
-        return rdoMonthly;
-    }
-
-    /**
-     * @return the rdoWeekly
-     */
-    public javax.swing.JRadioButton getRdoWeekly() {
-        return rdoWeekly;
     }
 
     public JButton getBtnBorrowBook() {

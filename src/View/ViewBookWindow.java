@@ -34,6 +34,8 @@ public class ViewBookWindow extends javax.swing.JFrame {
     private void initComponents() {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
+        jPanel2 = new javax.swing.JPanel();
+        lblSearchUser = new javax.swing.JLabel();
         lblSearchFrom = new javax.swing.JLabel();
         checkBookId = new javax.swing.JCheckBox();
         checkBookName = new javax.swing.JCheckBox();
@@ -49,11 +51,37 @@ public class ViewBookWindow extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tblSearch = new javax.swing.JTable();
         jSeparator1 = new javax.swing.JSeparator();
-        lblSearchUser = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel2.setBackground(new java.awt.Color(153, 153, 153));
+
+        lblSearchUser.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lblSearchUser.setForeground(new java.awt.Color(255, 255, 255));
+        lblSearchUser.setText("View Book");
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(22, 22, 22)
+                .addComponent(lblSearchUser)
+                .addContainerGap(745, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addComponent(lblSearchUser)
+                .addContainerGap(24, Short.MAX_VALUE))
+        );
+
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 840, -1));
 
         lblSearchFrom.setText("Search By");
+        getContentPane().add(lblSearchFrom, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 66, 60, 30));
 
         buttonGroup1.add(checkBookId);
         checkBookId.setSelected(true);
@@ -63,9 +91,12 @@ public class ViewBookWindow extends javax.swing.JFrame {
                 checkBookIdselectionChanged(evt);
             }
         });
+        getContentPane().add(checkBookId, new org.netbeans.lib.awtextra.AbsoluteConstraints(106, 70, 77, -1));
 
         buttonGroup1.add(checkBookName);
         checkBookName.setText("Book Name");
+        getContentPane().add(checkBookName, new org.netbeans.lib.awtextra.AbsoluteConstraints(183, 70, 103, -1));
+        getContentPane().add(txtSearchBook, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 105, 264, -1));
 
         btnSearchBook.setText("Search");
         btnSearchBook.addActionListener(new java.awt.event.ActionListener() {
@@ -73,8 +104,10 @@ public class ViewBookWindow extends javax.swing.JFrame {
                 btnSearchBookActionPerformed(evt);
             }
         });
+        getContentPane().add(btnSearchBook, new org.netbeans.lib.awtextra.AbsoluteConstraints(313, 102, 106, -1));
 
         btnViewBookCopy.setText("View Book Copy");
+        getContentPane().add(btnViewBookCopy, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 100, 147, -1));
 
         btnDeleteBook.setText("Delete");
         btnDeleteBook.addActionListener(new java.awt.event.ActionListener() {
@@ -82,6 +115,7 @@ public class ViewBookWindow extends javax.swing.JFrame {
                 btnDeleteBookActionPerformed(evt);
             }
         });
+        getContentPane().add(btnDeleteBook, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 371, 165, -1));
 
         btnUpdateBook.setText("Update");
         btnUpdateBook.addActionListener(new java.awt.event.ActionListener() {
@@ -89,6 +123,7 @@ public class ViewBookWindow extends javax.swing.JFrame {
                 btnUpdateBookActionPerformed(evt);
             }
         });
+        getContentPane().add(btnUpdateBook, new org.netbeans.lib.awtextra.AbsoluteConstraints(248, 371, 167, -1));
 
         btnHome.setText("Home");
         btnHome.addActionListener(new java.awt.event.ActionListener() {
@@ -96,12 +131,16 @@ public class ViewBookWindow extends javax.swing.JFrame {
                 btnHomeActionPerformed(evt);
             }
         });
+        getContentPane().add(btnHome, new org.netbeans.lib.awtextra.AbsoluteConstraints(688, 93, 132, -1));
 
         lblWelcome.setText("Welcome: User name");
+        getContentPane().add(lblWelcome, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 150, -1, -1));
 
         lblDate.setText("Date:");
+        getContentPane().add(lblDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 180, 90, 20));
 
         lblTime.setText("Time:");
+        getContentPane().add(lblTime, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 210, 90, 20));
 
         tblSearch.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -130,98 +169,10 @@ public class ViewBookWindow extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tblSearch);
 
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 143, 639, 190));
+
         jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
-
-        lblSearchUser.setBackground(new java.awt.Color(102, 102, 102));
-        lblSearchUser.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        lblSearchUser.setForeground(new java.awt.Color(51, 51, 51));
-        lblSearchUser.setText("View Book");
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnDeleteBook, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(73, 73, 73)
-                        .addComponent(btnUpdateBook, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(42, 428, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(lblSearchUser)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(lblSearchFrom, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(36, 36, 36)
-                                        .addComponent(checkBookId, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(checkBookName, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(txtSearchBook, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(39, 39, 39)
-                                        .addComponent(btnSearchBook, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnViewBookCopy, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 639, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblWelcome)
-                                    .addComponent(lblDate, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lblTime, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(52, 52, 52))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(btnHome, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(23, 23, 23))))))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(25, 25, 25)
-                        .addComponent(lblSearchUser)
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblSearchFrom, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(checkBookId)
-                            .addComponent(checkBookName))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnSearchBook)
-                            .addComponent(txtSearchBook, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(87, 87, 87)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnHome)
-                            .addComponent(btnViewBookCopy))))
-                .addGap(27, 27, 27)
-                .addComponent(lblWelcome)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblDate, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblTime, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(137, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jSeparator1)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 190, Short.MAX_VALUE))
-                .addGap(38, 38, 38)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnDeleteBook)
-                    .addComponent(btnUpdateBook))
-                .addGap(43, 43, 43))
-        );
+        getContentPane().add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 93, 10, 240));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -307,6 +258,7 @@ public class ViewBookWindow extends javax.swing.JFrame {
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JCheckBox checkBookId;
     private javax.swing.JCheckBox checkBookName;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JLabel lblDate;

@@ -1,9 +1,9 @@
 package Controller;
 
-import DataAccess.GuarantorPersistantDAO;
-import Model.Guarantor;
+import DataAccess.GuaranterPersistantDAO;
+import Model.Guaranter;
 import View.AppDetails;
-import View.AddGuarantorWindow;
+import View.AddGuaranterWindow;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
@@ -18,12 +18,12 @@ import javax.swing.JOptionPane;
  */
 public class AddGuarantorWindowControl {
 
-    GuarantorPersistantDAO gua;
-    AddGuarantorWindow window;
+    GuaranterPersistantDAO gua;
+    AddGuaranterWindow window;
 
-    public AddGuarantorWindowControl(AddGuarantorWindow window) {
+    public AddGuarantorWindowControl(AddGuaranterWindow window) {
 
-        gua = new GuarantorPersistantDAO();
+        gua = new GuaranterPersistantDAO();
         this.window = window;
         initialize();
         setID();
@@ -56,12 +56,26 @@ public class AddGuarantorWindowControl {
                 }
             }
         });
+        
+          window.getTxt_memberId().addKeyListener(new KeyAdapter() {
+
+            @Override
+            public void keyTyped(KeyEvent e) {
+                if (!txtValidate(e.getKeyChar())) {
+                    e.consume();
+                }
+            }
+        });
 
     }
 
     private void Home() {
         window.dispose();
 
+    }
+
+    private boolean txtValidate(char c) {
+        return Character.isDigit(c);
     }
 
     private void SignUp() {
@@ -72,10 +86,10 @@ public class AddGuarantorWindowControl {
         String address = window.getTxtAddress().getText();
         String fk_memberId = window.getTxt_memberId().getText();
 
-        Guarantor guarantor = new Guarantor(id, name, contactno, address, fk_memberId);
-        gua.addGuarantor(guarantor);
+        Guaranter guaranter = new Guaranter(id, name, contactno, address, fk_memberId);
+        gua.addGuarantor(guaranter);
 
-        if (guarantor != null) {
+        if (guaranter != null) {
             JOptionPane.showMessageDialog(window.getComponent(0), "Guarantor Added!", "Success", JOptionPane.INFORMATION_MESSAGE);
         } else {
 

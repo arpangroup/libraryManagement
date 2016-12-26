@@ -1,5 +1,6 @@
 package Controller;
 
+import DataAccess.DBconnectionProject;
 import DataAccess.EmployeePersistantDAO;
 import View.AddBookWindow;
 import View.AdminPanelWindow;
@@ -13,8 +14,20 @@ import View.ViewBookWindow;
 import View.ViewMemberWindow;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.InputStream;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperCompileManager;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperPrintManager;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.view.JasperViewer;
 
 /**
  *
@@ -108,6 +121,41 @@ public class AdminPanelWindowControl {
             @Override
             public void actionPerformed(ActionEvent e) {
                 returnPage();
+            }
+        });
+
+        window.getBtnGetReport().addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    JasperReport report1 = null;
+                    JasperPrint print1 = null;
+                    report1 = JasperCompileManager.compileReport("E:\\Emp.jrxml");
+                    Map list1 = new HashMap();
+                    print1 = JasperFillManager.fillReport(report1, list1, DBconnectionProject.connect());
+                    JasperPrintManager.printReport(print1, true);
+                  //  JasperViewer.viewReport(print1,false);
+
+                    JasperReport report2 = null;
+                    JasperPrint print2 = null;
+                    report2 = JasperCompileManager.compileReport("E:\\Member.jrxml");
+                    Map list2 = new HashMap();
+                    print2 = JasperFillManager.fillReport(report2, list2, DBconnectionProject.connect());
+                    JasperPrintManager.printReport(print2, true);
+                  //  JasperViewer.viewReport(print2,false);
+
+                    JasperReport report3 = null;
+                    JasperPrint print3 = null;
+                    report3 = JasperCompileManager.compileReport("E:\\Book.jrxml");
+                    Map list3 = new HashMap();
+                    print3 = JasperFillManager.fillReport(report3, list3, DBconnectionProject.connect());
+                    JasperPrintManager.printReport(print3, true);
+                   // JasperViewer.viewReport(print3,false);
+
+                } catch (JRException ex) {
+                    Logger.getLogger(AdminPanelWindowControl.class.getName()).log(Level.SEVERE, null, ex);
+                }
+
             }
         });
     }

@@ -30,10 +30,6 @@ public class AddMemberWindow extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        lblWelcome = new javax.swing.JLabel();
-        lblAddUser = new javax.swing.JLabel();
-        lblDate = new javax.swing.JLabel();
-        lblTime = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -41,28 +37,21 @@ public class AddMemberWindow extends javax.swing.JFrame {
         txtContactNumber = new javax.swing.JTextField();
         txtAddress = new javax.swing.JTextField();
         checkMemberStatus = new javax.swing.JCheckBox();
-        btnSubmit = new javax.swing.JButton();
-        btnAddGuarantor = new javax.swing.JButton();
-        btnHome = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         lblId = new javax.swing.JLabel();
+        btnAddGuarantor = new javax.swing.JButton();
+        lblTime = new javax.swing.JLabel();
+        lblDate = new javax.swing.JLabel();
+        lblWelcome = new javax.swing.JLabel();
+        btnHome = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
+        lblSearchUser = new javax.swing.JLabel();
+        jSeparator1 = new javax.swing.JSeparator();
+        btnSubmit = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        lblWelcome.setText("Welcome: User name");
-        getContentPane().add(lblWelcome, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, -1, -1));
-
-        lblAddUser.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        lblAddUser.setText(" Add Member");
-        getContentPane().add(lblAddUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 40, 130, 52));
-
-        lblDate.setText("Date:");
-        getContentPane().add(lblDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 20, 114, 28));
-
-        lblTime.setText("Time:");
-        getContentPane().add(lblTime, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 70, 114, 28));
 
         jLabel6.setText("Id:");
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, 90, 32));
@@ -79,16 +68,23 @@ public class AddMemberWindow extends javax.swing.JFrame {
         checkMemberStatus.setText("Status");
         getContentPane().add(checkMemberStatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 310, -1, -1));
 
-        btnSubmit.setText("Submit");
-        btnSubmit.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSubmitActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnSubmit, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 390, 170, -1));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel5.setText("Address:");
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 250, 90, 32));
+        jPanel1.add(lblId, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 100, 220, 30));
 
         btnAddGuarantor.setText("Add Guarantor");
-        getContentPane().add(btnAddGuarantor, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 120, 130, 30));
+        jPanel1.add(btnAddGuarantor, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 250, 130, 30));
+
+        lblTime.setText("Time:");
+        jPanel1.add(lblTime, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 210, 114, 28));
+
+        lblDate.setText("Date:");
+        jPanel1.add(lblDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 170, 114, 28));
+
+        lblWelcome.setText("Welcome: User name");
+        jPanel1.add(lblWelcome, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 150, -1, -1));
 
         btnHome.setText("Home");
         btnHome.addActionListener(new java.awt.event.ActionListener() {
@@ -96,13 +92,43 @@ public class AddMemberWindow extends javax.swing.JFrame {
                 btnHomeActionPerformed(evt);
             }
         });
-        getContentPane().add(btnHome, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 30, -1, -1));
+        jPanel1.add(btnHome, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 110, -1, -1));
 
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel2.setBackground(new java.awt.Color(153, 153, 153));
 
-        jLabel5.setText("Address:");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 250, 90, 32));
-        jPanel1.add(lblId, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 100, 220, 30));
+        lblSearchUser.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lblSearchUser.setForeground(new java.awt.Color(255, 255, 255));
+        lblSearchUser.setText("Add Member");
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(22, 22, 22)
+                .addComponent(lblSearchUser)
+                .addContainerGap(450, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addComponent(lblSearchUser)
+                .addContainerGap(24, Short.MAX_VALUE))
+        );
+
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 560, -1));
+
+        jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
+        jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 110, 10, 240));
+
+        btnSubmit.setText("Submit");
+        btnSubmit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSubmitActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnSubmit, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 300, 170, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 560, 430));
 
@@ -132,9 +158,11 @@ public class AddMemberWindow extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JLabel lblAddUser;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JSeparator jSeparator1;
     private javax.swing.JLabel lblDate;
     private javax.swing.JLabel lblId;
+    private javax.swing.JLabel lblSearchUser;
     private javax.swing.JLabel lblTime;
     private javax.swing.JLabel lblWelcome;
     private javax.swing.JTextField txtAddress;

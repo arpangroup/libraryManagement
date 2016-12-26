@@ -3,7 +3,7 @@ package Controller;
 import DataAccess.MemberPersistantDAO;
 import Model.Member;
 import View.AppDetails;
-import View.AddGuarantorWindow;
+import View.AddGuaranterWindow;
 import View.AddMemberWindow;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -26,8 +26,8 @@ public class AddMemberWindowControl {
 
         mem = new MemberPersistantDAO();
         this.window = window;
-        setID();
         initialize();
+        setID();
         control();
     }
 
@@ -58,12 +58,11 @@ public class AddMemberWindowControl {
 
             @Override
             public void keyTyped(KeyEvent e) {
-                if (!txtValidate(window.getTxtContactNumber().getText(),e.getKeyChar(),10)) {
+                if (!txtValidate(window.getTxtContactNumber().getText(), e.getKeyChar(), 10)) {
                     e.consume();
                 }
             }
         });
-
 
     }
 
@@ -75,7 +74,7 @@ public class AddMemberWindowControl {
     private void signupGuarantorPage() {
 
         // window.dispose();
-        AddGuarantorWindow newWindow = new AddGuarantorWindow();
+        AddGuaranterWindow newWindow = new AddGuaranterWindow();
         AddGuarantorWindowControl controller = new AddGuarantorWindowControl(newWindow);
         newWindow.setVisible(true);
         window.dispose();
@@ -100,19 +99,21 @@ public class AddMemberWindowControl {
         }
     }
 
-    private boolean txtValidate(String text, char c,int size) {
-        if (!Character.isDigit(c)) return false;
+    private boolean txtValidate(String text, char c, int size) {
+        if (!Character.isDigit(c)) {
+            return false;
+        }
         return ((text + c).length() <= size);
     }
-    
-      private boolean idValidate(char c) {
+
+    private boolean idValidate(char c) {
         return Character.isDigit(c);
     }
 
-       private void setID() {
+    private void setID() {
         window.getLblId().setText(String.valueOf(mem.setId() + 1));
     }
-      
+
     private void initialize() {
 
         try {

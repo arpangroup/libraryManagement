@@ -28,32 +28,25 @@ public class AddBookCopyWindow extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        lblWelcome = new javax.swing.JLabel();
-        lblTime = new javax.swing.JLabel();
-        lblDate = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        lblAddBookCopy = new javax.swing.JLabel();
         txtBookCopyName = new javax.swing.JTextField();
         txtBookId = new javax.swing.JTextField();
         checkBookCopyStatus = new javax.swing.JCheckBox();
         btnSubmit = new javax.swing.JButton();
-        btnHome = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         lblId = new javax.swing.JLabel();
+        lblTime = new javax.swing.JLabel();
+        lblDate = new javax.swing.JLabel();
+        lblWelcome = new javax.swing.JLabel();
+        btnHome = new javax.swing.JButton();
+        jPanel3 = new javax.swing.JPanel();
+        lblSearchUser = new javax.swing.JLabel();
+        jSeparator1 = new javax.swing.JSeparator();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        lblWelcome.setText("Welcome: User name");
-        getContentPane().add(lblWelcome, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, -1, -1));
-
-        lblTime.setText("Time:");
-        getContentPane().add(lblTime, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 140, 114, 28));
-
-        lblDate.setText("Date:");
-        getContentPane().add(lblDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 100, 114, 28));
 
         jLabel6.setText("Book Copy Id:");
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, 90, 20));
@@ -63,10 +56,6 @@ public class AddBookCopyWindow extends javax.swing.JFrame {
 
         jLabel3.setText("Book Id:");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, 90, 20));
-
-        lblAddBookCopy.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        lblAddBookCopy.setText(" Add Book Copy");
-        getContentPane().add(lblAddBookCopy, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 40, 150, 52));
         getContentPane().add(txtBookCopyName, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 140, 219, 20));
         getContentPane().add(txtBookId, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 170, 219, 20));
 
@@ -81,16 +70,53 @@ public class AddBookCopyWindow extends javax.swing.JFrame {
         });
         getContentPane().add(btnSubmit, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 240, 170, -1));
 
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel1.add(lblId, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 110, 220, 20));
+
+        lblTime.setText("Time:");
+        jPanel1.add(lblTime, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 180, 114, 28));
+
+        lblDate.setText("Date:");
+        jPanel1.add(lblDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 140, 114, 28));
+
+        lblWelcome.setText("Welcome: User name");
+        jPanel1.add(lblWelcome, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 120, -1, -1));
+
         btnHome.setText("Home");
         btnHome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnHomeActionPerformed(evt);
             }
         });
-        getContentPane().add(btnHome, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 60, -1, -1));
+        jPanel1.add(btnHome, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 90, -1, -1));
 
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        jPanel1.add(lblId, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 110, 220, 20));
+        jPanel3.setBackground(new java.awt.Color(153, 153, 153));
+
+        lblSearchUser.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lblSearchUser.setForeground(new java.awt.Color(255, 255, 255));
+        lblSearchUser.setText("Add Book Copy");
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(22, 22, 22)
+                .addComponent(lblSearchUser)
+                .addContainerGap(390, Short.MAX_VALUE))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addComponent(lblSearchUser)
+                .addContainerGap(24, Short.MAX_VALUE))
+        );
+
+        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 520, -1));
+
+        jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
+        jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 90, 10, 180));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 520, 310));
 
@@ -155,9 +181,11 @@ public class AddBookCopyWindow extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JLabel lblAddBookCopy;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JSeparator jSeparator1;
     private javax.swing.JLabel lblDate;
     private javax.swing.JLabel lblId;
+    private javax.swing.JLabel lblSearchUser;
     private javax.swing.JLabel lblTime;
     private javax.swing.JLabel lblWelcome;
     private javax.swing.JTextField txtBookCopyName;

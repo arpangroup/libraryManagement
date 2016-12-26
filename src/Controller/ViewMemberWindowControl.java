@@ -4,7 +4,7 @@ import DataAccess.MemberPersistantDAO;
 import Model.Employee;
 import Model.Member;
 import View.AppDetails;
-import View.ViewGuarantorWindow;
+import View.ViewGuaranterWindow;
 import View.ViewMemberWindow;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -105,8 +105,8 @@ public class ViewMemberWindowControl {
 
     private void viewGuarantorPage() {
         // window.dispose();
-        ViewGuarantorWindow newWindow = new ViewGuarantorWindow();
-        ViewGuarantorWindowControl controller = new ViewGuarantorWindowControl(newWindow);
+        ViewGuaranterWindow newWindow = new ViewGuaranterWindow();
+        ViewGuaranterWindowControl controller = new ViewGuaranterWindowControl(newWindow);
         newWindow.setVisible(true);
         window.dispose();
     }

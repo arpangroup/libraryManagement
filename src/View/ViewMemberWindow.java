@@ -28,7 +28,6 @@ public class ViewMemberWindow extends javax.swing.JFrame {
         lblTime = new javax.swing.JLabel();
         lblDate = new javax.swing.JLabel();
         lblSearchFrom = new javax.swing.JLabel();
-        lblSearchUser = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblSearch = new javax.swing.JTable();
         checkMemberId = new javax.swing.JCheckBox();
@@ -40,6 +39,9 @@ public class ViewMemberWindow extends javax.swing.JFrame {
         btnUpdateMember = new javax.swing.JButton();
         btnHome = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
+        lblSearchUser = new javax.swing.JLabel();
+        jSeparator1 = new javax.swing.JSeparator();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -55,12 +57,6 @@ public class ViewMemberWindow extends javax.swing.JFrame {
 
         lblSearchFrom.setText("Search By");
         getContentPane().add(lblSearchFrom, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 66, 60, 30));
-
-        lblSearchUser.setBackground(new java.awt.Color(102, 102, 102));
-        lblSearchUser.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        lblSearchUser.setForeground(new java.awt.Color(255, 255, 255));
-        lblSearchUser.setText("View Member");
-        getContentPane().add(lblSearchUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 140, 28));
 
         tblSearch.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -142,6 +138,35 @@ public class ViewMemberWindow extends javax.swing.JFrame {
         getContentPane().add(btnHome, new org.netbeans.lib.awtextra.AbsoluteConstraints(472, 71, 132, -1));
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel2.setBackground(new java.awt.Color(153, 153, 153));
+
+        lblSearchUser.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lblSearchUser.setForeground(new java.awt.Color(255, 255, 255));
+        lblSearchUser.setText("View Member");
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(22, 22, 22)
+                .addComponent(lblSearchUser)
+                .addContainerGap(505, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addComponent(lblSearchUser)
+                .addContainerGap(24, Short.MAX_VALUE))
+        );
+
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 620, -1));
+
+        jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
+        jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(455, 76, -1, 250));
+
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 620, 400));
 
         pack();
@@ -180,7 +205,9 @@ public class ViewMemberWindow extends javax.swing.JFrame {
     private javax.swing.JCheckBox checkMemberId;
     private javax.swing.JCheckBox checkMemberName;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JSeparator jSeparator1;
     private javax.swing.JLabel lblDate;
     private javax.swing.JLabel lblSearchFrom;
     private javax.swing.JLabel lblSearchUser;

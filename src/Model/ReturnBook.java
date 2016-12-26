@@ -1,7 +1,7 @@
 
 package Model;
 
-import java.util.Date;
+import java.sql.Date;
 
 /**
  *
@@ -10,10 +10,21 @@ import java.util.Date;
 public class ReturnBook {
     
     private int returnId;
+    private Date brwDate;
     private Date returnDate;
+    
     private int bookcopyId;
+    private String bkcName;
+    private boolean bkcStatus;
+    
     private int memberId;
+    private String mbrName;
+    private boolean mbrStatus;
+    
     private int employeeId;
+    private int borrowedMemberId;
+
+    public ReturnBook(){}
 
     public ReturnBook(int returnId, Date returnDate, int bookcopyId, int memberId, int employeeId) {
         this.returnId = returnId;
@@ -62,7 +73,54 @@ public class ReturnBook {
     public void setEmployeeId(int employeeId) {
         this.employeeId = employeeId;
     }
-    
+
+    public Date getBrwDate() {
+        return brwDate;
+    }
+
+    public void setBrwDate(Date brwDate) {
+        this.brwDate = brwDate;
+    }
+
+    public String getBkcName() {
+        return bkcName;
+    }
+
+    public void setBkcName(String bkcName) {
+        this.bkcName = bkcName;
+    }
+
+    public boolean isBkcStatus() {
+        return bkcStatus;
+    }
+
+    public void setBkcStatus(boolean bkcStatus) {
+        this.bkcStatus = bkcStatus;
+    }
+
+    public String getMbrName() {
+        return mbrName;
+    }
+
+    public void setMbrName(String mbrName) {
+        this.mbrName = mbrName;
+    }
+
+    public boolean isMbrStatus() {
+        return mbrStatus;
+    }
+
+    public void setMbrStatus(boolean mbrStatus) {
+        this.mbrStatus = mbrStatus;
+    }
+
+    public int getBorrowedEmployeeId() {
+        return borrowedMemberId;
+    }
+
+    public void setBorrowedMemberId(int borrowedMemberId) {
+        this.borrowedMemberId = borrowedMemberId;
+    }
     
     
 }

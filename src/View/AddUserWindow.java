@@ -29,20 +29,22 @@ public class AddUserWindow extends javax.swing.JFrame {
         txtUserName = new javax.swing.JTextField();
         txtPassword = new javax.swing.JTextField();
         txtClearance = new javax.swing.JTextField();
-        btnSubmit = new javax.swing.JButton();
-        btnHome = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        lblTime = new javax.swing.JLabel();
-        lblDate = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         lblWelcome = new javax.swing.JLabel();
-        lblAddUser = new javax.swing.JLabel();
         lblId = new javax.swing.JLabel();
+        btnSubmit = new javax.swing.JButton();
+        lblTime = new javax.swing.JLabel();
+        lblDate = new javax.swing.JLabel();
+        btnHome = new javax.swing.JButton();
+        jPanel3 = new javax.swing.JPanel();
+        lblSearchUser = new javax.swing.JLabel();
+        jSeparator1 = new javax.swing.JSeparator();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -57,22 +59,6 @@ public class AddUserWindow extends javax.swing.JFrame {
         jPanel1.add(txtUserName, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 280, 219, 32));
         jPanel1.add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 330, 219, 32));
         jPanel1.add(txtClearance, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 380, 219, 32));
-
-        btnSubmit.setText("Submit");
-        btnSubmit.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSubmitActionPerformed(evt);
-            }
-        });
-        jPanel1.add(btnSubmit, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 100, 170, -1));
-
-        btnHome.setText("Home");
-        btnHome.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnHomeActionPerformed(evt);
-            }
-        });
-        jPanel1.add(btnHome, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 30, -1, -1));
 
         jLabel3.setText("Contact Number:");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, 90, 32));
@@ -89,24 +75,64 @@ public class AddUserWindow extends javax.swing.JFrame {
         jLabel6.setText("Id:");
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 90, 32));
 
-        lblTime.setText("Time:");
-        jPanel1.add(lblTime, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 40, 114, 28));
-
-        lblDate.setText("Date:");
-        jPanel1.add(lblDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 10, 114, 28));
-
         jLabel7.setText("Clearance");
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 380, 90, 32));
 
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblWelcome.setText("Welcome: User name");
-        jPanel2.add(lblWelcome, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, -1, -1));
-
-        lblAddUser.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        lblAddUser.setText("  Add User");
-        jPanel2.add(lblAddUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 10, 130, 52));
+        jPanel2.add(lblWelcome, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 130, -1, -1));
         jPanel2.add(lblId, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 70, 220, 30));
+
+        btnSubmit.setText("Submit");
+        btnSubmit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSubmitActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btnSubmit, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 240, 170, -1));
+
+        lblTime.setText("Time:");
+        jPanel2.add(lblTime, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 180, 114, 28));
+
+        lblDate.setText("Date:");
+        jPanel2.add(lblDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 150, 114, 28));
+
+        btnHome.setText("Home");
+        btnHome.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnHomeActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btnHome, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 100, -1, -1));
+
+        jPanel3.setBackground(new java.awt.Color(153, 153, 153));
+
+        lblSearchUser.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lblSearchUser.setForeground(new java.awt.Color(255, 255, 255));
+        lblSearchUser.setText("Add User");
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(22, 22, 22)
+                .addComponent(lblSearchUser)
+                .addContainerGap(529, Short.MAX_VALUE))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addComponent(lblSearchUser)
+                .addContainerGap(24, Short.MAX_VALUE))
+        );
+
+        jPanel2.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 614, -1));
+
+        jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
+        jPanel2.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 90, 10, 320));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 620, 430));
 
@@ -144,9 +170,11 @@ public class AddUserWindow extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JLabel lblAddUser;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JSeparator jSeparator1;
     private javax.swing.JLabel lblDate;
     private javax.swing.JLabel lblId;
+    private javax.swing.JLabel lblSearchUser;
     private javax.swing.JLabel lblTime;
     private javax.swing.JLabel lblWelcome;
     private javax.swing.JTextField txtAddress;

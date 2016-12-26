@@ -1,16 +1,50 @@
-
 package Model;
+
+import java.sql.Date;
 
 /**
  *
  * @author Wishwa
  */
 public class Fine {
-    
+
     private int fineId;
     private int overdueDays;
     private double fineAmount;
     private int returnId;
+
+    private Date returnDay;
+    private String bookcopyName;
+
+    public Date getReturnDay() {
+        return returnDay;
+    }
+
+    public void setReturnDay(Date returnDay) {
+        this.returnDay = returnDay;
+    }
+
+    public String getBookcopyName() {
+        return bookcopyName;
+    }
+
+    public void setBookcopyName(String bookcopyName) {
+        this.bookcopyName = bookcopyName;
+    }
+
+    public int getSetId() {
+        return setId;
+    }
+
+    public void setSetId(int setId) {
+        this.setId = setId;
+    }
+    
+    
+    
+    public Fine(){}
+    
+    int setId = 0;
 
     public Fine(int fineId, int overdueDays, double fineAmount, int returnId) {
         this.fineId = fineId;
@@ -50,9 +84,5 @@ public class Fine {
     public void setReturnId(int returnId) {
         this.returnId = returnId;
     }
-    
-    
-    
-    
-    
+
 }

@@ -15,51 +15,9 @@ import java.util.logging.Logger;
  */
 public class BorrowBookPersistantDAO implements BorrowBookDAO {
 
-    private String bkcName;
-    private String mbrName;
-    private boolean bkcStatus;
-    private boolean mbrStatus;
-    private int brwId;
-
-    public String getBkcName() {
-        return bkcName;
-    }
-
-    public void setBkcName(String bkcName) {
-        this.bkcName = bkcName;
-    }
-
-    public String getMbrName() {
-        return mbrName;
-    }
-
-    public boolean isBkcStatus() {
-        return bkcStatus;
-    }
-
-    public void setBkcStatus(boolean bkcStatus) {
-        this.bkcStatus = bkcStatus;
-    }
-
-    public boolean isMbrStatus() {
-        return mbrStatus;
-    }
-
-    public void setMbrStatus(boolean mbrStatus) {
-        this.mbrStatus = mbrStatus;
-    }
-
-    public int getBrwId() {
-        return brwId;
-    }
-
-    public void setBrwId(int brwId) {
-        this.brwId = brwId;
-    }
-    
-
     @Override
-    public void validate(int bookcopyId, int memberId) {
+    public BorrowBook validate(int bookcopyId, int memberId) {
+        
         String sqlMember = "SELECT memberName,memberStatus FROM member WHERE memberId=?";
         String sqlBookCopy = "SELECT bookcopyName,bookcopyStatus FROM bookcopy WHERE bookcopyId=?";
         Connection conMember = null;
@@ -69,6 +27,8 @@ public class BorrowBookPersistantDAO implements BorrowBookDAO {
         ResultSet rsMember = null;
         ResultSet rsBookCopy = null;
         boolean state = false;
+
+        BorrowBook brbook = new BorrowBook();
 
         try {
             conMember = DBconnectionProject.connect();
@@ -81,18 +41,19 @@ public class BorrowBookPersistantDAO implements BorrowBookDAO {
             rsBookCopy = pstBookCopy.executeQuery();
 
             if (rsBookCopy.next()) {
-                bkcName = rsBookCopy.getString("bookcopyName");
-                bkcStatus = rsBookCopy.getBoolean("bookcopyStatus");
-            }else{
-                bkcName = null;
-                bkcStatus = false;
+                brbook.setBkcName(rsBookCopy.getString("bookcopyName"));
+                brbook.setBkcStatus(rsBookCopy.getBoolean("bookcopyStatus"));
+
+            } else {
+                brbook.setBkcName(null);
+                brbook.setBkcStatus(false);
             }
-            if (rsMember.next()){
-                mbrName = rsMember.getString("memberName");
-                mbrStatus = rsMember.getBoolean("memberStatus");
-            }else{
-                mbrName = null;
-                mbrStatus = false;
+            if (rsMember.next()) {
+                brbook.setMbrName(rsMember.getString("memberName"));
+                brbook.setMbrStatus(rsMember.getBoolean("memberStatus"));
+            } else {
+                 brbook.setMbrName(null);
+                brbook.setMbrStatus(false);
             }
 
         } catch (SQLException ex) {
@@ -109,13 +70,13 @@ public class BorrowBookPersistantDAO implements BorrowBookDAO {
                 Logger.getLogger(MemberPersistantDAO.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-        // return state;
+         return brbook;
 
     }
 
     @Override
     public void addBorrow(BorrowBook borrow) {
-        String sqlBorrow = "INSERT INTO borrow VALUES(?,CURRENT_DATE,?,?,?)";
+        String sqlBorrow = "INSERT INTO borrow VALUES(?,CURRENT_DATE,?,?,?,?)";
         Connection con = null;
         PreparedStatement pst = null;
         boolean state = false;
@@ -129,7 +90,7 @@ public class BorrowBookPersistantDAO implements BorrowBookDAO {
             pst.setInt(2, borrow.getMemberId());
             pst.setInt(3, borrow.getEmployeeId());
             pst.setInt(4, borrow.getBookcopyId());
-
+            pst.setBoolean(5, false);
 
             pst.executeUpdate();
 
@@ -154,22 +115,20 @@ public class BorrowBookPersistantDAO implements BorrowBookDAO {
     @Override
     public void updateStatus(int bookcopyId) {
         String sqlUpdate = "UPDATE bookcopy SET bookcopyStatus=? WHERE bookcopyId=?";
+        String sqlUpdate2 = "UPDATE borrow SET bookcopyStatus=? WHERE bookcopyId=?";
         Connection con = null;
         PreparedStatement pst = null;
-       
 
         try {
             con = DBconnectionProject.connect();
             pst = con.prepareStatement(sqlUpdate);
-           
 
             pst.setBoolean(1, false);
             pst.setInt(2, bookcopyId);
-           
+
             pst.executeUpdate();
 
         } catch (SQLException ex) {
-           
 
         } finally {
 
@@ -183,27 +142,21 @@ public class BorrowBookPersistantDAO implements BorrowBookDAO {
     }
 
     @Override
-    public int getBrwId(int bookcopyId, int memberId) {
-        
-        String sqlBorrow = "SELECT borrowId FROM borrow ,member ,bookcopy WHERE  bookcopyId=? and memberId=? and member.memberId=member_memberId and bookcopy.bookcopyId=bookcopy_bookcopyId";
+    public int setId() {
+        int setId = 0;
+
+        String sqlBorrow = "SELECT MAX(borrowId) FROM borrow";
         Connection conBorrow = null;
         PreparedStatement pstBorrow = null;
         ResultSet rsBorrow = null;
-       // boolean state = false;
-        
-          try {
+
+        try {
             conBorrow = DBconnectionProject.connect();
             pstBorrow = conBorrow.prepareStatement(sqlBorrow);
-            pstBorrow.setInt(1, bookcopyId);
-            pstBorrow.setInt(2, memberId);
             rsBorrow = pstBorrow.executeQuery();
 
             if (rsBorrow.next()) {
-                brwId = rsBorrow.getInt("borrowId");
-                System.out.println(brwId);
-               
-               // state = true;
-         
+                setId = rsBorrow.getInt(1);
             }
 
         } catch (SQLException ex) {
@@ -212,14 +165,17 @@ public class BorrowBookPersistantDAO implements BorrowBookDAO {
                 rsBorrow.close();
                 pstBorrow.close();
                 conBorrow.close();
+
             } catch (SQLException ex) {
-                Logger.getLogger(BookCopyPersistantDAO.class.getName()).log(Level.SEVERE, null, ex);
-                Logger.getLogger(MemberPersistantDAO.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(BorrowBookPersistantDAO.class
+                        .getName()).log(Level.SEVERE, null, ex);
+                Logger
+                        .getLogger(BorrowBookPersistantDAO.class
+                                .getName()).log(Level.SEVERE, null, ex);
             }
         }
-           return brwId;
+
+        return setId;
     }
-    
-    
-    
+
 }
