@@ -14,10 +14,10 @@ public class Book {
     private String author;
     private String publisher;
     private int noBooksAvailable;
-    private String language;
+    private int language;
   
 
-    public Book(int bookId, String bookName, String isbn, String author, String publisher, int noBooksAvailable, String language) {
+    public Book(int bookId, String bookName, String isbn, String author, String publisher, int noBooksAvailable, int language) {
         this.bookId = bookId;
         this.bookName = bookName;
         this.isbn = isbn;
@@ -76,11 +76,11 @@ public class Book {
         this.noBooksAvailable = noBooksAvailable;
     }
 
-    public String getLanguage() {
+    public int getLanguage() {
         return language;
     }
 
-    public void setLanguage(String language) {
+    public void setLanguage(int language) {
         this.language = language;
     }
 

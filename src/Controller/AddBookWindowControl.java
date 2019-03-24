@@ -83,6 +83,16 @@ public class AddBookWindowControl {
                 }
             }
         });
+          
+          window.getTxtLanguage().addKeyListener(new KeyAdapter() {
+               @Override
+            public void keyTyped(KeyEvent e) {
+                if (!txtValidate(e.getKeyChar())) {
+                    e.consume();
+                }
+            }
+                
+          });
 
     }
 
@@ -110,7 +120,7 @@ public class AddBookWindowControl {
         String author = window.getTxtAuthor().getText();
         String publisher = window.getTxtPublisher().getText();
         int noBooks = Integer.parseInt(window.getTxtNumBooks().getText());
-        String language = window.getTxtLanguage().getText();
+        int language = Integer.parseInt(window.getTxtLanguage().getText());
 
         Book book = new Book(id, name, isbn, author, publisher, noBooks, language);
         this.book.addBook(book);

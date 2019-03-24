@@ -182,7 +182,7 @@ public class ViewBookWindowControl {
         int language = (int) window.getTblSearch().getModel().getValueAt(rowNum, 6);
         String addDate = (String) window.getTblSearch().getModel().getValueAt(rowNum, 7);
 
-        Book updatedata = new Book(userid, name, isbn, author, publisher, noBooks, name);
+        Book updatedata = new Book(userid, name, isbn, author, publisher, noBooks, language);
         if (updateCheckForNull(updatedata)) {
             book.updateBook(updatedata);
         }

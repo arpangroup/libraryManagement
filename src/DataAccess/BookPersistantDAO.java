@@ -35,7 +35,7 @@ public class BookPersistantDAO implements BookDAO {
             pst.setString(4, book.getAuthor());
             pst.setString(5, book.getPublisher());
             pst.setInt(6, book.getNoBooksAvailable());
-            pst.setString(7, book.getLanguage());
+            pst.setInt(7, book.getLanguage());
 
             pst.executeUpdate();
 
@@ -79,7 +79,7 @@ public class BookPersistantDAO implements BookDAO {
                 String author = rs.getString("bookAuthor");
                 String publisher = rs.getString("bookPublisher");
                 int noBooks = rs.getInt("bookNumber");
-                String language = rs.getString("bookLanguage");
+                int language = rs.getInt("Language_languageId");
                 bookSearchID = new Book(bookId, bookName, ISBN, author, publisher, noBooks, language);
 
             }
@@ -124,7 +124,7 @@ public class BookPersistantDAO implements BookDAO {
                 String author = rs.getString("bookAuthor");
                 String publisher = rs.getString("bookPublisher");
                 int noBooks = rs.getInt("bookNumber");
-                String language = rs.getString("bookLanguage");
+                int language = rs.getInt("Language_languageId");
                 bookSearchID = new Book(bookId, bookName, ISBN, author, publisher, noBooks, language);
                 list.add(bookSearchID);
             }
@@ -169,7 +169,7 @@ public class BookPersistantDAO implements BookDAO {
             pst.setString(3, book.getAuthor());
             pst.setString(4, book.getPublisher());
             pst.setInt(5, book.getNoBooksAvailable());
-            pst.setString(6, book.getLanguage());
+            pst.setInt(6, book.getLanguage());
             pst.setInt(7, book.getBookId());
 
             pst.executeUpdate();
@@ -246,7 +246,7 @@ public class BookPersistantDAO implements BookDAO {
                 int noBooks = rs.getInt("bookNumber");
                 int language = rs.getInt("Language_languageId");
 
-                bookSearchID = new Book(bookId, bookName, ISBN, author, publisher, noBooks, bookName);
+                bookSearchID = new Book(bookId, bookName, ISBN, author, publisher, noBooks, language);
                 list.add(bookSearchID);
             }
 

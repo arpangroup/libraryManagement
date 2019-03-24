@@ -6,7 +6,7 @@ import java.sql.DriverManager;
 public class DBconnectionProject {
 
     private static String driver = "com.mysql.jdbc.Driver";
-    private static String url = "jdbc:mysql://localhost:3306/librarynewprojectcosc";
+    private static String url = "jdbc:mysql://localhost:3307/librarynewprojectcosc";
     private static String user = "root";
     private static String password = "";
 
